@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ichigo_Iskill : I_Skill
+public class Ichigo_Iskill : MonoBehaviour
 {
+
     [Header("I Skill")]
     [SerializeField] private GameObject skillPrefab;
     [SerializeField] private GameObject skillPrefab2;

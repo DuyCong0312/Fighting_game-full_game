@@ -10,6 +10,10 @@ public class PlayerCombat : MonoBehaviour
     private PlayerState playerState;
     private ComboAttack comboAttack;
 
+    [Header("Input")]
+    [SerializeField] private PlayerInputSO playerInput;
+
+    [Header("Attack Setting")]
     public bool canAttack = true;
     public int attackNumber;
     [SerializeField] private float attackMoveDuration = 0.1f;
@@ -17,12 +21,22 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
-        comboAttack = GetComponentInChildren<ComboAttack>();
-        anim = GetComponentInChildren<Animator>();
+        StartCoroutine(InitializeComponentsInChildren());
         rb = GetComponent<Rigidbody2D>();
         groundCheck = GetComponent<CheckGround>();
         playerState = GetComponent<PlayerState>();
     }
+
+    private IEnumerator InitializeComponentsInChildren()
+    {
+        while (anim == null && comboAttack == null)
+        {
+            comboAttack = GetComponentInChildren<ComboAttack>();
+            anim = GetComponentInChildren<Animator>();
+            yield return null;
+        }
+    }
+
     void Update()
     {
         GetHurtWhenAttacking();
@@ -40,7 +54,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.J) && canAttack)
+        if (Input.GetKeyDown(playerInput.attack) && canAttack)
         {
             canAttack = false;
             playerState.isAttacking = true;
@@ -58,11 +72,11 @@ public class PlayerCombat : MonoBehaviour
 
     private void Defend()
     {
-        if (Input.GetKey(KeyCode.S) && !playerState.isDefending && groundCheck.isGround)
+        if (Input.GetKey(playerInput.defense) && !playerState.isDefending && groundCheck.isGround)
         {
             playerState.isDefending = true;
         }
-        else if (Input.GetKeyUp(KeyCode.S))
+        else if (Input.GetKeyUp(playerInput.defense))
         {
             playerState.isDefending = false;
         }

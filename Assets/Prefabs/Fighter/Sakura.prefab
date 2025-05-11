@@ -526,7 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsEnemies:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
   hit: 0
   meleeAttack01Pos: {fileID: 8421045855311435087}
   meleeAttack02Pos: {fileID: 1644091768862684216}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class CheckHit : MonoBehaviour
@@ -7,12 +8,14 @@ public class CheckHit : MonoBehaviour
     [SerializeField] protected LayerMask whatIsEnemies;
     protected SpriteRenderer spriteRenderer;
     protected PlayerRage playerRage;
+    protected Collider2D coll;
     public bool hit = false;
 
     protected virtual void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();   
         playerRage = GetComponentInParent<PlayerRage>();
+        coll = GetComponent<Collider2D>();
     }
 
     protected void StraightAttack(Transform AttackPos, Vector2 AttackSize, float angle, float attackDamage, Vector2 direction)
@@ -21,6 +24,10 @@ public class CheckHit : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(AttackPos.position, AttackSize, angle, whatIsEnemies);
         foreach (Collider2D enemy in hitEnemies)
         {
+            if (enemy == coll)
+            {
+                continue; 
+            }
             hit = true;
             this.spriteRenderer.sortingOrder = 1;
             this.playerRage.GetRage(5f);
@@ -36,6 +43,10 @@ public class CheckHit : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, whatIsEnemies);
         foreach (Collider2D enemy in hitEnemies)
         {
+            if (enemy == coll)
+            {
+                continue;
+            }
             hit = true;
             this.spriteRenderer.sortingOrder = 1;
             this.playerRage.GetRage(5f);

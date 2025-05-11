@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Sakura_Uskill : U_Skill
+public class Sakura_Uskill : MonoBehaviour
 {
     [Header("U Skill")]
     [SerializeField] private GameObject SkillPrefab;
@@ -17,11 +17,20 @@ public class Sakura_Uskill : U_Skill
     private Vector2 movement;
     private Coroutine stepBackCoroutine;
 
+    protected Rigidbody2D rb;
+    protected SpawnEffectAfterImage effectAfterImage;
+
     [Header("U+K Skill")]
     [SerializeField] private float force;
     [SerializeField] private GameObject effectUK1;
     [SerializeField] private GameObject effectUK2;
     [SerializeField] private Transform spwanEffectPos;
+
+    private void Start()
+    {
+        rb = GetComponentInParent<Rigidbody2D>();
+        effectAfterImage =GetComponentInParent<SpawnEffectAfterImage>();
+    }
 
     private void ActiveStepBack()
     {

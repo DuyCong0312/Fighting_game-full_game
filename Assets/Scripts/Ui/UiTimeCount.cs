@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class UiTimeCount : MonoBehaviour
 {
+    public GameSettingSO gameSetRuntime;
     [SerializeField] private float timeLeft;
-    [SerializeField] private float setTime = 60;
+    [SerializeField] private float setTime;
     [SerializeField] private TextMeshProUGUI timeCount;
     [SerializeField] private GameManager gameManager;
 
     private void Start()
     {
+        setTime = gameSetRuntime.timePerRound;
         timeLeft = setTime;
     }
     void Update()

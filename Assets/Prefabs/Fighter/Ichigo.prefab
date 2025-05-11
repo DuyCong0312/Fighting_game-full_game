@@ -261,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatIsEnemies:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
   hit: 0
   meleeAttack01Pos: {fileID: 3142144497071930037}
   meleeAttack02Pos: {fileID: 2675351959799065197}
@@ -297,7 +297,7 @@ MonoBehaviour:
   firstAttack: {fileID: 8300000, guid: f396ebd4629c8474985eaa7de459f78f, type: 3}
   thirdAttack: {fileID: 8300000, guid: 56e0799142f41394091acd106e9e48ce, type: 3}
   rangedAttack: {fileID: 8300000, guid: cec3a78c98bec904eac70a4ca623d9b1, type: 3}
-  spawnRangedAttack: {fileID: 8300000, guid: 8d62e8694b589aa4c92e2ca92670c970, type: 3}
+  spawnRangedAttack: {fileID: 8300000, guid: 60ad91baa8cb81f408bacbfa11c53150, type: 3}
   specialAttack: {fileID: 8300000, guid: 81bcb016982886f4488a1d637050eed1, type: 3}
 --- !u!114 &2320222132805566210
 MonoBehaviour:

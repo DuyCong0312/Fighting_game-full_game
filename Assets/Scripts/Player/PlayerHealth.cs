@@ -5,7 +5,8 @@ using UnityEngine.UIElements;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100;
+    public GameSettingSO gameSetRuntime;
+    [SerializeField] private float maxHealth;
     public float currentHealth;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private string animationHeavyHurtName;
@@ -20,12 +21,22 @@ public class PlayerHealth : MonoBehaviour
     private float timeSinceLastDamage = 0f;
     void Start()
     {
-        anim = GetComponentInChildren<Animator>();
+        StartCoroutine(InitializeComponentsInChildren());
         knockBack = GetComponent<KnockBack>();
         playerState = GetComponent<PlayerState>();
         playerRage = GetComponent<PlayerRage>();
+        maxHealth = gameSetRuntime.playerHealth;
         currentHealth = maxHealth;
         healthBar.UpdateHealthBar(currentHealth, maxHealth);
+    }
+
+    private IEnumerator InitializeComponentsInChildren()
+    {
+        while (anim == null)
+        {
+            anim = GetComponentInChildren<Animator>();
+            yield return null;
+        }
     }
 
     private void Update()

@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     private PlayerState playerState;
     private SpawnEffectAfterImage effectAfterImage;
 
+    [Header("Input")]
+    [SerializeField] private PlayerInputSO playerInput;
+
     [Header("Jump Setting")]
     [SerializeField] private float speed = 4f;
     [SerializeField] private float jumpForce = 6f;
@@ -36,15 +39,25 @@ public class PlayerMovement : MonoBehaviour
     {
         defaultLayer = gameObject.layer;
         dashLayer = LayerMask.NameToLayer(CONSTANT.Dashing);
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        anim = GetComponentInChildren<Animator>();
+        StartCoroutine(InitializeComponentsInChildren());
         rb = GetComponent<Rigidbody2D>();
-        coll = GetComponentInChildren<Collider2D>();
         groundCheck = GetComponent<CheckGround>();
         playerState = GetComponent<PlayerState>();
         effectAfterImage = GetComponent<SpawnEffectAfterImage>();
     }
      
+    private IEnumerator InitializeComponentsInChildren()
+    {
+
+        while (spriteRenderer == null && anim == null && coll == null)
+        {
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            anim = GetComponentInChildren<Animator>();
+            coll = GetComponentInChildren<Collider2D>();
+            yield return null;
+        }
+    }
+
     void Update()
     {
         UpdateAnimation();
@@ -77,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
         float movement = 0f;
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(playerInput.moveLeft))
         {
             if (playerState.isFacingRight) 
             {
@@ -86,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
             }
             movement = -1f; 
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(playerInput.moveRight))
         {
             if (!playerState.isFacingRight)
             {
@@ -104,13 +117,13 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.K) && groundCheck.isGround == true)
+        if (Input.GetKeyDown(playerInput.jump) && groundCheck.isGround == true)
         {
             Jump();
             groundCheck.isGround = false;
             isDoubleJump = true;
         }
-        else if (Input.GetKeyDown(KeyCode.K) && isDoubleJump && currentState == State.Falling)
+        else if (Input.GetKeyDown(playerInput.jump) && isDoubleJump && currentState == State.Falling)
         {
             Jump();
             isDoubleJump = false;
@@ -131,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.N) && canDash)
+        if (Input.GetKeyDown(playerInput.dash) && canDash)
         {
             StartCoroutine(Dash());
             AudioManager.Instance.PlaySFX(AudioManager.Instance.dash);

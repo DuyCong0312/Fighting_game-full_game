@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sakura_Iskill : I_Skill
+public class Sakura_Iskill : MonoBehaviour
 {
     [Header("I Skill")]
     [SerializeField] private Sakura_CheckHit sakuraCheckHit;
@@ -11,6 +11,7 @@ public class Sakura_Iskill : I_Skill
     [SerializeField] private Transform newPos;
     [SerializeField] private float moveSpeed;
 
+    protected Rigidbody2D rb;
 
     [Header("I+K Skill")]
     [SerializeField] private float force;
@@ -23,6 +24,11 @@ public class Sakura_Iskill : I_Skill
     private bool canMove = true;
     private float originalGravity;
     private Coroutine moveCoroutine;
+
+    private void Start()
+    {
+        rb = GetComponentInParent<Rigidbody2D>();
+    }
 
     public void ActiveMove()
     {

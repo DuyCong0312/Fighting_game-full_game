@@ -9,6 +9,7 @@ public class KnockBack : MonoBehaviour
     [SerializeField] private float hitDirectionForce = 2f;
 
     [Header("BlowUp")]
+    [SerializeField] private Transform opponentDirection;
     [SerializeField] private float blowUpPowerX = 1f;
     [SerializeField] private float blowUpPowerY = 1.5f;
 
@@ -47,7 +48,7 @@ public class KnockBack : MonoBehaviour
 
     private void BlowUp()
     {
-        Vector2 blowDirection = new Vector2(- this.transform.right.x, this.transform.up.y).normalized;
+        Vector2 blowDirection = new Vector2(opponentDirection.transform.right.x, this.transform.up.y).normalized;
         Vector2 blowForce = new Vector2(blowDirection.x * blowUpPowerX, blowDirection.y * blowUpPowerY);
         rb.AddForce(blowForce, ForceMode2D.Impulse);
     }

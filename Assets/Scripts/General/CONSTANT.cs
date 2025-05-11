@@ -45,5 +45,10 @@ public static class CONSTANT
     public static readonly string SFXVolume = "SFXVolume";
 
     // PlayerPrefsKey
-    public static readonly string SelectedFighterIndex = "SelectedFighterIndex";
+    public static readonly string SelectedFirstFighterIndex = "SelectedFirstFighterIndex";
+    public static readonly string SelectedSecondFighterIndex = "SelectedSecondFighterIndex";
+
+    // GameModeName
+    public static readonly string Player_vs_Computer = "Player_vs_Computer";
+    public static readonly string Player_vs_Player = "Player_vs_Player";
 }
