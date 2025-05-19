@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea5ef0451aec0c448a3b257359a9ef0, type: 3}
+  m_Name: Sakura
+  m_EditorClassIdentifier: 
+  fighterName: Sakura
+  fighterSprite: {fileID: 1715832091, guid: 1e5f5612eebd1624d98ce56eda4e1d4e, type: 3}
+  fighterAvatar: {fileID: -242849844, guid: 1e5f5612eebd1624d98ce56eda4e1d4e, type: 3}
+  fighterFace: {fileID: 1753230391, guid: 1e5f5612eebd1624d98ce56eda4e1d4e, type: 3}
+  fighterPrefab: {fileID: 6181489956766094652, guid: 3eb57c9ae05d1ed49949d8fe8f1dfce4, type: 3}
+  fighterComPrefab: {fileID: 5418740632759721893, guid: 4465f2965d1cbbb4f8550bb3438e4f76, type: 3}

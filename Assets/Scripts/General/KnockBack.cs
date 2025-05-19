@@ -9,7 +9,7 @@ public class KnockBack : MonoBehaviour
     [SerializeField] private float hitDirectionForce = 2f;
 
     [Header("BlowUp")]
-    [SerializeField] private Transform opponentDirection;
+    public Transform opponentDirection;
     [SerializeField] private float blowUpPowerX = 1f;
     [SerializeField] private float blowUpPowerY = 1.5f;
 

@@ -37,7 +37,8 @@ public class PlayerSkill : MonoBehaviour
             || playerState.isUsingSkill
             || playerState.isDefending
             || playerState.isAttacking
-            || playerState.isGettingHurt)
+            || playerState.isGettingHurt
+            || playerState.isUpInputPress)
         {
             return;
         }

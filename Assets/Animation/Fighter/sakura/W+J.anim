@@ -22,31 +22,31 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 384753639, guid: 48decb5bfbb83274d8217386ddac3ae4, type: 3}
-    - time: 0.05
+    - time: 0.06666667
       value: {fileID: 450472069, guid: e72ca6c0593f27a4881cb007f7a90a96, type: 3}
-    - time: 0.13333334
+    - time: 0.16666667
       value: {fileID: 313875412, guid: 77418b53aab6d5e408479a1272e2fd0c, type: 3}
-    - time: 0.18333334
+    - time: 0.21666667
       value: {fileID: 378713905, guid: 5a33d73f06d7b01499715b3b796d5e5c, type: 3}
-    - time: 0.26666668
-      value: {fileID: -1730875955, guid: 48038d8b470522d4b8d7741b65c88b09, type: 3}
     - time: 0.31666666
-      value: {fileID: -2065743601, guid: 527c301683518ac419c330bdc57e47a6, type: 3}
+      value: {fileID: -1730875955, guid: 48038d8b470522d4b8d7741b65c88b09, type: 3}
     - time: 0.38333333
+      value: {fileID: -2065743601, guid: 527c301683518ac419c330bdc57e47a6, type: 3}
+    - time: 0.46666667
       value: {fileID: 1441091487, guid: e552d829fe1d8004bb0109d68d52d221, type: 3}
-    - time: 0.45
+    - time: 0.53333336
       value: {fileID: 1887529342, guid: 068c8abf2edfa044ca450c89de4f1870, type: 3}
-    - time: 0.51666665
+    - time: 0.6166667
       value: {fileID: 191849814, guid: d409eea1a18d13346923c2186f73bbf8, type: 3}
-    - time: 0.56666666
+    - time: 0.68333334
       value: {fileID: 680873840, guid: 6b8c596a8d30692469d30b97b57245ac, type: 3}
-    - time: 0.65
+    - time: 0.8
       value: {fileID: -2095302232, guid: 5db2fbd429fe21144baa21f0467ce8c4, type: 3}
-    - time: 0.7
+    - time: 0.8833333
       value: {fileID: 180751886, guid: 02ee4cc04a8a8354dbbb8c30e86f120d, type: 3}
-    - time: 0.78333336
-      value: {fileID: -1481968284, guid: 04abc3e955f4d5f4c8a807ca3264adbe, type: 3}
-    - time: 0.8333333
+    - time: 1
+      value: {fileID: 720206332, guid: 2ba1da603cbf1df439c67cbe7142ee07, type: 3}
+    - time: 1.1166667
       value: {fileID: 720206332, guid: 2ba1da603cbf1df439c67cbe7142ee07, type: 3}
     attribute: m_Sprite
     path: 
@@ -82,14 +82,14 @@ AnimationClip:
     - {fileID: 680873840, guid: 6b8c596a8d30692469d30b97b57245ac, type: 3}
     - {fileID: -2095302232, guid: 5db2fbd429fe21144baa21f0467ce8c4, type: 3}
     - {fileID: 180751886, guid: 02ee4cc04a8a8354dbbb8c30e86f120d, type: 3}
-    - {fileID: -1481968284, guid: 04abc3e955f4d5f4c8a807ca3264adbe, type: 3}
+    - {fileID: 720206332, guid: 2ba1da603cbf1df439c67cbe7142ee07, type: 3}
     - {fileID: 720206332, guid: 2ba1da603cbf1df439c67cbe7142ee07, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.84999996
+    m_StopTime: 1.1333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -108,4 +108,32 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.18333334
+    functionName: ActiveSakuraWJSkillP1
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.78333336
+    functionName: ActiveSakuraWJSkillP2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.93333334
+    functionName: StopSakuraWJSkill
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1333333
+    functionName: StopSkill
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

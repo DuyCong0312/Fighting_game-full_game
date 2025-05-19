@@ -28,12 +28,14 @@ AnimationClip:
       value: {fileID: 575401836, guid: a7548e50ed27899458d118617b090e5e, type: 3}
     - time: 0.25
       value: {fileID: 1827000860, guid: 8e49f5e10b5841645ae28074ae271587, type: 3}
-    - time: 0.33333334
+    - time: 0.3
       value: {fileID: -513527099, guid: f70db737399c779489d98b03ac983106, type: 3}
-    - time: 0.41666666
+    - time: 0.35
       value: {fileID: 1878712890, guid: 929ff505834d7ef45950cf16f9be3b6f, type: 3}
-    - time: 0.5
+    - time: 0.4
       value: {fileID: 1862077898, guid: 4d8876aa9262c354e898a1be297112be, type: 3}
+    - time: 0.45
+      value: {fileID: 237861925, guid: a5ae28ee36ed08d4b8f4c6c2c87db0ce, type: 3}
     - time: 0.5833333
       value: {fileID: 237861925, guid: a5ae28ee36ed08d4b8f4c6c2c87db0ce, type: 3}
     attribute: m_Sprite
@@ -66,12 +68,13 @@ AnimationClip:
     - {fileID: 1878712890, guid: 929ff505834d7ef45950cf16f9be3b6f, type: 3}
     - {fileID: 1862077898, guid: 4d8876aa9262c354e898a1be297112be, type: 3}
     - {fileID: 237861925, guid: a5ae28ee36ed08d4b8f4c6c2c87db0ce, type: 3}
+    - {fileID: 237861925, guid: a5ae28ee36ed08d4b8f4c6c2c87db0ce, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.59999996
+    m_StopTime: 0.6
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -90,4 +93,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.43333334
+    functionName: ActiveSakuraWUSkill
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6
+    functionName: StopSkill
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

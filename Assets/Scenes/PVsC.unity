@@ -1283,18 +1283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameModeHolder: {fileID: 11400000, guid: 636237b7d563c59499f873e297624455, type: 2}
   fighterList:
-  - fighterSprite: {fileID: 188447996, guid: 1f2cec70939656b4682998d6e4f7a4fb, type: 3}
-    fighterName: Ichigo
-    fighterAvatar: {fileID: -2015743170, guid: 1f2cec70939656b4682998d6e4f7a4fb, type: 3}
-    fighterFace: {fileID: 426325187, guid: bfa4034dbb7e4834b99261adcafec918, type: 3}
-    fighterPrefab: {fileID: 1818890458921424710, guid: 833fb413268949f40a0da911ced92abb, type: 3}
-    fighterComPrefab: {fileID: 5418740632759721893, guid: 4465f2965d1cbbb4f8550bb3438e4f76, type: 3}
-  - fighterSprite: {fileID: 1715832091, guid: 1e5f5612eebd1624d98ce56eda4e1d4e, type: 3}
-    fighterName: Sakura
-    fighterAvatar: {fileID: -242849844, guid: 1e5f5612eebd1624d98ce56eda4e1d4e, type: 3}
-    fighterFace: {fileID: 1753230391, guid: 1e5f5612eebd1624d98ce56eda4e1d4e, type: 3}
-    fighterPrefab: {fileID: 6181489956766094652, guid: 3eb57c9ae05d1ed49949d8fe8f1dfce4, type: 3}
-    fighterComPrefab: {fileID: 5418740632759721893, guid: 4465f2965d1cbbb4f8550bb3438e4f76, type: 3}
+  - {fileID: 11400000, guid: 09a9c7506828bf44ba34f99d723c9ed2, type: 2}
+  - {fileID: 11400000, guid: 7ca7160292de0494ab1f5e888ae6e13e, type: 2}
   firstFighterName: {fileID: 60960989}
   firstFighterAvatar: {fileID: 463066114}
   firstFighterFace: {fileID: 919736147}

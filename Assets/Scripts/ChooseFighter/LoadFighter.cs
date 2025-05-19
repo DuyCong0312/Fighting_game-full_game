@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class LoadFighter : MonoBehaviour
 {
     [SerializeField] private GameModeHolderSO gameModeHolder;
-    [SerializeField] private List<Fighter> fighterList = new List<Fighter>();
+    [SerializeField] private List<FighterSO> fighterList = new List<FighterSO>();
 
     [Header("Player01")]
     [SerializeField] private TextMeshProUGUI firstFighterName;

@@ -2469,8 +2469,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1429800659}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+      - m_Target: {fileID: 1429800662}
+        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:
@@ -2752,9 +2752,9 @@ GameObject:
   - component: {fileID: 1429800657}
   - component: {fileID: 1429800656}
   - component: {fileID: 1429800655}
-  - component: {fileID: 1429800659}
   - component: {fileID: 1429800660}
   - component: {fileID: 1429800661}
+  - component: {fileID: 1429800662}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2851,18 +2851,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1429800659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1429800654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4532548a0e015b745a2471ebffe54932, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1429800660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2899,6 +2887,18 @@ MonoBehaviour:
   timeText: {fileID: 20548175}
   increaseTimeButton: {fileID: 115255436}
   decreaseTimeButton: {fileID: 772210076}
+--- !u!114 &1429800662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429800654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44a5d99197d14145894177782b7fdf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1585215133
 GameObject:
   m_ObjectHideFlags: 0
@@ -3608,8 +3608,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1429800659}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+      - m_Target: {fileID: 1429800662}
+        m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 5
         m_Arguments:

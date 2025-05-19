@@ -81,7 +81,7 @@ public class Sakura_Iskill : MonoBehaviour
     private void ActiveSakuraIKSkill()
     {
         this.transform.rotation = this.transform.rotation; 
-        rb.velocity = new Vector2 (rb.velocity.x, - force);
+        rb.velocity = new Vector2 (0f, - force);
     }
 
     private void ActiveEffectIK1()

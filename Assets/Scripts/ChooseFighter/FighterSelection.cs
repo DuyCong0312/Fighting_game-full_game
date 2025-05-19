@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public class FighterSelection : MonoBehaviour
 {
-    [SerializeField] private List<Fighter> fighterList = new List<Fighter>();
+    [SerializeField] private List<FighterSO> fighterList = new List<FighterSO>();
     [SerializeField] private TextMeshProUGUI firstFighterName;
     [SerializeField] private Image firstFighterImage;
     [SerializeField] private TextMeshProUGUI secondFighterName;
     [SerializeField] private Image secondFighterImage;
+
+    [SerializeField] private string randomFighterName;
+    [SerializeField] private Sprite randomFighterImage;
 
     [SerializeField] private int selectedFirstFighterIndex = 0;
     [SerializeField] private int selectedSecondFighterIndex = 0;
@@ -91,11 +94,27 @@ public class FighterSelection : MonoBehaviour
         }
     }
 
+    public void RandomPreview()
+    {
+        if (currentPlayer == 1)
+        {
+            firstFighterImage.color = new Color(1, 1, 1, 1);
+            firstFighterImage.sprite = randomFighterImage;
+            firstFighterName.text = randomFighterName;
+        }
+        else if (currentPlayer == 2)
+        {
+            secondFighterImage.color = new Color(1, 1, 1, 1);
+            secondFighterImage.sprite = randomFighterImage;
+            secondFighterName.text = randomFighterName;
+        }
+    }
+
     private void UpdatePreview(Image fighterImage, TextMeshProUGUI fighterName, int fighterIndex)
     {
         fighterImage.color = new Color(1, 1, 1, 1);
         fighterImage.sprite = fighterList[fighterIndex].FighterSprite;
-        fighterName.text = fighterList[fighterIndex].FighterName;
+        fighterName.text = fighterList[fighterIndex].FighterName; 
     }
 
     public void ClearPreview()
