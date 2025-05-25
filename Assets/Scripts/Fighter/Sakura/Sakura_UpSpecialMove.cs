@@ -7,6 +7,7 @@ public class Sakura_UpSpecialMove : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private KnockBack knockBack;
+    private PlayerState playerState;
     private SpawnEffectAfterImage effectAfterImage;
 
     [Header("W+J Skill")]
@@ -25,6 +26,7 @@ public class Sakura_UpSpecialMove : MonoBehaviour
         rb = GetComponentInParent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         knockBack = GetComponentInParent<KnockBack>();
+        playerState = GetComponentInParent<PlayerState>();
         effectAfterImage = GetComponentInParent<SpawnEffectAfterImage>();
     }
 
@@ -50,9 +52,9 @@ public class Sakura_UpSpecialMove : MonoBehaviour
 
     private void SakuraWUSkill()
     {
-        Instantiate(wuSkillPrefab, wuSkillPos.position, wuSkillPos.transform.rotation);
-        Instantiate(wuSkillPrefab, wuSkillPos.position, wuSkillPos.transform.rotation * Quaternion.Euler(0, 0, 20));
-        Instantiate(wuSkillPrefab, wuSkillPos.position, wuSkillPos.transform.rotation * Quaternion.Euler(0, 0, -20));
+        Instantiate(wuSkillPrefab, wuSkillPos.position, wuSkillPos.rotation);
+        Instantiate(wuSkillPrefab, wuSkillPos.position, wuSkillPos.rotation * Quaternion.Euler(0, 0, 20));
+        Instantiate(wuSkillPrefab, wuSkillPos.position, wuSkillPos.rotation * Quaternion.Euler(0, 0, -20));
     }
 
     private void ActiveSakuraWISkill()

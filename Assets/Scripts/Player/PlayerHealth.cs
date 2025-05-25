@@ -15,8 +15,8 @@ public class PlayerHealth : MonoBehaviour
     private KnockBack knockBack;
     private PlayerState playerState;
     private PlayerRage playerRage;
-    private float damageThreshold = 20f;  
-    private float damageTimeLimit = 2f; 
+    private float damageThreshold = 20f;
+    private float damageTimeLimit = 0.5f;
     private float accumulatedDamage = 0f;
     private float timeSinceLastDamage = 0f;
     void Start()
@@ -49,9 +49,9 @@ public class PlayerHealth : MonoBehaviour
         {
             accumulatedDamage = 0;
         }
-        CheckHeavyHurt();
+        //CheckHeavyHurt();
     }
-    public void TakeDamage(float damage, Vector2 direction)
+    public void TakeDamage(float damage, Vector2 direction, KnockBack.KnockbackType type)
     {
         playerState.isAttacking = false;
         playerState.isUsingSkill = false;
@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
         {
             damage = 2f;
             currentHealth -= damage;
-            knockBack.KnockBackAction(direction / 2f);
+            knockBack.KnockBackAction(direction / 2f,type);
             playerRage.GetRage(2f);
         }
         else
@@ -74,7 +74,7 @@ public class PlayerHealth : MonoBehaviour
             else
             {
                 anim.SetTrigger(CONSTANT.getHurt);
-                knockBack.KnockBackAction(direction);
+                knockBack.KnockBackAction(direction, type);
             }
             playerRage.GetRage(5f);
             accumulatedDamage += damage;
@@ -110,18 +110,18 @@ public class PlayerHealth : MonoBehaviour
         anim.Play(poseName);
     }
 
-    private void CheckHeavyHurt()
-    {
-        if (accumulatedDamage >= damageThreshold && timeSinceLastDamage<damageTimeLimit)
-        {
-            PlayHeavyHurt();
-        }
-    }
+    //private void CheckHeavyHurt()
+    //{
+    //    if (accumulatedDamage >= damageThreshold && timeSinceLastDamage<damageTimeLimit)
+    //    {
+    //        PlayHeavyHurt();
+    //    }
+    //}
 
     public void PlayHeavyHurt()
     {
         anim.Play(animationHeavyHurtName);
-        knockBack.BlowUpAction();
+        knockBack.KnockBackAction(new Vector2(knockBack.opponentDirection.transform.right.x,this.transform.up.y), KnockBack.KnockbackType.BlownUp);
         playerState.isGettingHurt = true;
         accumulatedDamage = 0f;
     }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2724577049910149166}
   - component: {fileID: 4620364159352006961}
   - component: {fileID: 2319239456817939712}
-  - component: {fileID: -2765973895730554079}
+  - component: {fileID: -3886851792332114732}
   m_Layer: 0
   m_Name: darts_01
   m_TagString: Untagged
@@ -181,7 +181,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.33553886, y: 0.24942827}
   m_EdgeRadius: 0
---- !u!114 &-2765973895730554079
+--- !u!114 &-3886851792332114732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2315352646835178593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faca8dd4883f83347901be66a6ffa1a9, type: 3}
+  m_Script: {fileID: 11500000, guid: a528c1150850fea499e35f849ba480f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 2.5

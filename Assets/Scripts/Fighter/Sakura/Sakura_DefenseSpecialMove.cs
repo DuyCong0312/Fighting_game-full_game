@@ -26,15 +26,16 @@ public class Sakura_DefenseSpecialMove : MonoBehaviour
 
     private void ActiveSakuraSJSkill()
     {
-        Instantiate(sjSkillPrefab, sjSkillPos.position, sjSkillPos.localRotation);
+        Instantiate(sjSkillPrefab, sjSkillPos.position, transform.rotation);
     }
-
+    
     private void ActiveSakuraSUSkill()
     {
-        Instantiate(suSkillEffect, suSkillPos.position, suSkillPos.localRotation);
+        Instantiate(suSkillEffect, suSkillPos.position, suSkillEffect.transform.rotation);
     }
     private void ActiveSakuraSISkill()
     {
+        effectAfterImage.StartAfterImageEffect();
         rb.velocity = new Vector2(this.transform.right.x * speed, rb.velocity.y);
     }
 }

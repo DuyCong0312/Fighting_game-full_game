@@ -9,6 +9,10 @@ public class Sakura_Sound : MonoBehaviour
     public AudioClip rangedAttack;
     public AudioClip touchGround;
     public AudioClip ik1Skill;
+    public AudioClip sjSkill;
+    public AudioClip siSkill;
+    public AudioClip winSound;
+    public AudioClip loseSound;
 
     private void PlaySoundFirstAttack()
     {
@@ -33,6 +37,31 @@ public class Sakura_Sound : MonoBehaviour
     private void PlaySoundIk1Skill() 
     {
         AudioManager.Instance.PlaySFX(ik1Skill);
+    }
+
+    private void PlaySoundSjSkill()
+    {
+        AudioManager.Instance.PlaySFX(sjSkill);
+    }
+
+    private void PlaySoundSi1Skill()
+    {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.dash);
+    }
+
+    private void PlaySoundSi2Skill()
+    {
+        AudioManager.Instance.PlaySFX(siSkill);
+    }
+
+    private void PlaySoundWin()
+    {
+        AudioManager.Instance.PlaySFX(winSound);
+    }
+
+    private void PlaySoundLose()
+    {
+        AudioManager.Instance.PlaySFX(loseSound);
     }
 
     private void Footstep()

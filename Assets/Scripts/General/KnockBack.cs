@@ -5,8 +5,9 @@ using UnityEngine.Playables;
 public class KnockBack : MonoBehaviour
 {
     [Header("KnockBack")]
-    [SerializeField] private float knockBackTime = 0.5f;
-    [SerializeField] private float hitDirectionForce = 2f;
+    //[SerializeField] private float knockBackTime = 0.5f;
+    [SerializeField] private float hitDirectionForceX = 2f;
+    [SerializeField] private float hitDirectionForceY = 2f;
 
     [Header("BlowUp")]
     public Transform opponentDirection;
@@ -16,6 +17,7 @@ public class KnockBack : MonoBehaviour
     private PlayerState playerState;
     private CheckGround groundCheck;
     private Rigidbody2D rb;
+    public enum KnockbackType { Linear, Arc, BlownUp }
 
     private void Start()
     {
@@ -23,33 +25,59 @@ public class KnockBack : MonoBehaviour
         playerState = GetComponent<PlayerState>();
     }
 
-    public void KnockBackAction(Vector2 hitDirection)
+    public void KnockBackAction(Vector2 direction, KnockbackType type)
     {
-        StartCoroutine(KnockBackRoutine(hitDirection));
-    }
-    public void BlowUpAction()
-    {
-        BlowUp();
-    }
-
-    private IEnumerator KnockBackRoutine(Vector2 hitDirection)
-    {
-        Vector2 hitForce = hitDirection * hitDirectionForce;
-        float elapsedTime = 0f;
-        while (elapsedTime < knockBackTime)
+        switch (type)
         {
-            rb.velocity = new Vector2(hitForce.x, hitForce.y * 5f);
-            elapsedTime += Time.deltaTime;
-            yield return null;
+            case KnockbackType.Linear:
+                KnockBackLinear(direction);
+                break;
+            case KnockbackType.Arc:
+                KnockBackArc(direction);
+                break;
+            case KnockbackType.BlownUp:
+                BlownUp(direction);
+                break;
         }
-
-        rb.velocity = Vector2.zero;
     }
 
-    private void BlowUp()
+    private void KnockBackLinear(Vector2 hitDirection)
     {
-        Vector2 blowDirection = new Vector2(opponentDirection.transform.right.x, this.transform.up.y).normalized;
-        Vector2 blowForce = new Vector2(blowDirection.x * blowUpPowerX, blowDirection.y * blowUpPowerY);
+        Vector2 hitForce = hitDirection * hitDirectionForceX;
+        rb.AddForce(hitForce, ForceMode2D.Impulse);
+    }
+
+    private void KnockBackArc(Vector2 hitDirection)
+    {
+        Vector2 hitForce;
+        hitForce.x = hitDirection.x * hitDirectionForceX;
+        hitForce.y = hitDirection.y * hitDirectionForceY;
+        rb.AddForce(hitForce, ForceMode2D.Impulse);
+    }
+
+    private void BlownUp(Vector2 hitDirection)
+    {
+        Vector2 direction = hitDirection.normalized;
+        Vector2 blowForce = new Vector2(direction.x * blowUpPowerX, direction.y * blowUpPowerY);
         rb.AddForce(blowForce, ForceMode2D.Impulse);
     }
+
+    //public void KnockBackAction(Vector2 hitDirection)
+    //{
+    //    StartCoroutine(KnockBackLinear(hitDirection));
+    //}
+
+    //private IEnumerator KnockBackLinear(Vector2 hitDirection)
+    //{
+    //    Vector2 hitForce = hitDirection * hitDirectionForceX;
+    //    float elapsedTime = 0f;
+    //    while (elapsedTime < knockBackTime)
+    //    {
+    //        rb.velocity = new Vector2(hitForce.x, hitForce.y * 5f);
+    //        elapsedTime += Time.deltaTime;
+    //        yield return null;
+    //    }
+
+    //    rb.velocity = Vector2.zero;
+    //}
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dart: MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     protected Animator anim;
     protected Rigidbody2D rb;
@@ -10,7 +10,7 @@ public class Dart: MonoBehaviour
     [SerializeField] protected float timeExist = 2f;
     [SerializeField] protected float speed = 10f;
     [SerializeField] protected GameObject effect;
-    private GameObject owner;
+    protected GameObject owner;
     public void SetOwner(GameObject owner)
     {
         this.owner = owner;
@@ -19,7 +19,7 @@ public class Dart: MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        DartMove();
+        ProjectileMove();
     }
 
     protected virtual void Update()
@@ -28,7 +28,7 @@ public class Dart: MonoBehaviour
         DestroyByTime();
     }
 
-    protected virtual void DartMove()
+    protected virtual void ProjectileMove()
     {
         rb.velocity = transform.right * speed;
     }
@@ -40,11 +40,11 @@ public class Dart: MonoBehaviour
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
         {
             PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
-            playerHealth.TakeDamage(attackDamage, this.transform.right);
+            playerHealth.TakeDamage(attackDamage, this.transform.right,KnockBack.KnockbackType.Linear);
             Destroy(this.gameObject);
             WhenHit();
         }
-        
+
         Debug.Log(collision.name);
     }
 
@@ -55,7 +55,7 @@ public class Dart: MonoBehaviour
 
     protected virtual void DestroyByTime()
     {
-        if(timeExist <= 0)
+        if (timeExist <= 0)
         {
             Destroy(this.gameObject);
         }

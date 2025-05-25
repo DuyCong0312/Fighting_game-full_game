@@ -26,18 +26,19 @@ public class Ichigo_DefenseSpecialMove : MonoBehaviour
 
     private void ActiveIchigoSJSkill()
     {
-        IchigoSJSkill(0.55f);
-        SkillCheckHit skillCheck = GetComponent<SkillCheckHit>();
-        if (skillCheck != null)
-        {
-            skillCheck.SetOwner(this.gameObject);
-        }
+        float offset = 0.55f;
+        GameObject skillRight = Instantiate(sjSkillPrefab, new Vector2(sjSkillPos.position.x + offset, sjSkillPos.position.y), sjSkillPos.localRotation);
+        GameObject skillLeft = Instantiate(sjSkillPrefab, new Vector2(sjSkillPos.position.x - offset, sjSkillPos.position.y), sjSkillPos.localRotation * Quaternion.Euler(0, 180, 0));
+
+        SkillCheckHit skillCheckLeft = skillRight.GetComponent<SkillCheckHit>();
+        if (skillCheckLeft != null)
+            skillCheckLeft.SetOwner(this.gameObject);
+
+        SkillCheckHit skillCheckRight = skillLeft.GetComponent<SkillCheckHit>();
+        if (skillCheckRight != null)
+            skillCheckRight.SetOwner(this.gameObject);
     }
-    private void IchigoSJSkill(float offset)
-    {
-        Instantiate(sjSkillPrefab, new Vector2(sjSkillPos.position.x + offset, sjSkillPos.position.y), sjSkillPos.localRotation);
-        Instantiate(sjSkillPrefab, new Vector2(sjSkillPos.position.x - offset, sjSkillPos.position.y), sjSkillPos.localRotation * Quaternion.Euler(0, 180, 0));
-    }
+
     private void ActiveIchigoSUSkill()
     {
         effectAfterImage.StartAfterImageEffect();
@@ -45,6 +46,32 @@ public class Ichigo_DefenseSpecialMove : MonoBehaviour
     }
     private void ActiveIchigoSISkill()
     {
-        Instantiate(siSkillPrefab, siSkillPos.position, siSkillPos.rotation);
+        for (int i = 0; i <= 3; i++)
+        {
+            Vector3 spawnPos = siSkillPos.position;
+            spawnPos.x -= i * 1f;
+
+            GameObject obj = Instantiate(siSkillPrefab, spawnPos, siSkillPos.rotation);
+
+            Vector3 newScale = obj.transform.localScale;
+            newScale.y -= i * 0.5f;
+            obj.transform.localScale = newScale;
+
+            SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                Color color = sr.color;
+                color.a -= i * 0.2f;
+                sr.color = color;
+            }
+            if (i > 0)
+            {
+                Collider2D col = obj.GetComponent<Collider2D>();
+                if (col != null)
+                {
+                    col.enabled = false;
+                }
+            }
+        }
     }
 }

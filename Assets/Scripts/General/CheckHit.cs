@@ -18,10 +18,10 @@ public class CheckHit : MonoBehaviour
         coll = GetComponent<Collider2D>();
     }
 
-    protected void StraightAttack(Transform AttackPos, Vector2 AttackSize, float angle, float attackDamage, Vector2 direction)
+    protected void StraightAttack(Transform AttackPos, Vector2 AttackSize, float Angle, float AttackDamage, Vector2 KnockBackDirection, KnockBack.KnockbackType Type)
     {
         hit = false;
-        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(AttackPos.position, AttackSize, angle, whatIsEnemies);
+        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(AttackPos.position, AttackSize, Angle, whatIsEnemies);
         foreach (Collider2D enemy in hitEnemies)
         {
             if (enemy == coll)
@@ -31,13 +31,13 @@ public class CheckHit : MonoBehaviour
             hit = true;
             this.spriteRenderer.sortingOrder = 1;
             this.playerRage.GetRage(5f);
-            enemy.GetComponentInParent<PlayerHealth>().TakeDamage(attackDamage, direction);
+            enemy.GetComponentInParent<PlayerHealth>().TakeDamage(AttackDamage, KnockBackDirection, Type);
             enemy.GetComponentInChildren<HitEffect>().SpawnEffect();
             enemy.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
         }
     }
 
-    protected void RoundAttack(Transform AttackPos, float AttackRange, float attackDamage, Vector2 direction)
+    protected void RoundAttack(Transform AttackPos, float AttackRange, float AttackDamage, Vector2 KnockBackDirection, KnockBack.KnockbackType Type)
     {
         hit = false;
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, whatIsEnemies);
@@ -50,7 +50,7 @@ public class CheckHit : MonoBehaviour
             hit = true;
             this.spriteRenderer.sortingOrder = 1;
             this.playerRage.GetRage(5f);
-            enemy.GetComponentInParent<PlayerHealth>().TakeDamage(attackDamage, direction);
+            enemy.GetComponentInParent<PlayerHealth>().TakeDamage(AttackDamage, KnockBackDirection, Type);
             enemy.GetComponentInChildren<HitEffect>().SpawnEffect();
             enemy.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
         }

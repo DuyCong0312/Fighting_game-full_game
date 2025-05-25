@@ -33,20 +33,18 @@ AnimationClip:
     - time: 0.38333333
       value: {fileID: -2065743601, guid: 527c301683518ac419c330bdc57e47a6, type: 3}
     - time: 0.46666667
-      value: {fileID: 1441091487, guid: e552d829fe1d8004bb0109d68d52d221, type: 3}
-    - time: 0.53333336
       value: {fileID: 1887529342, guid: 068c8abf2edfa044ca450c89de4f1870, type: 3}
-    - time: 0.6166667
+    - time: 0.55
       value: {fileID: 191849814, guid: d409eea1a18d13346923c2186f73bbf8, type: 3}
-    - time: 0.68333334
+    - time: 0.6166667
       value: {fileID: 680873840, guid: 6b8c596a8d30692469d30b97b57245ac, type: 3}
-    - time: 0.8
+    - time: 0.73333335
       value: {fileID: -2095302232, guid: 5db2fbd429fe21144baa21f0467ce8c4, type: 3}
-    - time: 0.8833333
+    - time: 0.81666666
       value: {fileID: 180751886, guid: 02ee4cc04a8a8354dbbb8c30e86f120d, type: 3}
-    - time: 1
+    - time: 0.93333334
       value: {fileID: 720206332, guid: 2ba1da603cbf1df439c67cbe7142ee07, type: 3}
-    - time: 1.1166667
+    - time: 1.05
       value: {fileID: 720206332, guid: 2ba1da603cbf1df439c67cbe7142ee07, type: 3}
     attribute: m_Sprite
     path: 
@@ -76,7 +74,6 @@ AnimationClip:
     - {fileID: 378713905, guid: 5a33d73f06d7b01499715b3b796d5e5c, type: 3}
     - {fileID: -1730875955, guid: 48038d8b470522d4b8d7741b65c88b09, type: 3}
     - {fileID: -2065743601, guid: 527c301683518ac419c330bdc57e47a6, type: 3}
-    - {fileID: 1441091487, guid: e552d829fe1d8004bb0109d68d52d221, type: 3}
     - {fileID: 1887529342, guid: 068c8abf2edfa044ca450c89de4f1870, type: 3}
     - {fileID: 191849814, guid: d409eea1a18d13346923c2186f73bbf8, type: 3}
     - {fileID: 680873840, guid: 6b8c596a8d30692469d30b97b57245ac, type: 3}
@@ -111,6 +108,48 @@ AnimationClip:
   m_Events:
   - time: 0.18333334
     functionName: ActiveSakuraWJSkillP1
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.3
+    functionName: PlaySoundFirstAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: WJ_1attack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.45
+    functionName: PlaySoundFirstAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.48333332
+    functionName: WJ_1attack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.71666664
+    functionName: PlaySoundThirdAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.75
+    functionName: WJ_2attack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

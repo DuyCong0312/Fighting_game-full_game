@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameAnimatorClip: S+U2
-  distanceToOpponent: 0.5
+  distanceToOpponent: 2
   distanceFromStart: 5
 --- !u!1101 &-2226423050577690727
 AnimatorStateTransition:
@@ -650,7 +650,8 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -1308284011829339773}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: -533443293996451750}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -665,6 +666,18 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-533443293996451750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7afd802fdf221534bb30a081df605616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1102 &-435769241162449145
 AnimatorState:
   serializedVersion: 6

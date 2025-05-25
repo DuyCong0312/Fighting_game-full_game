@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 5
+  force: {x: 2.5, y: 0.75}
   effect: {fileID: 7481789453885571310, guid: 81d7dbee50a86ca40b80130ede981751, type: 3}
 --- !u!50 &510557718056092573
 Rigidbody2D:

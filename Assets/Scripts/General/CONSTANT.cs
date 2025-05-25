@@ -9,6 +9,7 @@ public static class CONSTANT
     public static readonly string MapBorder = "MapBorder";
     public static readonly string Player = "Player";
     public static readonly string Com = "Com";
+    public static readonly string Ground = "Ground";
 
     // Layer
     public static readonly string Dashing = "Dashing";

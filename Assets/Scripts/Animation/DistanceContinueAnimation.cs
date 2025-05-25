@@ -7,7 +7,6 @@ public class DistanceContinueAnimation : StateMachineBehaviour
     private Rigidbody2D rb;
     private Transform playerTransform;
     private KnockBack knockBack;
-    private SpawnEffectAfterImage effectAfterImage;
     [SerializeField] protected string nameAnimatorClip;
     [SerializeField] private float distanceToOpponent = 2f;
     [SerializeField] private float distanceFromStart = 5f;
@@ -20,7 +19,6 @@ public class DistanceContinueAnimation : StateMachineBehaviour
         playerTransform = animator.transform.parent;
         knockBack = animator.GetComponentInParent<KnockBack>();
         rb = animator.GetComponentInParent<Rigidbody2D>();
-        effectAfterImage = animator.GetComponentInParent<SpawnEffectAfterImage>();
         initialPosition = playerTransform.position;
         opponentTransform = knockBack.opponentDirection;
     }
@@ -35,7 +33,6 @@ public class DistanceContinueAnimation : StateMachineBehaviour
         {
             animator.Play(nameAnimatorClip);
             rb.velocity = Vector2.zero;
-            effectAfterImage.StopAfterImageEffect();
         }
     }
 

@@ -18,8 +18,8 @@ public class Ichigo_UpSpecialMove : MonoBehaviour
 
     private void ActiveIchigoWJSkill()
     {
-        Instantiate(wjSkillPrefab, wjSkillPos.position, wjSkillPos.transform.localRotation);
-        SkillCheckHit skillCheck = GetComponent<SkillCheckHit>();
+        GameObject skillObj = Instantiate(wjSkillPrefab, wjSkillPos.position, wjSkillPos.transform.localRotation);
+        SkillCheckHit skillCheck = skillObj.GetComponent<SkillCheckHit>();
         if (skillCheck != null) 
         {
             skillCheck.SetOwner(this.gameObject);
