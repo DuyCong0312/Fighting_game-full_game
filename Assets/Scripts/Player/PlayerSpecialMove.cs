@@ -39,6 +39,14 @@ public class PlayerSpecialMove : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.Instance.gameStart
+            || GameManager.Instance.gameEnded
+            || playerState.isUsingSkill
+            || playerState.isAttacking
+            || playerState.isGettingHurt)
+        {
+            return;
+        }
         UpInputActive();
         HandleSpecialMoveInput();
     }
@@ -88,6 +96,7 @@ public class PlayerSpecialMove : MonoBehaviour
         if (move == null || playerRage.currentRage < move.rageCost) return;
         playerState.isUsingSkill = true;
         playerState.isDefending = false;
+        playerState.isUpInputPress = false;
         playerState.isAttacking =false;
         anim.Play(move.animationName);
         playerRage.CostRage(move.rageCost);

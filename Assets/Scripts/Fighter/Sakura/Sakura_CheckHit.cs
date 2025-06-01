@@ -91,7 +91,7 @@ public class Sakura_CheckHit : CheckHit
 
     private void SIattack()
     {
-        StartCoroutine(SIattackEnu(12, 0.2f, this.transform.up));
+        StartCoroutine(SIattackEnu(12, 0.2f, this.transform.up * 0.1f));
     }
 
     private IEnumerator SIattackEnu(int count, float delay, Vector2 direction)

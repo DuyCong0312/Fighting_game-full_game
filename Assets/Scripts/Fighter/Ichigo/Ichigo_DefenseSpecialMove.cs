@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ichigo_DefenseSpecialMove : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private PlayerState playerState;
 
     [Header("S+J Skill")]
     [SerializeField] private GameObject sjSkillPrefab;
@@ -21,6 +22,7 @@ public class Ichigo_DefenseSpecialMove : MonoBehaviour
     private void Start()
     {
         rb = GetComponentInParent<Rigidbody2D>();
+        playerState = GetComponentInParent<PlayerState>();
         effectAfterImage = GetComponentInParent<SpawnEffectAfterImage>();
     }
 
@@ -49,7 +51,8 @@ public class Ichigo_DefenseSpecialMove : MonoBehaviour
         for (int i = 0; i <= 3; i++)
         {
             Vector3 spawnPos = siSkillPos.position;
-            spawnPos.x -= i * 1f;
+            float direction = playerState.isFacingRight ? 1 : -1;
+            spawnPos.x -= direction * i * 2f;
 
             GameObject obj = Instantiate(siSkillPrefab, spawnPos, siSkillPos.rotation);
 

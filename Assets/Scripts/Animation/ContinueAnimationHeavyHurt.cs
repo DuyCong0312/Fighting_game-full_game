@@ -9,7 +9,8 @@ public class ContinueAnimationHeavyHurt : StateMachineBehaviour
     private CheckGround groundCheck;
     private Vector2 jumpPos;
     [SerializeField] private string nameAnimatorClip;
-    [SerializeField] private GameObject effectTouchGround;
+    [SerializeField] private GameObject heavyHurtEffect01;
+    [SerializeField] private GameObject heavyHurtEffect02;
     [SerializeField] private float blowUpPower;
 
     private bool blowUpCalled = false;
@@ -34,7 +35,8 @@ public class ContinueAnimationHeavyHurt : StateMachineBehaviour
             Vector2 jumpPosValue = new Vector2(spriteRenderer.bounds.center.x, spriteRenderer.bounds.min.y);
             jumpPos = jumpPosValue;
             animator.Play(nameAnimatorClip);
-            Instantiate(effectTouchGround, jumpPos, Quaternion.identity);
+            Instantiate(heavyHurtEffect02, jumpPos, Quaternion.identity);
+            Instantiate(heavyHurtEffect01, jumpPos, Quaternion.identity);
             rb.velocity = Vector2.zero;
         }
     }

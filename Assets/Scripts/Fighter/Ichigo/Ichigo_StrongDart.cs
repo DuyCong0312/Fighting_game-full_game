@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class Ichigo_StrongDart : Projectile
 {
+    protected override void Start()
+    {
+        base.Start();
+        StartCoroutine(skill());
+    }
+
+    private IEnumerator skill()
+    {
+        this.transform.localScale += new Vector3(1.5f, 0, 0);
+        for (int i = 0; i < 18; i++)
+        {
+            yield return new WaitForSeconds(0.075f);
+            this.transform.rotation *= Quaternion.Euler(5f, 0, 0);
+            speed -= 1f;
+        }
+    }
     protected override void ProjectileMove()
     {
         rb.velocity = transform.right * speed;
@@ -11,7 +27,6 @@ public class Ichigo_StrongDart : Projectile
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"Trigger by: {gameObject.name}, hit: {collision.name} at {Time.time}");
         if (collision.gameObject == owner) return;
 
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
@@ -19,7 +34,6 @@ public class Ichigo_StrongDart : Projectile
             PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
             Vector2 knockDir = new Vector2(transform.right.x, transform.up.y).normalized;
             playerHealth.TakeDamage(attackDamage, knockDir, KnockBack.KnockbackType.BlownUp);
-            Debug.Log($"Apply Knockback: {knockDir}");
             WhenHit();
         }
 
@@ -29,6 +43,14 @@ public class Ichigo_StrongDart : Projectile
     protected override void WhenHit()
     {
         Instantiate(effect, this.transform.position, transform.rotation);
+    }
+
+    protected override void WayToDestroy()
+    {
+        if(transform.rotation.eulerAngles.x >= 90f)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }

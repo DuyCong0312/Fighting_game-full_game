@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 277981597814703706}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8, y: 0.25, z: 0}
+  m_LocalPosition: {x: 1.5, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 1424642711499913547}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2, y: 0.4, z: 0}
+  m_LocalPosition: {x: 0.9, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -338,10 +338,10 @@ MonoBehaviour:
   meleeAttack02Pos: {fileID: 2675351959799065197}
   meleeAttack03Pos: {fileID: 6763763761788131866}
   jumpAttackPos: {fileID: 6889452928068815953}
-  attackBoxSize: {x: 1, y: 2}
+  attackBoxSize: {x: 1.5, y: 2}
   attackRange: 0.47
   WJpos: {fileID: 3037101818550832627}
-  attackWJSize: {x: 3.11, y: 0.45}
+  attackWJSize: {x: 3.25, y: 0.9}
   SUpos: {fileID: 5338498549166436673}
   attackSUSize: {x: 3.75, y: 3}
 --- !u!114 &-3773639330718817434

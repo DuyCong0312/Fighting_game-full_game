@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
     protected virtual void Update()
     {
         timeExist -= Time.deltaTime;
-        DestroyByTime();
+        WayToDestroy(); 
     }
 
     protected virtual void ProjectileMove()
@@ -53,7 +53,7 @@ public class Projectile : MonoBehaviour
         Instantiate(effect, this.transform.position, transform.rotation * Quaternion.Euler(0, 0, 45));
     }
 
-    protected virtual void DestroyByTime()
+    protected virtual void WayToDestroy()
     {
         if (timeExist <= 0)
         {

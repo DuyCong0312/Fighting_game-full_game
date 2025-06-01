@@ -1603,7 +1603,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameAnimatorClip: heavy_hurt2
-  effectTouchGround: {fileID: 785880488533058647, guid: 327fc7ab7d710a249a884899afb3a400, type: 3}
+  heavyHurtEffect01: {fileID: 5300510260104303511, guid: cc463791c2b25ab4fb736c13856f9442, type: 3}
+  heavyHurtEffect02: {fileID: 1695097797744007918, guid: e2d367b2b45f028459897b692ae0b17a, type: 3}
   blowUpPower: 5
 --- !u!1102 &8296171026698482795
 AnimatorState:

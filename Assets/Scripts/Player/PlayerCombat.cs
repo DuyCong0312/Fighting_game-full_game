@@ -54,6 +54,11 @@ public class PlayerCombat : MonoBehaviour
 
     private void Attack()
     {
+        if (playerState.isDefending
+            || playerState.isUpInputPress)
+        { 
+            return; 
+        }
         if (Input.GetKeyDown(playerInput.attack) && canAttack)
         {
             canAttack = false;
