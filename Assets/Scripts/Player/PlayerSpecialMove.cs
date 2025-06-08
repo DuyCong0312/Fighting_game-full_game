@@ -75,6 +75,7 @@ public class PlayerSpecialMove : MonoBehaviour
             PerformSpecialMove(upAttack, upRangedAttack, upSpecialAttack);
         }
     }
+
     private void PerformSpecialMove(SpecialMoveSO attack, SpecialMoveSO rangedAttack, SpecialMoveSO specialAttack)
     {
         if (Input.GetKeyDown(playerInput.attack))
@@ -93,7 +94,22 @@ public class PlayerSpecialMove : MonoBehaviour
 
     private void PlaySpecialMove(SpecialMoveSO move)
     {
+        bool hasAnimation = false;
+        foreach (AnimationClip clip in anim.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name == move.animationName)
+            {
+                hasAnimation = true;
+                break;
+            }
+        }
+        if (!hasAnimation)
+        {
+            playerState.isUsingSkill = false;
+            return;
+        }
         if (move == null || playerRage.currentRage < move.rageCost) return;
+
         playerState.isUsingSkill = true;
         playerState.isDefending = false;
         playerState.isUpInputPress = false;

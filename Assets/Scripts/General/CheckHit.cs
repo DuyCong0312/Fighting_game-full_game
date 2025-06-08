@@ -8,6 +8,7 @@ public class CheckHit : MonoBehaviour
     [SerializeField] protected LayerMask whatIsEnemies;
     protected SpriteRenderer spriteRenderer;
     protected PlayerRage playerRage;
+    protected PlayerState playerState;
     protected Collider2D coll;
     protected List<Collider2D> hitEnemiesThisFrame = new List<Collider2D>();
     public bool hit = false;
@@ -16,6 +17,7 @@ public class CheckHit : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();   
         playerRage = GetComponentInParent<PlayerRage>();
+        playerState = GetComponentInParent<PlayerState>();
         coll = GetComponent<Collider2D>();
     }
 

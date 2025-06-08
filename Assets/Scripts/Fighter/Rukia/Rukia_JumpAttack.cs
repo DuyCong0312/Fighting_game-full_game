@@ -37,6 +37,5 @@ public class Rukia_JumpAttack : MonoBehaviour
         movement.y = Mathf.Sin(angle);
 
         rb.velocity = movement.normalized * speed;
-        Debug.Log(rb.velocity);
     }
 }

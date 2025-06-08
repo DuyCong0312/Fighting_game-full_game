@@ -890,8 +890,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410a50baa92fa274e99cb712fbdfb56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAttack: {fileID: 0}
-  thirdAttack: {fileID: 0}
+  firstAttack: {fileID: 8300000, guid: c0892df12353d384f89cb85de0bd74ab, type: 3}
+  thirdAttack: {fileID: 8300000, guid: beb20047a3c927b4382f4a23b987d69c, type: 3}
+  jumpAttack: {fileID: 8300000, guid: 23923079b88abf445b5951f195939776, type: 3}
+  rangedAttack: {fileID: 8300000, guid: 753b12456134a854b82b04f581b5f5ec, type: 3}
+  spawnRangedAttack: {fileID: 8300000, guid: aeed08762e2214a45be55211ee5f7a39, type: 3}
+  specialAttack01: {fileID: 8300000, guid: 796c56581a68bb2498fc75084ba39782, type: 3}
+  specialAttack02: {fileID: 8300000, guid: 6b951e2eca8b0f64a8c6254a4ac218aa, type: 3}
+  wjSkill: {fileID: 8300000, guid: d211c5a6ecf466b41b40b3728813835a, type: 3}
+  sjSkill: {fileID: 8300000, guid: d211c5a6ecf466b41b40b3728813835a, type: 3}
+  suSkill: {fileID: 8300000, guid: da7991bbfbf29e7468caf85066946bf7, type: 3}
+  suSkillEffect: {fileID: 8300000, guid: 914ae993c0caee24bbea0a25a74d1203, type: 3}
+  siSkill: {fileID: 8300000, guid: fdcb4e50afe9bed4b84ad11d32ddd056, type: 3}
+  winSound: {fileID: 8300000, guid: 21e958c99ae6e354e9475e535dc09587, type: 3}
 --- !u!114 &7239320672130525853
 MonoBehaviour:
   m_ObjectHideFlags: 0

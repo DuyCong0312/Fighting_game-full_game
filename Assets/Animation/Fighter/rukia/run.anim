@@ -34,8 +34,6 @@ AnimationClip:
       value: {fileID: 46695401, guid: 43846cf82e4a0a44d8d5106afd51e583, type: 3}
     - time: 0.55
       value: {fileID: -2093760038, guid: 8078cf91c820b034493e0e5dc0fde76d, type: 3}
-    - time: 0.65
-      value: {fileID: -2093760038, guid: 8078cf91c820b034493e0e5dc0fde76d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -65,13 +63,12 @@ AnimationClip:
     - {fileID: -1217625630, guid: 263f49fce78e8054d9c9c23e94251b7f, type: 3}
     - {fileID: 46695401, guid: 43846cf82e4a0a44d8d5106afd51e583, type: 3}
     - {fileID: -2093760038, guid: 8078cf91c820b034493e0e5dc0fde76d, type: 3}
-    - {fileID: -2093760038, guid: 8078cf91c820b034493e0e5dc0fde76d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6666666
+    m_StopTime: 0.56666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -90,4 +87,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.033333335
+    functionName: Footstep
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.3
+    functionName: Footstep3
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

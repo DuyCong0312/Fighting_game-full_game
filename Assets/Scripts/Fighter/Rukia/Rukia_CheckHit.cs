@@ -59,32 +59,58 @@ public class Rukia_CheckHit : CheckHit
 
     private void JumpAttack()
     {
-        StraightAttack(jumpAttackPos, attackBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        StartCoroutine(CheckDamageDuringJumpAttack());
+    }
+
+    private IEnumerator CheckDamageDuringJumpAttack()
+    {
+        while (playerState.isAttacking)
+        {
+            StraightAttack(jumpAttackPos, attackBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+            if (hit)
+            {
+                break;
+            }
+            yield return null;
+        }
     }
 
     private void UskillAttack()
     {
-        StraightAttack(UskillPos, UskillBoxSize, 0f, 20f, new Vector2(transform.right.x, 1), KnockBack.KnockbackType.Arc);
+        StraightAttack(UskillPos, UskillBoxSize, 0f, 20f, transform.right, KnockBack.KnockbackType.Linear);
     }
 
     private void UKskillAttack()
     {
-        StraightAttack(UKskillPos, UKskillBoxSize, -45f, 10f, new Vector2(transform.right.x, 1), KnockBack.KnockbackType.Arc);
+        StraightAttack(UKskillPos, UKskillBoxSize, -45f, 10f, transform.right, KnockBack.KnockbackType.Linear);
     }
 
     private void IskillAttack()
     {
-        StraightAttack(IskillPos, IskillBoxSize, 0f, 20f, new Vector2(transform.right.x, 1), KnockBack.KnockbackType.Arc);
+        StraightAttack(IskillPos, IskillBoxSize, 0f, 20f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.BlownUp);
     }
 
     private void IKskillAttack()
     {
-        StraightAttack(IKskillPos, IskillBoxSize, -45f, 20f, new Vector2(transform.right.x, 1), KnockBack.KnockbackType.Arc);
+        StraightAttack(IKskillPos, IskillBoxSize, -45f, 20f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.BlownUp);
     }
 
     private void WJattack()
     {
-        StraightAttack(WJpos, WJBoxSize, 0f, 2f, transform.right, KnockBack.KnockbackType.Linear);
+        StartCoroutine(CheckDamageDuringWJAttack());
+    }
+
+    private IEnumerator CheckDamageDuringWJAttack()
+    {
+        while (playerState.isUsingSkill)
+        {
+            StraightAttack(WJpos, WJBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Arc);
+            if (hit)
+            {
+                break;
+            }
+            yield return null; 
+        }
     }
 
     private void WUattack()
@@ -122,7 +148,16 @@ public class Rukia_CheckHit : CheckHit
 
     private void SIattack()
     {
-        StraightAttack(SIpos, SIBoxSize, 0f, 2f, Vector2.zero, KnockBack.KnockbackType.Linear);
+        StartCoroutine(SIattackEnu(10, 0.25f, Vector2.zero));
+    }
+
+    private IEnumerator SIattackEnu(int count, float delay, Vector2 direction)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            StraightAttack(SIpos, SIBoxSize, 0f, 1f, direction, KnockBack.KnockbackType.Linear);
+            yield return new WaitForSeconds(delay);
+        }
     }
 
     private void OnDrawGizmosSelected()

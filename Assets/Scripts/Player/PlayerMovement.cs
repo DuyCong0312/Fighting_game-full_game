@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (playerState.isAttacking)
         {
-            rb.velocity = new Vector2(0f, rb.velocity.y);
+            //    rb.velocity = new Vector2(0f, rb.velocity.y);
             return;
         }
 
