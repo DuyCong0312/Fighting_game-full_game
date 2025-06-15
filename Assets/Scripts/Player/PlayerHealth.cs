@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
     private KnockBack knockBack;
     private PlayerState playerState;
     private PlayerRage playerRage;
+    private PlayerStateMachine playerStateMachine;
 
     void Start()
     {
@@ -22,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
         knockBack = GetComponent<KnockBack>();
         playerState = GetComponent<PlayerState>();
         playerRage = GetComponent<PlayerRage>();
+        playerStateMachine = GetComponent<PlayerStateMachine>();
+
         maxHealth = gameSetRuntime.playerHealth;
         currentHealth = maxHealth;
         healthBar.UpdateHealthBar(currentHealth, maxHealth);
@@ -65,7 +68,7 @@ public class PlayerHealth : MonoBehaviour
                 }
                 else
                 {
-                    anim.SetTrigger(CONSTANT.getHurt);
+                    playerStateMachine.ChangeState(new HurtState(playerStateMachine));
                 }
 
                 knockBack.KnockBackAction(direction, type);
