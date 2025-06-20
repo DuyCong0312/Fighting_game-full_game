@@ -12,6 +12,7 @@ public class PlayerStateMachine : MonoBehaviour
     [Header("Components")]
     public Animator animator;
     public Rigidbody2D rb;
+    public SpriteRenderer spriteRenderer;
     public PlayerState playerState;
     public PlayerRage playerRage;
     public CheckGround groundCheck;
@@ -23,6 +24,8 @@ public class PlayerStateMachine : MonoBehaviour
     public float dashPower = 10f;
     public float dashTime = 0.1f;
     public float dashCooldown = 1f;
+    public Vector2 dashPos;
+    public Vector2 jumpPos;
     public int defaultLayer;
     public int dashLayer;
 
@@ -45,6 +48,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         playerState = GetComponent<PlayerState>();
         playerRage = GetComponent<PlayerRage>();
         groundCheck = GetComponent<CheckGround>();
@@ -58,6 +62,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Update()
     {
+        CalJumpDash();
         if (currentState != null)
             currentState.UpdateState();
 
@@ -86,6 +91,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         dashCooldownTimer = dashCooldown;
     }
+
     public IEnumerator MoveWhenAttack()
     {
         float direction = playerState.isFacingRight ? 1 : -1;
@@ -97,5 +103,12 @@ public class PlayerStateMachine : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
+    }
+
+    private void CalJumpDash()
+    {
+        Vector2 jumpPosValue = new Vector2(spriteRenderer.bounds.center.x, spriteRenderer.bounds.min.y);
+        dashPos = jumpPosValue;
+        jumpPos = jumpPosValue;
     }
 }

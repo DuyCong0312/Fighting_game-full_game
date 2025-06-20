@@ -25,10 +25,23 @@ public class DashState : IPlayerState
         float direction = player.transform.eulerAngles.y == 0 ? 1 : -1;
         player.rb.velocity = new Vector2(direction * player.dashPower, 0);
 
+        PlaySoundAndEffect();
         player.effectAfterImage.StartAfterImageEffect();
         player.StartDashCooldown();
     }
 
+    private void PlaySoundAndEffect()
+    {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.dash);
+        if (player.groundCheck.isGround)
+        {
+            EffectManager.Instance.SpawnEffect(EffectManager.Instance.groundDash, player.dashPos, Quaternion.Euler(0, 180, 0) * player.transform.rotation);
+        }
+        else
+        {
+            EffectManager.Instance.SpawnEffect(EffectManager.Instance.airDash, player.dashPos, Quaternion.Euler(0, 180, 0) * player.transform.rotation);
+        }
+    }
     public void UpdateState()
     {
         dashTimer -= Time.deltaTime;
@@ -73,5 +86,6 @@ public class DashState : IPlayerState
 
         SetLayerRecursively(player.gameObject, player.defaultLayer);
     }
+
 }
 

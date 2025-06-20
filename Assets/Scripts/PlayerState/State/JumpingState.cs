@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 public class JumpingState : IPlayerState
 {
     private PlayerStateMachine player;
@@ -14,6 +15,8 @@ public class JumpingState : IPlayerState
     {
         player.rb.velocity = new Vector2(player.rb.velocity.x, player.jumpForce);
         player.animator.SetInteger(CONSTANT.CurrentState, 2);
+        EffectManager.Instance.SpawnEffect(EffectManager.Instance.jump, player.jumpPos, player.transform.rotation);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.jump);
     }
 
     public void UpdateState()

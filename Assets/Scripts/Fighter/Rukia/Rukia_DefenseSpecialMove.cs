@@ -9,7 +9,7 @@ public class Rukia_DefenseSpecialMove : MonoBehaviour
     [SerializeField] private Transform SJskillPos;
     private KnockBack knockBack;
     private PlayerState playerState;
-    //[Header("S+U")] Ben CheckHit
+
     [Header("S+I")]
     [SerializeField] private Transform SIskillPos;
     [SerializeField] private GameObject SIskill1;

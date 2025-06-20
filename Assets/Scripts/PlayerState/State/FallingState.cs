@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 public class FallingState : IPlayerState
 {
     private PlayerStateMachine player;
@@ -44,6 +45,8 @@ public class FallingState : IPlayerState
 
         if (player.groundCheck.isGround)
         {
+            EffectManager.Instance.SpawnEffect(EffectManager.Instance.touchGround, player.jumpPos, player.transform.rotation);
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.touchGround);
             player.ChangeState(new IdleState(player));
             return;
         }
@@ -83,4 +86,5 @@ public class FallingState : IPlayerState
     public void ExitState()
     {
     }
+
 }
