@@ -5,7 +5,6 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class FallingState : IPlayerState
 {
     private PlayerStateMachine player;
-    private bool canDoubleJump;
 
     public FallingState(PlayerStateMachine player)
     {
@@ -14,7 +13,6 @@ public class FallingState : IPlayerState
 
     public void EnterState()
     {
-        canDoubleJump = true;
         player.animator.SetInteger(CONSTANT.CurrentState, 3);
     }
 
@@ -51,10 +49,10 @@ public class FallingState : IPlayerState
             return;
         }
 
-        if (Input.GetKeyDown(player.playerInput.jump) && canDoubleJump)
+        if (Input.GetKeyDown(player.playerInput.jump) && player.canDoubleJump)
         {
             player.ChangeState(new JumpingState(player));
-            canDoubleJump = false;
+            player.canDoubleJump = false;
             return;
         }
 

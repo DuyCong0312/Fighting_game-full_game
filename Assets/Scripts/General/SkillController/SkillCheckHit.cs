@@ -8,16 +8,8 @@ public class SkillCheckHit : MonoBehaviour
     [SerializeField] private float attackDamage = 5f;
     [SerializeField] private Vector2 force;
     [SerializeField] private GameObject effect;
-    private GameObject owner;
-
-    private void DisableTrigger()
-    {
-        Collider2D col = GetComponent<Collider2D>();
-        if (col != null)
-        {
-            col.enabled = false;
-        }
-    }
+    private GameObject owner; 
+    private bool hasHit = false;
 
     private void IgnoreCollision()
     {
@@ -38,10 +30,12 @@ public class SkillCheckHit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (hasHit) return;
         if (collision.gameObject == owner) return;
 
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
         {
+            hasHit = true;
             PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
             playerHealth.TakeDamage(attackDamage, new Vector2 (this.transform.right.x * force.x, force.y),KnockBack.KnockbackType.Arc);
             Vector2 hitPoint = collision.ClosestPoint(this.transform.position);

@@ -27,6 +27,7 @@ public class IdleState : IPlayerState
         if (Input.GetKeyDown(player.playerInput.jump) && player.groundCheck.isGround)
         {
             player.ChangeState(new JumpingState(player));
+            player.canDoubleJump = true;
             return;
         }
 

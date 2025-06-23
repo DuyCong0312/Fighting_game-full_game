@@ -21,6 +21,7 @@ public class PlayerStateMachine : MonoBehaviour
     [Header("Movement Settings")]
     public float speed = 4f;
     public float jumpForce = 6f;
+    public bool canDoubleJump = false;
     public float dashPower = 10f;
     public float dashTime = 0.1f;
     public float dashCooldown = 1f;

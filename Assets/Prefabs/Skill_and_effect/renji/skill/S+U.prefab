@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 5
-  force: {x: 2, y: 1}
+  force: {x: 1, y: 1}
   effect: {fileID: 7481789453885571310, guid: 81d7dbee50a86ca40b80130ede981751, type: 3}
 --- !u!61 &312838074172037001
 BoxCollider2D:

@@ -49,8 +49,16 @@ public class SpecialMoveState : IPlayerState
     {
         if (!player.playerState.isUsingSkill)
         {
-            player.ChangeState(new IdleState(player));
-            return;
+            if (player.groundCheck.isGround)
+            {
+                player.ChangeState(new IdleState(player));
+                return;
+            }
+            else
+            {
+                player.ChangeState(new FallingState(player));
+                return;
+            }
         }
     }
 

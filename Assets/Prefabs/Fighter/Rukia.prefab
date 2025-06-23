@@ -609,15 +609,15 @@ GameObject:
   - component: {fileID: 9081691260347965530}
   - component: {fileID: 7047404993002819566}
   - component: {fileID: 2827251705015829375}
-  - component: {fileID: 2185281825286096238}
-  - component: {fileID: 6429201287171652881}
-  - component: {fileID: 8997448411051641823}
   - component: {fileID: 6408089549021221959}
   - component: {fileID: 6655061022882677466}
   - component: {fileID: 3310503798612050855}
-  - component: {fileID: 9114755535900459096}
+  - component: {fileID: 8997448411051641823}
   - component: {fileID: 5918145340714343349}
+  - component: {fileID: 2185281825286096238}
+  - component: {fileID: 6429201287171652881}
   - component: {fileID: 7239320672130525853}
+  - component: {fileID: 9114755535900459096}
   m_Layer: 7
   m_Name: Rukia
   m_TagString: Player
@@ -756,7 +756,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.05, y: 0.01}
   m_Size: {x: 0.3, y: 1.3}
   m_Direction: 0
---- !u!114 &2185281825286096238
+--- !u!114 &6408089549021221959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -765,13 +765,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7663308462470134882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5aa740341df9d9479be37fae135e9f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 3df4f36c236e66e4da75cbe33418f28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  effectTransform: {fileID: 1210826158095147131}
-  effect: {fileID: 2478050218485679228, guid: f89a551c66e8d034c88a4c34c8c00957, type: 3}
---- !u!114 &6429201287171652881
+--- !u!114 &6655061022882677466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -780,13 +777,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 7663308462470134882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb574c0424849f8479204ed3bf19ba4f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e46177193706d44cabad097032b7bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iSkillPrefab: {fileID: 7433162658456450361, guid: de2b0765d621beb4297d5d2bf6176fac, type: 3}
-  iSkillPos: {fileID: 6618824576888839258}
-  iKSkillPrefab: {fileID: 7433162658456450361, guid: de2b0765d621beb4297d5d2bf6176fac, type: 3}
-  iKSkillPos: {fileID: 8947092291911799194}
+  hitPos: {fileID: 0}
+--- !u!114 &3310503798612050855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663308462470134882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18dbd5add663a34fa47c81e1fcc4abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8997448411051641823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,59 +831,6 @@ MonoBehaviour:
   SUrange: 0.8
   SIpos: {fileID: 3555565862365215498}
   SIBoxSize: {x: 6.75, y: 1.5}
---- !u!114 &6408089549021221959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7663308462470134882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df4f36c236e66e4da75cbe33418f28b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6655061022882677466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7663308462470134882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e46177193706d44cabad097032b7bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitPos: {fileID: 0}
---- !u!114 &3310503798612050855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7663308462470134882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a18dbd5add663a34fa47c81e1fcc4abf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &9114755535900459096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7663308462470134882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e398ad3a891020441aa762eacf87b2e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SJskillPos: {fileID: 4345100159237169498}
-  SIskillPos: {fileID: 5178260666788397300}
-  SIskill1: {fileID: 5636823002562719886, guid: 4db2aae44fd46c444831406d43cc55ff, type: 3}
-  SIskill2: {fileID: 4171673764713468943, guid: 85a0c6750974ca94a8e7d9fbbaf66e19, type: 3}
 --- !u!114 &5918145340714343349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,6 +856,37 @@ MonoBehaviour:
   suSkillEffect: {fileID: 8300000, guid: 914ae993c0caee24bbea0a25a74d1203, type: 3}
   siSkill: {fileID: 8300000, guid: fdcb4e50afe9bed4b84ad11d32ddd056, type: 3}
   winSound: {fileID: 8300000, guid: 21e958c99ae6e354e9475e535dc09587, type: 3}
+--- !u!114 &2185281825286096238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663308462470134882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5aa740341df9d9479be37fae135e9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  effectTransform: {fileID: 1210826158095147131}
+  effect: {fileID: 2478050218485679228, guid: f89a551c66e8d034c88a4c34c8c00957, type: 3}
+--- !u!114 &6429201287171652881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663308462470134882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb574c0424849f8479204ed3bf19ba4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iSkillPrefab: {fileID: 7433162658456450361, guid: de2b0765d621beb4297d5d2bf6176fac, type: 3}
+  iSkillPos: {fileID: 6618824576888839258}
+  iKSkillPrefab: {fileID: 7433162658456450361, guid: de2b0765d621beb4297d5d2bf6176fac, type: 3}
+  iKSkillPos: {fileID: 8947092291911799194}
 --- !u!114 &7239320672130525853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,6 +901,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WJskillSpeed: 10
   WJskillTime: 0.5
+--- !u!114 &9114755535900459096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663308462470134882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e398ad3a891020441aa762eacf87b2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SJskillPos: {fileID: 4345100159237169498}
+  SIskillPos: {fileID: 5178260666788397300}
+  SIskill1: {fileID: 5636823002562719886, guid: 4db2aae44fd46c444831406d43cc55ff, type: 3}
+  SIskill2: {fileID: 4171673764713468943, guid: 85a0c6750974ca94a8e7d9fbbaf66e19, type: 3}
 --- !u!1 &7840004162054590688
 GameObject:
   m_ObjectHideFlags: 0

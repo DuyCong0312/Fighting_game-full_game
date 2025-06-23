@@ -54,7 +54,7 @@ public class KnockBack : MonoBehaviour
         Vector2 hitForce;
         hitForce.x = hitDirection.x * knockBackArcForceX;
         hitForce.y = hitDirection.y * knockBackArcForceY;
-        rb.AddForce(hitForce, ForceMode2D.Impulse);
+        rb.velocity = hitForce;
     }
 
     private void BlownUp(Vector2 hitDirection)

@@ -37,8 +37,8 @@ public class CheckHit : MonoBehaviour
             this.spriteRenderer.sortingOrder = 1;
             this.playerRage.GetRage(5f);
             enemy.GetComponentInParent<PlayerHealth>().TakeDamage(AttackDamage, KnockBackDirection, Type);
-            enemy.GetComponentInChildren<HitEffect>().SpawnEffect();
-            enemy.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
+            enemy.GetComponent<HitEffect>().SpawnEffect();
+            enemy.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
     }
 
@@ -58,8 +58,8 @@ public class CheckHit : MonoBehaviour
             this.spriteRenderer.sortingOrder = 1;
             this.playerRage.GetRage(5f);
             enemy.GetComponentInParent<PlayerHealth>().TakeDamage(AttackDamage, KnockBackDirection, Type);
-            enemy.GetComponentInChildren<HitEffect>().SpawnEffect();
-            enemy.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
+            enemy.GetComponent<HitEffect>().SpawnEffect();
+            enemy.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
     }
 }
