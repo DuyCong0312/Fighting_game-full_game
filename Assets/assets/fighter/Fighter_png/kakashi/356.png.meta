@@ -108,7 +108,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 356_0
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 30
+        width: 288
+        height: 95
+      alignment: 9
+      pivot: {x: 0.8958333, y: 0.57894737}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9fd6c2c47b2d0144936c2bc7358f8fb
+      internalID: -2050471925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      356_0: -2050471925
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

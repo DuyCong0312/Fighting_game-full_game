@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 2_attack
+  serializedVersion: 7
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves:
+  - serializedVersion: 2
+    curve:
+    - time: 0
+      value: {fileID: 1911092709, guid: 3affbe6c75499db48a3f7ef71593284c, type: 3}
+    - time: 0.06666667
+      value: {fileID: 840721242, guid: 37a161a602b6c7e41b3b4a0800613b03, type: 3}
+    - time: 0.13333334
+      value: {fileID: 619588318, guid: be2d1580168dc4b4f945431835818d9a, type: 3}
+    - time: 0.21666667
+      value: {fileID: -963669258, guid: 1f5145dbbb1ade44183b3b5e28e7add9, type: 3}
+    - time: 0.28333333
+      value: {fileID: 288468154, guid: 166265e780213bd4bb4a8136f658ac03, type: 3}
+    - time: 0.36666667
+      value: {fileID: -2118308980, guid: 026b636d228c9b841924531c1ee3a19a, type: 3}
+    - time: 0.45
+      value: {fileID: 478428116, guid: 24cef8e97e6ec474cbe688f757584bf9, type: 3}
+    - time: 0.6666667
+      value: {fileID: 1493405105, guid: 88de0ec6f79e66c44b7a97b1e7af52b6, type: 3}
+    - time: 0.75
+      value: {fileID: 1493405105, guid: 88de0ec6f79e66c44b7a97b1e7af52b6, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+    flags: 2
+  m_SampleRate: 60
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+    pptrCurveMapping:
+    - {fileID: 1911092709, guid: 3affbe6c75499db48a3f7ef71593284c, type: 3}
+    - {fileID: 840721242, guid: 37a161a602b6c7e41b3b4a0800613b03, type: 3}
+    - {fileID: 619588318, guid: be2d1580168dc4b4f945431835818d9a, type: 3}
+    - {fileID: -963669258, guid: 1f5145dbbb1ade44183b3b5e28e7add9, type: 3}
+    - {fileID: 288468154, guid: 166265e780213bd4bb4a8136f658ac03, type: 3}
+    - {fileID: -2118308980, guid: 026b636d228c9b841924531c1ee3a19a, type: 3}
+    - {fileID: 478428116, guid: 24cef8e97e6ec474cbe688f757584bf9, type: 3}
+    - {fileID: 1493405105, guid: 88de0ec6f79e66c44b7a97b1e7af52b6, type: 3}
+    - {fileID: 1493405105, guid: 88de0ec6f79e66c44b7a97b1e7af52b6, type: 3}
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 0.76666665
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_Events:
+  - time: 0.13333334
+    functionName: PlaySoundFirstAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.15
+    functionName: SecondAttackP1
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.28333333
+    functionName: PlaySoundFirstAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.3
+    functionName: SecondAttackP2
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.46666667
+    functionName: StartCombo
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.68333334
+    functionName: StopCombo
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
