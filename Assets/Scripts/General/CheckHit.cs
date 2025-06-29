@@ -12,6 +12,7 @@ public class CheckHit : MonoBehaviour
     protected Collider2D coll;
     protected List<Collider2D> hitEnemiesThisFrame = new List<Collider2D>();
     public bool hit = false;
+    public Vector2 hitPos;
 
     protected virtual void Start()
     {
@@ -24,6 +25,7 @@ public class CheckHit : MonoBehaviour
     protected void StraightAttack(Transform AttackPos, Vector2 AttackSize, float Angle, float AttackDamage, Vector2 KnockBackDirection, KnockBack.KnockbackType Type)
     {
         hit = false;
+        hitPos = Vector2.zero;
         hitEnemiesThisFrame.Clear();
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(AttackPos.position, AttackSize, Angle, whatIsEnemies);
         foreach (Collider2D enemy in hitEnemies)
@@ -34,6 +36,8 @@ public class CheckHit : MonoBehaviour
             }
             hit = true;
             hitEnemiesThisFrame.Add(enemy);
+            Vector2 hitPoint = enemy.ClosestPoint(this.transform.position);
+            hitPos = hitPoint;
             this.spriteRenderer.sortingOrder = 1;
             this.playerRage.GetRage(5f);
             enemy.GetComponentInParent<PlayerHealth>().TakeDamage(AttackDamage, KnockBackDirection, Type);
@@ -45,6 +49,7 @@ public class CheckHit : MonoBehaviour
     protected void RoundAttack(Transform AttackPos, float AttackRange, float AttackDamage, Vector2 KnockBackDirection, KnockBack.KnockbackType Type)
     {
         hit = false;
+        hitPos = Vector2.zero;
         hitEnemiesThisFrame.Clear();
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, whatIsEnemies);
         foreach (Collider2D enemy in hitEnemies)
@@ -55,6 +60,8 @@ public class CheckHit : MonoBehaviour
             }
             hit = true;
             hitEnemiesThisFrame.Add(enemy);
+            Vector2 hitPoint = enemy.ClosestPoint(this.transform.position);
+            hitPos = hitPoint;
             this.spriteRenderer.sortingOrder = 1;
             this.playerRage.GetRage(5f);
             enemy.GetComponentInParent<PlayerHealth>().TakeDamage(AttackDamage, KnockBackDirection, Type);

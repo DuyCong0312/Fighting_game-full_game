@@ -74,7 +74,7 @@ public class Kakashi_DefenseSpecialMove : MonoBehaviour
     private void ActiveKakashiSUskill()
     {
         GameObject suSkill = Instantiate(suSkillPrefab, suSkillPos.position, suSkillPos.transform.rotation);
-        Projectile skillCheck = suSkill.GetComponent<Projectile>();
+        SkillCheckHitUseOverLap skillCheck = suSkill.GetComponent<SkillCheckHitUseOverLap>();
         if (skillCheck != null)
         {
             skillCheck.SetOwner(this.gameObject);
@@ -84,7 +84,7 @@ public class Kakashi_DefenseSpecialMove : MonoBehaviour
     private void ActiveKakashiSIskill()
     {
         GameObject siSkill = Instantiate(siSkillPrefab, knockBack.opponentDirection.position, Quaternion.identity);
-        Projectile skillCheck = siSkill.GetComponent<Projectile>();
+        SkillCheckHitUseOverLap skillCheck = siSkill.GetComponent<SkillCheckHitUseOverLap>();
         if (skillCheck != null)
         {
             skillCheck.SetOwner(this.gameObject);
