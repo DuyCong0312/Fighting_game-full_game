@@ -7,7 +7,7 @@ public class Rukia_JumpAttack : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerState playerState;
     private SpawnEffectAfterImage effectAfterImage;
-    private Animator anim;
+
     [SerializeField] private float speed;
     [SerializeField] private Transform effectTransform;
     [SerializeField] private GameObject effect;

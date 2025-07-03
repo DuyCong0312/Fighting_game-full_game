@@ -28,6 +28,8 @@ AnimationClip:
       value: {fileID: 2094032586, guid: 33707156f5f0ab343be2db5dcdff26ce, type: 3}
     - time: 0.41666666
       value: {fileID: 993741963, guid: 78d672ac16e5f1b4d855e23b7f33f16b, type: 3}
+    - time: 0.5
+      value: {fileID: 993741963, guid: 78d672ac16e5f1b4d855e23b7f33f16b, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -54,12 +56,13 @@ AnimationClip:
     - {fileID: -1748057331, guid: 85bcf8412b8212a40a72c59dfde2cc62, type: 3}
     - {fileID: 2094032586, guid: 33707156f5f0ab343be2db5dcdff26ce, type: 3}
     - {fileID: 993741963, guid: 78d672ac16e5f1b4d855e23b7f33f16b, type: 3}
+    - {fileID: 993741963, guid: 78d672ac16e5f1b4d855e23b7f33f16b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.43333334
+    m_StopTime: 0.51666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -78,4 +81,32 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.1
+    functionName: PlaySoundFirstAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.11666667
+    functionName: FirstAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.18333334
+    functionName: StartCombo
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.51666665
+    functionName: StopCombo
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

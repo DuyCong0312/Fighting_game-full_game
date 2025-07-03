@@ -24,25 +24,25 @@ AnimationClip:
       value: {fileID: -345173235, guid: 5b928ec42049ebc49aedcbb287c8254c, type: 3}
     - time: 0.083333336
       value: {fileID: -752098691, guid: 06803693da924ec448e6660c3d9c4210, type: 3}
-    - time: 0.18333334
+    - time: 0.16666667
       value: {fileID: -759805060, guid: 56374a659b63dd64f95fa8c97bb536a7, type: 3}
-    - time: 0.28333333
+    - time: 0.26666668
       value: {fileID: -378892007, guid: f667d2a7621be0a45aa0ba40ee6fe51f, type: 3}
-    - time: 0.38333333
+    - time: 0.36666667
       value: {fileID: -1350636804, guid: 02a3b63194b0d9049b1404a9b979e389, type: 3}
-    - time: 0.48333332
+    - time: 0.45
       value: {fileID: -1536638128, guid: ed6eefcd468769942916365b85c838ba, type: 3}
-    - time: 0.56666666
+    - time: 0.53333336
       value: {fileID: 509947544, guid: e302c7289fd47324dbabef4d9e8a2f61, type: 3}
-    - time: 0.68333334
+    - time: 0.65
       value: {fileID: -100635529, guid: 82a1c6ba7cbcd0a4e99606f3c263d9c5, type: 3}
-    - time: 0.76666665
+    - time: 0.73333335
       value: {fileID: 1855949211, guid: db63e4636df4b5841af49ee92328985f, type: 3}
-    - time: 0.8833333
+    - time: 0.8333333
       value: {fileID: 317675172, guid: 150231ebb50098145be9149c24d37aea, type: 3}
-    - time: 1.0833334
+    - time: 1.0333333
       value: {fileID: 546839625, guid: 803122dd5496a7848b627e712ad0eb88, type: 3}
-    - time: 1.25
+    - time: 1.1666666
       value: {fileID: 546839625, guid: 803122dd5496a7848b627e712ad0eb88, type: 3}
     attribute: m_Sprite
     path: 
@@ -83,7 +83,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.2666667
+    m_StopTime: 1.1833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -102,4 +102,46 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.33333334
+    functionName: WJ01attack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.56666666
+    functionName: ActiveNarutoWJskillMove
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.68333334
+    functionName: PlaySoundThirdAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.71666664
+    functionName: WJ02attack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.75
+    functionName: ActiveNarutoWJskill
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1833333
+    functionName: StopSkill
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
