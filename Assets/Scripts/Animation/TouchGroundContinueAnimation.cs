@@ -7,6 +7,7 @@ public class TouchGroundContinueAnimation : StateMachineBehaviour
     private Rigidbody2D rb;
     private Transform playerTransform;
     private CheckGround groundCheck;
+    private PlayerStateMachine player;
     private SpawnEffectAfterImage effectAfterImage;
     [SerializeField] protected string nameAnimatorClip;
 
@@ -16,6 +17,7 @@ public class TouchGroundContinueAnimation : StateMachineBehaviour
         playerTransform = animator.transform;
         groundCheck = animator.GetComponentInParent<CheckGround>();
         rb = animator .GetComponentInParent<Rigidbody2D>();
+        player = animator.GetComponentInParent<PlayerStateMachine>();
         effectAfterImage = animator.GetComponentInParent<SpawnEffectAfterImage>();
 
     }
@@ -27,6 +29,7 @@ public class TouchGroundContinueAnimation : StateMachineBehaviour
         {
             animator.Play(nameAnimatorClip);
             rb.velocity = Vector2.zero;
+            rb.gravityScale = player.originalGravity;
             effectAfterImage.StopAfterImageEffect();
             Vector3 currentRotation = playerTransform.rotation.eulerAngles;
             playerTransform.rotation = Quaternion.Euler(currentRotation.x, currentRotation.y, 0);

@@ -95,20 +95,41 @@ public class Naruto_UpSpecialMove : MonoBehaviour
         Transform opponent = knockBack.opponentDirection;
         float direction = opponent.eulerAngles.y == 0f ? 1f : -1f;
 
-        for (int i = 0; i < 3; i++)
+        Vector2 pos1 = new Vector2(opponent.position.x - 3f * direction, opponent.position.y);
+        Vector2 pos2 = new Vector2(opponent.position.x + 3f * direction, opponent.position.y);
+        Vector2 pos3 = new Vector2(opponent.position.x - 2f * direction, (opponent.position.y + 2.5f));
+        Vector2 pos4 = new Vector2(opponent.position.x + 2f * direction, (opponent.position.y + 2.5f));
+
+        Quaternion rot1 = opponent.rotation * Quaternion.Euler(0, 0, 0);
+        //Quaternion rot2 = opponent.rotation * Quaternion.Euler(0, 180, 0); 
+        Quaternion rot2 = Quaternion.Euler(0, opponent.rotation.eulerAngles.y == 0f ? 180 : 0, 0);
+
+        GameObject obj1 = Instantiate(wiSkillPrefab01, pos3, rot1);
+        SkillCheckHitUseOverLap skillCheckObj01 = obj1.GetComponent<SkillCheckHitUseOverLap>();
+        if(skillCheckObj01 != null)
         {
-            Vector2 pos1 = new Vector2(opponent.position.x - 3f * direction, opponent.position.y);
-            Vector2 pos2 = new Vector2(opponent.position.x + 3f * direction, opponent.position.y);
-            Vector2 pos3 = new Vector2(opponent.position.x - 2f * direction, (opponent.position.y + 2.5f));
-            Vector2 pos4 = new Vector2(opponent.position.x + 2f * direction, (opponent.position.y + 2.5f));
-
-            Quaternion rot1 = opponent.rotation * Quaternion.Euler(0, 0, -45);
-            Quaternion rot2 = opponent.rotation * Quaternion.Euler(0, 180, -45);
-
-            var obj1 = Instantiate(wiSkillPrefab01, pos3, rot1);
-            var obj2 = Instantiate(wiSkillPrefab02, pos4, rot2);
-            var obj3 = Instantiate(wiSkillPrefab03, pos1, rot1);
-            var obj4 = Instantiate(wiSkillPrefab04, pos2, rot2);
+            skillCheckObj01.SetOwner(this.gameObject);
         }
+        GameObject obj2 = Instantiate(wiSkillPrefab02, pos4, rot2);
+        SkillCheckHitUseOverLap skillCheckObj02 = obj2.GetComponent<SkillCheckHitUseOverLap>();
+        if (skillCheckObj02 != null)
+        {
+            skillCheckObj02.SetOwner(this.gameObject);
+        }
+        GameObject obj3 = Instantiate(wiSkillPrefab03, pos1, rot1);
+        SkillCheckHitUseOverLap skillCheckObj03 = obj3.GetComponent<SkillCheckHitUseOverLap>();
+        if (skillCheckObj03 != null)
+        {
+            skillCheckObj03.SetOwner(this.gameObject);
+        }
+        GameObject obj4 = Instantiate(wiSkillPrefab04, pos2, rot2);
+        SkillCheckHitUseOverLap skillCheckObj04 = obj4.GetComponent<SkillCheckHitUseOverLap>();
+        if (skillCheckObj04 != null)
+        {
+            skillCheckObj04.SetOwner(this.gameObject);
+        }
+        //for (int i = 0; i < 3; i++)
+        //{
+        //}
     }
 }

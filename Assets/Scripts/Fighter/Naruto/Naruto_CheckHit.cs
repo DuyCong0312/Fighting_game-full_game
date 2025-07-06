@@ -55,6 +55,7 @@ public class Naruto_CheckHit : CheckHit
     private void FirstAttack()
     {
         RoundAttack(meleeAttack01Pos, attack01Range, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
     }
 
     private void SecondAttack()

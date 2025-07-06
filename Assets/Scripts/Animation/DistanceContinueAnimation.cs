@@ -7,9 +7,14 @@ public class DistanceContinueAnimation : StateMachineBehaviour
     private Rigidbody2D rb;
     private Transform playerTransform;
     private KnockBack knockBack;
-    [SerializeField] protected string nameAnimatorClip;
+    private PlayerStateMachine player;
+    private PlayerState playerState;
+    private SpawnEffectAfterImage effectAfterImage;
+    [SerializeField] private string nameAnimatorClip;
+    [SerializeField] private string idleClip;
     [SerializeField] private float distanceToOpponent = 2f;
     [SerializeField] private float distanceFromStart = 5f;
+    [SerializeField] private bool acceptChange = false;
     private Vector3 initialPosition;
     private Transform opponentTransform;
 
@@ -19,6 +24,9 @@ public class DistanceContinueAnimation : StateMachineBehaviour
         playerTransform = animator.transform.parent;
         knockBack = animator.GetComponentInParent<KnockBack>();
         rb = animator.GetComponentInParent<Rigidbody2D>();
+        player = animator.GetComponentInParent<PlayerStateMachine>();
+        playerState = animator.GetComponentInParent<PlayerState>();
+        effectAfterImage = animator.GetComponentInParent<SpawnEffectAfterImage>();
         initialPosition = playerTransform.position;
         opponentTransform = knockBack.opponentDirection;
     }
@@ -31,8 +39,26 @@ public class DistanceContinueAnimation : StateMachineBehaviour
 
         if (distanceToOpponentValue <= distanceToOpponent || distanceFromStartValue >= distanceFromStart)
         {
-            animator.Play(nameAnimatorClip);
             rb.velocity = Vector2.zero;
+        }
+
+        if (distanceToOpponentValue <= distanceToOpponent)
+        {
+            animator.Play(nameAnimatorClip);
+        }
+        else if (distanceFromStartValue >= distanceFromStart)
+        {
+            if (acceptChange)
+            {
+                animator.Play(nameAnimatorClip);
+            }
+            else
+            {
+                playerState.isUsingSkill = false;
+                rb.gravityScale = player.originalGravity;
+                effectAfterImage.StopAfterImageEffect();
+                animator.Play(idleClip);
+            }
         }
     }
 

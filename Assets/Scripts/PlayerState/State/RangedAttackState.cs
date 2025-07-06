@@ -26,7 +26,6 @@ public class RangedAttackState : IPlayerState
         }
         else
         {
-
             bool hasAnimation = false;
             foreach (AnimationClip clip in player.animator.runtimeAnimatorController.animationClips)
             {
@@ -38,6 +37,7 @@ public class RangedAttackState : IPlayerState
             }
             if (!hasAnimation)
             {
+                player.rb.gravityScale = player.originalGravity;
                 player.playerState.isUsingSkill = false;
                 return;
             }
@@ -57,6 +57,7 @@ public class RangedAttackState : IPlayerState
             }
             else
             {
+                player.rb.gravityScale = player.originalGravity;
                 player.ChangeState(new FallingState(player));
                 return;
             }

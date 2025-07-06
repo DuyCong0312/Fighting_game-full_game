@@ -11,6 +11,8 @@ public class EffectManager : MonoBehaviour
     public GameObject airDash;
     public GameObject touchGround;
     public GameObject hit;
+    public GameObject slashHit01;
+    public GameObject slashHit02;
 
     void Awake()
     {

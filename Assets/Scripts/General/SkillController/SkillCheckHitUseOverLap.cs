@@ -45,7 +45,6 @@ public class SkillCheckHitUseOverLap : MonoBehaviour
             ownerSpriteRenderer.sortingOrder = 1;
             ownerRage.GetRage(5f);
             enemy.GetComponentInParent<PlayerHealth>().TakeDamage(AttackDamage, KnockBackDirection, Type);
-            enemy.GetComponent<HitEffect>().SpawnEffect();
             enemy.GetComponent<SpriteRenderer>().sortingOrder = 0;
         }
     }
@@ -66,8 +65,18 @@ public class SkillCheckHitUseOverLap : MonoBehaviour
             ownerSpriteRenderer.sortingOrder = 1;
             ownerRage.GetRage(5f);
             enemy.GetComponentInParent<PlayerHealth>().TakeDamage(AttackDamage, KnockBackDirection, Type);
-            enemy.GetComponent<HitEffect>().SpawnEffect();
             enemy.GetComponent<SpriteRenderer>().sortingOrder = 0;
+        }
+    }
+
+    protected void CallHitEffect(HitEffect.HitEffectType type)
+    {
+        if (hit)
+        {
+            foreach (Collider2D enemy in hitEnemiesThisFrame)
+            {
+                enemy.GetComponent<HitEffect>().HitEffectSpawn(type);
+            }
         }
     }
 }

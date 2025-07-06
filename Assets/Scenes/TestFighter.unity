@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Naruto
       objectReference: {fileID: 0}
+    - target: {fileID: 3800367425432652457, guid: 885c6170150332a43b0b166081e42681, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2194,6 +2198,8 @@ MonoBehaviour:
   airDash: {fileID: 1260736291596801011, guid: 6f22ea824697766488b03d8b7c5c157a, type: 3}
   touchGround: {fileID: 5188640265527777500, guid: f9d3f438138bb394490a7f6bebc4bb0f, type: 3}
   hit: {fileID: 7481789453885571310, guid: 81d7dbee50a86ca40b80130ede981751, type: 3}
+  slashHit01: {fileID: 5806466182410695733, guid: b8a61b6320ea27d4caabd4cd531ccd61, type: 3}
+  slashHit02: {fileID: 1410372540133033385, guid: efcc0b068c3e74641addad546b61bf74, type: 3}
 --- !u!4 &514624442
 Transform:
   m_ObjectHideFlags: 0
@@ -2551,7 +2557,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1114997167
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f4fb099e02ea3db4a9de20887f0374a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4086,6 +4092,7 @@ MonoBehaviour:
   jumpPos: {x: 0, y: 0}
   defaultLayer: 0
   dashLayer: 0
+  originalGravity: 0
   canAttack: 1
   attackNumber: 0
   attackMoveDuration: 0.2
@@ -4652,6 +4659,7 @@ MonoBehaviour:
   jumpPos: {x: 0, y: 0}
   defaultLayer: 0
   dashLayer: 0
+  originalGravity: 0
   canAttack: 1
   attackNumber: 0
   attackMoveDuration: 0.2

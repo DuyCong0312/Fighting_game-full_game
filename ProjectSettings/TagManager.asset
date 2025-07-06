@@ -54,12 +54,12 @@ TagManager:
   - name: Player
     uniqueID: 4097956221
     locked: 0
+  - name: Entities
+    uniqueID: 2144086199
+    locked: 0
   - name: Effect
     uniqueID: 1423637819
     locked: 0
   - name: ForeGround
     uniqueID: 3179970129
-    locked: 0
-  - name: Entities
-    uniqueID: 2144086199
     locked: 0

@@ -123,8 +123,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 2.5
   timeExist: 2
-  speed: 10
+  speed: 7
   effect: {fileID: 7481789453885571310, guid: 81d7dbee50a86ca40b80130ede981751, type: 3}
+  damageInterval: 0.2
 --- !u!50 &4095733512734094839
 Rigidbody2D:
   serializedVersion: 4
@@ -181,7 +182,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2176149326639418166}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25, y: -0.025, z: 0}
+  m_LocalPosition: {x: 0.15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4627488163567437923}
   - component: {fileID: -8708597728243701082}
   - component: {fileID: 7818944278086161144}
+  - component: {fileID: 2639883630517425146}
   m_Layer: 0
   m_Name: W+I02
   m_TagString: Untagged
@@ -165,8 +166,35 @@ MonoBehaviour:
   spawnPrefab: {fileID: 4629304325355238567, guid: a447ded0bb53d6a44a5ce5730b740617, type: 3}
   spawnPos: {fileID: 580262503641335103}
   speed: 7
-  angleDir: -135
+  angleDir: -45
   time: 0.25
   attackPos: {fileID: 179437880920399408}
-  attackSize: {x: 0.75, y: 1.25}
+  attackSize: {x: 0.75, y: 1.35}
   knockBackDir: {x: 0, y: 0}
+--- !u!50 &2639883630517425146
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7234215311033383099}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

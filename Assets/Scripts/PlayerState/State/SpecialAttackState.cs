@@ -44,6 +44,7 @@ public class SpecialAttackState : IPlayerState
             }
             if (!hasAnimation)
             {
+                player.rb.gravityScale = player.originalGravity;
                 player.playerState.isUsingSkill = false;
                 return;
             }
@@ -69,6 +70,7 @@ public class SpecialAttackState : IPlayerState
         }
         else
         {
+            player.rb.gravityScale = player.originalGravity;
             player.ChangeState(new FallingState(player));
             return;
         }

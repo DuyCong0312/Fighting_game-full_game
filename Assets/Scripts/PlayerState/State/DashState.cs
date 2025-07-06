@@ -5,7 +5,6 @@ public class DashState : IPlayerState
 {
     private PlayerStateMachine player;
     private float dashTimer;
-    private float originalGravity;
 
     public DashState(PlayerStateMachine player)
     {
@@ -19,7 +18,6 @@ public class DashState : IPlayerState
         SetLayerRecursively(player.gameObject, player.dashLayer);
         player.animator.SetBool(CONSTANT.isDashing, true);
 
-        originalGravity = player.rb.gravityScale;
         player.rb.gravityScale = 0;
 
         float direction = player.transform.eulerAngles.y == 0 ? 1 : -1;
@@ -47,7 +45,7 @@ public class DashState : IPlayerState
         dashTimer -= Time.deltaTime;
         if (dashTimer <= 0)
         {
-            player.rb.gravityScale = originalGravity;
+            player.rb.gravityScale = player.originalGravity;
             player.animator.SetBool(CONSTANT.isDashing, false);
             player.effectAfterImage.StopAfterImageEffect();
             SetLayerRecursively(player.gameObject, player.defaultLayer);
@@ -80,7 +78,7 @@ public class DashState : IPlayerState
 
     public void ExitState()
     {
-        player.rb.gravityScale = originalGravity;
+        player.rb.gravityScale = player.originalGravity;
         player.animator.SetBool(CONSTANT.isDashing, false);
         player.effectAfterImage.StopAfterImageEffect();
 

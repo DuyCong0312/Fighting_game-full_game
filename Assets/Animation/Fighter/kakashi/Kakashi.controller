@@ -38,8 +38,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameAnimatorClip: I2
+  idleClip: idle
   distanceToOpponent: 1.5
   distanceFromStart: 10
+  acceptChange: 0
 --- !u!1101 &-7954288501277183469
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1514,8 +1516,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameAnimatorClip: S+J2
+  idleClip: idle
   distanceToOpponent: 1
   distanceFromStart: 5
+  acceptChange: 0
 --- !u!1102 &6224251653321705542
 AnimatorState:
   serializedVersion: 6

@@ -20,6 +20,7 @@ public class Naruto_Iskill : MonoBehaviour
 
     private void ActiveNarutoIskill()
     {
+        rb.gravityScale = 0f;
         float direction = playerState.isFacingRight ? 1f : -1f;
         rb.velocity = new Vector2(direction * iForce, rb.velocity.y);
     }

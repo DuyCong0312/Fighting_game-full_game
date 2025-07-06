@@ -70,12 +70,16 @@ public class FallingState : IPlayerState
 
         if (Input.GetKeyDown(player.playerInput.rangedAttack) && !player.playerState.isUsingSkill)
         {
+            player.rb.gravityScale = 0f;
+            player.rb.velocity = Vector2.zero;
             player.ChangeState(new RangedAttackState(player));
             return;
         }
 
         if (Input.GetKeyDown(player.playerInput.specialAttack) && !player.playerState.isUsingSkill)
         {
+            player.rb.gravityScale = 0f;
+            player.rb.velocity = Vector2.zero;
             player.ChangeState(new SpecialAttackState(player));
             return;
         }

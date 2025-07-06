@@ -540,8 +540,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameAnimatorClip: S+U2
+  idleClip: idle
   distanceToOpponent: 2
   distanceFromStart: 5
+  acceptChange: 1
 --- !u!1101 &-2226423050577690727
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1131,7 +1133,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ichigo
+  m_Name: idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

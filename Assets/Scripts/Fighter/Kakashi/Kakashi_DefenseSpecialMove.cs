@@ -13,7 +13,6 @@ public class Kakashi_DefenseSpecialMove : MonoBehaviour
     [Header("S+J Skill")]
     [SerializeField] private float wjForceP1;
     [SerializeField] private float wjForceP2;
-    private float originalGravity;
 
     [Header("S+U Skill")]
     [SerializeField] private GameObject suSkillPrefab;
@@ -28,7 +27,6 @@ public class Kakashi_DefenseSpecialMove : MonoBehaviour
         playerState = GetComponentInParent<PlayerState>();
         player = GetComponentInParent<PlayerStateMachine>();
         effectAfterImage = GetComponentInParent<SpawnEffectAfterImage>();
-        originalGravity = rb.gravityScale;
     }
     private void ActiveKakashiSJskillP1()
     {
@@ -55,7 +53,7 @@ public class Kakashi_DefenseSpecialMove : MonoBehaviour
         }
         effectAfterImage.StopAfterImageEffect();
         this.gameObject.layer = player.defaultLayer;
-        rb.gravityScale = originalGravity;
+        rb.gravityScale = player.originalGravity;
         rb.velocity = Vector2.zero;
         if (direction == -1f)
         {

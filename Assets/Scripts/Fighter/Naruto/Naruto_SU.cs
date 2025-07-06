@@ -6,11 +6,13 @@ public class Naruto_SU : Projectile
 {
     private int hitCount = 0;
     private SpriteRenderer spriteRenderer;
-
+    [SerializeField] private float damageInterval = 0.5f;
+    private float damageTimer = 0f;
     protected override void Start()
     {
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        damageTimer = 0f;
     }
 
     protected override void Update()
@@ -19,29 +21,50 @@ public class Naruto_SU : Projectile
         WayToDestroy();
         if (hitCount >= 4)
         {
-            rb.gravityScale = 0.5f;
-            rb.velocity = Vector2.zero;
             Color color = spriteRenderer.color;
-            color.a -= Time.deltaTime * 1.5f;
+            color.a -= Time.deltaTime * 0.75f;
+            spriteRenderer.color = color;
         }
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        return;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        
         if (collision.gameObject == owner) return;
 
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
         {
-            hitCount++;
-            if (hitCount < 4)
+            damageTimer -= Time.deltaTime;
+            StartCoroutine(SpeedWhenHit(2.5f));
+            if (damageTimer <= 0f && hitCount < 4)
             {
-                PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
-                playerHealth.TakeDamage(attackDamage, this.transform.right, KnockBack.KnockbackType.Linear);
-            }
-            WhenHit();
-        }
+                hitCount++;
+                PlayerHealth playerHealth = collision.gameObject.GetComponentInParent<PlayerHealth>();
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(attackDamage, this.transform.right, KnockBack.KnockbackType.Linear);
+                }
 
-        Debug.Log(collision.name);
+                WhenHit();
+                damageTimer = damageInterval;
+            }
+        }
+    }
+
+    private IEnumerator SpeedWhenHit(float speed2)
+    {
+        while (hitCount < 4)
+        {
+            rb.velocity = this.transform.right * speed2;
+            yield return null;
+        }
+        rb.gravityScale = 0.5f;
+        rb.velocity = Vector2.zero;
     }
 
     protected override void WayToDestroy()

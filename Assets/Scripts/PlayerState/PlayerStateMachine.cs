@@ -29,6 +29,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Vector2 jumpPos;
     public int defaultLayer;
     public int dashLayer;
+    public float originalGravity;
 
     private float dashCooldownTimer = 0f;
 
@@ -57,7 +58,7 @@ public class PlayerStateMachine : MonoBehaviour
 
         defaultLayer = gameObject.layer;
         dashLayer = LayerMask.NameToLayer(CONSTANT.Dashing);
-
+        originalGravity = rb.gravityScale;
         ChangeState(new IdleState(this));
     }
 
