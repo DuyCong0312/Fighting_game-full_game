@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     private PlayerState playerState;
     private PlayerRage playerRage;
     private PlayerStateMachine playerStateMachine;
+    private ComStateMachine com;
 
     void Start()
     {
@@ -24,6 +25,15 @@ public class PlayerHealth : MonoBehaviour
         playerState = GetComponent<PlayerState>();
         playerRage = GetComponent<PlayerRage>();
         playerStateMachine = GetComponent<PlayerStateMachine>();
+        if (playerStateMachine != null)
+        {
+            return;
+        }
+        else 
+        {
+            com = GetComponent<ComStateMachine>();
+        }
+        
 
         maxHealth = gameSetRuntime.playerHealth;
         currentHealth = maxHealth;
@@ -68,7 +78,14 @@ public class PlayerHealth : MonoBehaviour
                 }
                 else
                 {
-                    playerStateMachine.ChangeState(new HurtState(playerStateMachine));
+                    if (playerStateMachine != null)
+                    {
+                        playerStateMachine.ChangeState(new HurtState(playerStateMachine));
+                    }
+                    else if (com != null)
+                    {
+                        com.ChangeState(new ComHurtState(com));
+                    }
                 }
 
                 knockBack.KnockBackAction(direction, type);

@@ -36,7 +36,8 @@ public class Naruto_UpSpecialMove : MonoBehaviour
 
     private void ActiveNarutoWJskillMove()
     {
-        rb.velocity = new Vector2(wjSpeed, rb.velocity.y);
+        float direction = playerState.isFacingRight ? 1f : -1f;
+        rb.velocity = new Vector2(direction * wjSpeed, rb.velocity.y);
     }
 
     private void ActiveNarutoWJskill()
@@ -100,8 +101,7 @@ public class Naruto_UpSpecialMove : MonoBehaviour
         Vector2 pos3 = new Vector2(opponent.position.x - 2f * direction, (opponent.position.y + 2.5f));
         Vector2 pos4 = new Vector2(opponent.position.x + 2f * direction, (opponent.position.y + 2.5f));
 
-        Quaternion rot1 = opponent.rotation * Quaternion.Euler(0, 0, 0);
-        //Quaternion rot2 = opponent.rotation * Quaternion.Euler(0, 180, 0); 
+        Quaternion rot1 = opponent.rotation * Quaternion.Euler(0, 0, 0); 
         Quaternion rot2 = Quaternion.Euler(0, opponent.rotation.eulerAngles.y == 0f ? 180 : 0, 0);
 
         GameObject obj1 = Instantiate(wiSkillPrefab01, pos3, rot1);

@@ -179,10 +179,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Naruto
       objectReference: {fileID: 0}
-    - target: {fileID: 3800367425432652457, guid: 885c6170150332a43b0b166081e42681, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 5102075876013595364, guid: 885c6170150332a43b0b166081e42681, type: 3}
+      propertyPath: siSkillPrefab01
+      value: 
+      objectReference: {fileID: 7958854482971653931, guid: 73ab5558f66806641b9cc9ef359aee10, type: 3}
+    - target: {fileID: 5102075876013595364, guid: 885c6170150332a43b0b166081e42681, type: 3}
+      propertyPath: siSkillEffectPrefab
+      value: 
+      objectReference: {fileID: 6517087083105518680, guid: dbb06c3f8e3ebe24bab7683131c3d015, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

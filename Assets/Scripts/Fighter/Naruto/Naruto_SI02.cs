@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Naruto_SI02 : SkillCheckHitUseOverLap
 {
+    [SerializeField] private Transform siPos;
     [SerializeField] private float circleRadius;
+    private Animator anim;
+    private float scaleRadius;
     private int hitCount = 0;
 
     protected override void Start()
     {
         base.Start();
+        anim = GetComponent<Animator>();
+        scaleRadius = circleRadius; 
         StartCoroutine(CheckHitEnum());
         StartCoroutine(SkillEnum());
     }
@@ -17,19 +22,24 @@ public class Naruto_SI02 : SkillCheckHitUseOverLap
     private IEnumerator SkillEnum()
     {
         yield return null;
-        while (this.transform.localScale.x < 3f)
+        while (this.transform.localScale.x < 2.5f)
         {
-            this.transform.localScale += new Vector3(0.05f, 0.05f, 0f);
+            this.transform.localScale += new Vector3(0.02f, 0.02f, 0f);
             yield return null;
         }
-        this.transform.localScale = new Vector3(3f, 3f, 1f);
+        this.transform.localScale = new Vector3(2.5f, 2.5f, 1f);
+        anim.SetTrigger("Continue");
     }
 
     private IEnumerator CheckHitEnum()
     {
         while (true)
         {
-            RoundAttack(this.transform, circleRadius, 1f, Vector2.zero, KnockBack.KnockbackType.Linear);
+            Vector3 actualScale = transform.lossyScale;
+            scaleRadius = circleRadius * Mathf.Max(actualScale.x, actualScale.y);
+
+            RoundAttack(siPos, scaleRadius, 2f, Vector2.zero, KnockBack.KnockbackType.Linear);
+            CallHitEffect(HitEffect.HitEffectType.NormalHit);
             if (hit)
             {
                 hitCount++;
@@ -40,13 +50,17 @@ public class Naruto_SI02 : SkillCheckHitUseOverLap
                 break;
             }
         }
-        RoundAttack(this.transform, circleRadius, 5f, new Vector2(owner.transform.right.x, owner.transform.up.y), KnockBack.KnockbackType.BlownUp);
+        RoundAttack(siPos, scaleRadius, 5f, new Vector2(owner.transform.right.x, owner.transform.up.y), KnockBack.KnockbackType.BlownUp);
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(this.transform.position, circleRadius);
+        Gizmos.color = Color.white; 
+        float drawRadius = Application.isPlaying
+        ? scaleRadius
+        : circleRadius * Mathf.Max(transform.lossyScale.x, transform.lossyScale.y);
+
+        Gizmos.DrawWireSphere(siPos.position, drawRadius);
     }
 }
 

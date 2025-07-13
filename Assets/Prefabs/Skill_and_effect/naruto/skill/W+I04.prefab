@@ -108,7 +108,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2144086199
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -606187378, guid: 754262b29c072cd47b24796efb8ca1d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -186,11 +186,14 @@ MonoBehaviour:
   hit: 0
   owner: {fileID: 0}
   speed: 7
+  damage: 5
   angleDir: 0
-  time: 0.25
   attackPos: {fileID: 1392787867976287987}
   attackSize: {x: 1, y: 1}
   knockBackDir: {x: 0, y: 0}
+  distanceToOpponent: 0.9
+  distanceFromStart: 5
+  useSlashHitEffect: 1
 --- !u!50 &5751056480497812617
 Rigidbody2D:
   serializedVersion: 4

@@ -22,13 +22,13 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -1766661081, guid: d6de9d20f9e450a44be5850fc322543f, type: 3}
-    - time: 0.1
+    - time: 0.083333336
       value: {fileID: -1561225250, guid: 90af5d3d86bd26242bf4fdd0fc9c1dbd, type: 3}
-    - time: 0.38333333
+    - time: 0.16666667
       value: {fileID: -1854446906, guid: 67234cd599999124eb07c115475e2f03, type: 3}
-    - time: 0.48333332
+    - time: 0.25
       value: {fileID: 1928621604, guid: e4a9c76215475124da45b3306ada026e, type: 3}
-    - time: 0.5833333
+    - time: 0.33333334
       value: {fileID: -1528623319, guid: d9d7c874f4d5d9d49816c27d66c0849a, type: 3}
     attribute: m_Sprite
     path: 
@@ -62,7 +62,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.6
+    m_StopTime: 0.35000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -89,21 +89,28 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.4
+  - time: 0.083333336
+    functionName: ActiveCloneEnum
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.18333334
     functionName: ChecKHit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5
+  - time: 0.25
     functionName: Spawn
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6
+  - time: 0.35
     functionName: DestroyEffect
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -6,26 +6,53 @@ using UnityEngine.Playables;
 public class Naruto_Clone : SkillCheckHitUseOverLap
 {
     private Rigidbody2D rb;
+    private KnockBack knockBack;
+    private Animator anim;
 
     [SerializeField] private float speed;
+    [SerializeField] private float damage;
     [SerializeField] private float angleDir;
-    [SerializeField] private float time;
     [SerializeField] private Transform attackPos;
     [SerializeField] private Vector2 attackSize;
     [SerializeField] private Vector2 knockBackDir;
+    [SerializeField] private float distanceToOpponent = 2f;
+    [SerializeField] private float distanceFromStart = 5f;
+    [SerializeField] private bool useSlashHitEffect;
+    private Vector3 initialPosition;
+    private Transform opponentTransform;
 
     protected override void Start()
     {
         base.Start();
+        knockBack = owner.GetComponentInParent<KnockBack>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        initialPosition = this.transform.position;
+        opponentTransform = knockBack.opponentDirection;
+    }
+
+    private void ActiveCloneEnum()
+    {
         StartCoroutine(CLoneEnum());
     }
 
     private IEnumerator CLoneEnum()
     {
-        yield return new WaitForSeconds(0.1f);
+        anim.speed = 0f;
+        yield return new WaitForSeconds(0.2f);
         CalculateVelocity();
-        yield return new WaitForSeconds(time);
+        while (true)
+        {
+            float distanceToOpponentValue = Vector2.Distance(this.transform.position, opponentTransform.position);
+            float distanceFromStartValue = Vector2.Distance(this.transform.position, initialPosition);
+
+            if (distanceToOpponentValue < distanceToOpponent || distanceFromStartValue >= distanceFromStart)
+            {
+                break;
+            }
+            yield return null;
+        }
+        anim.speed = 1f;
         rb.velocity = Vector2.zero;
     }
 
@@ -45,7 +72,15 @@ public class Naruto_Clone : SkillCheckHitUseOverLap
 
     private void ChecKHit()
     {
-        StraightAttack(attackPos, attackSize, 0f, 5f, knockBackDir, KnockBack.KnockbackType.Linear);
+        StraightAttack(attackPos, attackSize, 0f, damage, knockBackDir, KnockBack.KnockbackType.Linear);
+        if (useSlashHitEffect)
+        {
+            CallHitEffect(HitEffect.HitEffectType.SlashHit);
+        }
+        else
+        {
+            CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        }
     }
 
     private void OnDrawGizmosSelected()

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class Naruto_CheckHit : CheckHit
 {
@@ -110,7 +109,7 @@ public class Naruto_CheckHit : CheckHit
             yield return new WaitForSeconds(delay);
             if (i == count - 1)
             {
-                Instantiate(RasenganEffect, hitPos, Quaternion.identity);
+                Instantiate(RasenganEffect, new Vector2(hitPos.x, hitPos.y - 0.5f), Quaternion.identity);
                 RoundAttack(IskillPos, IskillRange, 10f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.BlownUp);
             }
         }

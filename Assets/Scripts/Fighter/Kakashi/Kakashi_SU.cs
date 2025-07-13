@@ -34,7 +34,9 @@ public class Kakashi_SU : SkillCheckHitUseOverLap
     {
         int direction = transform.rotation.eulerAngles.y == 0f ? 1 : -1;
         rb.velocity = new Vector2(direction * speed, rb.velocity.y);
-        anim.speed = 0f; while (true)
+        yield return null;
+        anim.speed = 0f; 
+        while (true)
         {
             float distanceToOpponentValue = Vector2.Distance(this.transform.position, opponentTransform.position);
             float distanceFromStartValue = Vector2.Distance(this.transform.position, initialPosition);

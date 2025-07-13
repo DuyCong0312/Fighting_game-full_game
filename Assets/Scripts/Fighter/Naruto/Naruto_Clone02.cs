@@ -11,6 +11,7 @@ public class Naruto_Clone02 : SkillCheckHitUseOverLap
     [SerializeField] private float speed;
     [SerializeField] private float angleDir;
     [SerializeField] private float time;
+    [SerializeField] private float timeExist = 2f;
     [SerializeField] private Transform attackPos;
     [SerializeField] private Vector2 attackSize;
     [SerializeField] private Vector2 knockBackDir;
@@ -23,9 +24,18 @@ public class Naruto_Clone02 : SkillCheckHitUseOverLap
         Spawn();
     }
 
+    private void Update()
+    {
+        timeExist -= Time.deltaTime;
+        if (timeExist <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     private IEnumerator CLoneEnum()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         CalculateVelocity();
         yield return null;
         while (true)

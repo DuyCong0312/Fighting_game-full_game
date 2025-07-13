@@ -18,7 +18,9 @@ public class Naruto_SI : SkillCheckHitUseOverLap
     {
         while (true)
         {
-            RoundAttack(this.transform, circleRadius, 2f, Vector2.zero, KnockBack.KnockbackType.Linear);
+            yield return new WaitForSeconds(0.1f);
+            RoundAttack(this.transform, circleRadius, 2f, new Vector2(this.transform.right.x, -this.transform.up.y * 0.2f), KnockBack.KnockbackType.Linear);
+            CallHitEffect(HitEffect.HitEffectType.NormalHit);
             isGround = Physics2D.OverlapCircle(this.transform.position, circleRadius, groundLayer);
             yield return null;
             if (isGround)
