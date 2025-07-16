@@ -459,6 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df4f36c236e66e4da75cbe33418f28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxAttackNumber: 4
 --- !u!114 &1084491226635809873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,7 +620,8 @@ MonoBehaviour:
   siSkillEffectPrefab02: {fileID: 7715053442387728691, guid: 3fc075be75f3c1f4db854142757a77cf, type: 3}
   siSkillEffectPos01: {fileID: 7148991810168264247}
   siSkillEffectPos02: {fileID: 5556828130867549700}
-  siSkillPrefab01: {fileID: 6517087083105518680, guid: dbb06c3f8e3ebe24bab7683131c3d015, type: 3}
+  siSkillEffectPrefab: {fileID: 6517087083105518680, guid: dbb06c3f8e3ebe24bab7683131c3d015, type: 3}
+  siSkillPrefab01: {fileID: 7958854482971653931, guid: 73ab5558f66806641b9cc9ef359aee10, type: 3}
   siSkillPrefab02: {fileID: 6789512576019423423, guid: 772f74ec3edb899499c32870abdc4d8b, type: 3}
   siSkillPrefab03: {fileID: 2370000323404123977, guid: 88f915cb27446274cbdc4049dee9be38, type: 3}
   siLastSkillPrefab: {fileID: 8460738062358656846, guid: 3e966dab3c72c6e49839d4d18391cb10, type: 3}

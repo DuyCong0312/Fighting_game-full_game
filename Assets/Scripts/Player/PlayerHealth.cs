@@ -25,15 +25,10 @@ public class PlayerHealth : MonoBehaviour
         playerState = GetComponent<PlayerState>();
         playerRage = GetComponent<PlayerRage>();
         playerStateMachine = GetComponent<PlayerStateMachine>();
-        if (playerStateMachine != null)
-        {
-            return;
-        }
-        else 
+        if (playerStateMachine == null)
         {
             com = GetComponent<ComStateMachine>();
         }
-        
 
         maxHealth = gameSetRuntime.playerHealth;
         currentHealth = maxHealth;

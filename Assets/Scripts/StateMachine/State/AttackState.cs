@@ -33,9 +33,10 @@ public class AttackState : IPlayerState
             player.animator.Play(CONSTANT.airAttack);
         }
     }
+
     public void UpdateState()
     {
-
+        player.GetHurtWhenAttacking();
         if (Input.GetKeyDown(player.playerInput.attack) && player.canAttack)
         {
             player.ChangeState(new AttackState(player));
@@ -56,7 +57,6 @@ public class AttackState : IPlayerState
             }
         }
     }
-
 
     public void ExitState()
     {

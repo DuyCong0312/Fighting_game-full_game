@@ -8,6 +8,7 @@ public class DistanceContinueAnimation : StateMachineBehaviour
     private Transform playerTransform;
     private KnockBack knockBack;
     private PlayerStateMachine player;
+    private ComStateMachine com;
     private PlayerState playerState;
     private SpawnEffectAfterImage effectAfterImage;
     [SerializeField] private string nameAnimatorClip;
@@ -24,9 +25,13 @@ public class DistanceContinueAnimation : StateMachineBehaviour
         playerTransform = animator.transform.parent;
         knockBack = animator.GetComponentInParent<KnockBack>();
         rb = animator.GetComponentInParent<Rigidbody2D>();
-        player = animator.GetComponentInParent<PlayerStateMachine>();
         playerState = animator.GetComponentInParent<PlayerState>();
-        effectAfterImage = animator.GetComponentInParent<SpawnEffectAfterImage>();
+        effectAfterImage = animator.GetComponentInParent<SpawnEffectAfterImage>(); 
+        player = animator.GetComponentInParent<PlayerStateMachine>();
+        if (player == null)
+        {
+            com = animator.GetComponentInParent<ComStateMachine>();
+        }
         initialPosition = playerTransform.position;
         opponentTransform = knockBack.opponentDirection;
     }
@@ -55,7 +60,14 @@ public class DistanceContinueAnimation : StateMachineBehaviour
             else
             {
                 playerState.isUsingSkill = false;
-                rb.gravityScale = player.originalGravity;
+                if (player != null)
+                {
+                    rb.gravityScale = player.originalGravity;
+                }
+                else if (com != null)
+                {
+                    rb.gravityScale = com.originalGravity;
+                }
                 effectAfterImage.StopAfterImageEffect();
                 animator.Play(idleClip);
             }

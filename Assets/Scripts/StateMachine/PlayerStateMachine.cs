@@ -36,7 +36,9 @@ public class PlayerStateMachine : MonoBehaviour
     [Header("Attack Setting")]
     public bool canAttack = true;
     public int attackNumber;
-    [SerializeField] private float attackMoveDuration = 0.1f;
+    [SerializeField] private float attackMoveDuration = 0.1f; 
+    private ComboAttack comboAttack;
+    private bool hasInterrupted = false;
 
     [Header("Special Move")]
     public SpecialMoveSO defenseAttack;
@@ -49,6 +51,7 @@ public class PlayerStateMachine : MonoBehaviour
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        comboAttack = GetComponentInChildren<ComboAttack>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         playerState = GetComponent<PlayerState>();
@@ -64,7 +67,13 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Update()
     {
-        CalJumpDash();
+        CalJumpDash(); 
+        if (!GameManager.Instance.gameStart
+            || GameManager.Instance.gameEnded)
+        {
+            return;
+        }
+
         if (currentState != null)
             currentState.UpdateState();
 
@@ -104,6 +113,20 @@ public class PlayerStateMachine : MonoBehaviour
             rb.velocity = new Vector2(direction * attackNumber * 2f, rb.velocity.y);
             timer += Time.deltaTime;
             yield return null;
+        }
+    }
+
+    public void GetHurtWhenAttacking()
+    {
+        if (playerState.isGettingHurt && !hasInterrupted)
+        {
+            hasInterrupted = true;
+            comboAttack.StopCombo();
+        }
+
+        if (!playerState.isGettingHurt && hasInterrupted)
+        {
+            hasInterrupted = false;
         }
     }
 

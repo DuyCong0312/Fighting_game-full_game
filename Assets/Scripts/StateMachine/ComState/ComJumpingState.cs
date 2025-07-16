@@ -3,29 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class ComFallingState : IPlayerState
+public class ComJumpingState : IPlayerState
 {
     private ComStateMachine com;
 
-    public ComFallingState(ComStateMachine com)
+    public ComJumpingState(ComStateMachine com)
     {
         this.com = com;
     }
 
     public void EnterState()
     {
-        com.animator.SetInteger(CONSTANT.CurrentState, 3);
+        com.rb.velocity = new Vector2(com.rb.velocity.x, com.jumpForce);
+        com.animator.SetInteger(CONSTANT.CurrentState, 2);
+        EffectManager.Instance.SpawnEffect(EffectManager.Instance.jump, com.jumpPos, com.transform.rotation);
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.jump);
     }
 
     public void UpdateState()
     {
         com.Flipped();
         com.transform.position = Vector2.MoveTowards(com.transform.position, com.knockBack.opponentDirection.position, com.speed * Time.deltaTime);
-        if (com.groundCheck.isGround)
+        if (com.rb.velocity.y < 0.1f)
         {
-            EffectManager.Instance.SpawnEffect(EffectManager.Instance.touchGround, com.jumpPos, com.transform.rotation);
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.touchGround);
-            com.ChangeState(new ComIdleState(com));
+            com.ChangeState(new ComFallingState(com));
             return;
         }
         if (com.comLogic.isActionOnCooldown)
@@ -55,14 +56,6 @@ public class ComFallingState : IPlayerState
     private void HandleMovement()
     {
         float distance = com.GetDistanceX();
-        bool IsPlayerAbove = com.GetDistanceY() >= 0.25f;
-
-        if (IsPlayerAbove && com.canDoubleJump)
-        {
-            com.ChangeState(new ComJumpingState(com));
-            com.canDoubleJump = false;
-            return;
-        }
 
         if (distance >= 4.5f && com.CanDash())
         {
@@ -118,3 +111,5 @@ public class ComFallingState : IPlayerState
 
     }
 }
+
+

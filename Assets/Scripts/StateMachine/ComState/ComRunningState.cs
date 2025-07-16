@@ -3,28 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class ComFallingState : IPlayerState
+public class ComRunningState : IPlayerState
 {
     private ComStateMachine com;
 
-    public ComFallingState(ComStateMachine com)
+    public ComRunningState(ComStateMachine com)
     {
         this.com = com;
     }
 
     public void EnterState()
     {
-        com.animator.SetInteger(CONSTANT.CurrentState, 3);
+        com.transform.position = Vector2.MoveTowards(com.transform.position, com.knockBack.opponentDirection.position, com.speed * Time.deltaTime);
+        com.animator.SetInteger(CONSTANT.CurrentState, 1);
     }
 
     public void UpdateState()
     {
         com.Flipped();
-        com.transform.position = Vector2.MoveTowards(com.transform.position, com.knockBack.opponentDirection.position, com.speed * Time.deltaTime);
-        if (com.groundCheck.isGround)
+        if(com.GetDistanceX() >= 1f)
         {
-            EffectManager.Instance.SpawnEffect(EffectManager.Instance.touchGround, com.jumpPos, com.transform.rotation);
-            AudioManager.Instance.PlaySFX(AudioManager.Instance.touchGround);
             com.ChangeState(new ComIdleState(com));
             return;
         }
@@ -57,10 +55,10 @@ public class ComFallingState : IPlayerState
         float distance = com.GetDistanceX();
         bool IsPlayerAbove = com.GetDistanceY() >= 0.25f;
 
-        if (IsPlayerAbove && com.canDoubleJump)
+        if (IsPlayerAbove)
         {
             com.ChangeState(new ComJumpingState(com));
-            com.canDoubleJump = false;
+            com.canDoubleJump = true;
             return;
         }
 
@@ -71,11 +69,6 @@ public class ComFallingState : IPlayerState
         }
         else if (distance >= 1f)
         {
-            com.ChangeState(new ComRunningState(com));
-            return;
-        }
-        else
-        {
             return;
         }
     }
@@ -83,10 +76,18 @@ public class ComFallingState : IPlayerState
     private void HandleCombat()
     {
         float distance = com.GetDistanceX();
+        float randomCombat = Random.Range(0f, 40f);
+        float combatScore = (com.playerHealth.currentHealth > 15f) ?30f : 20f;
+        combatScore += randomCombat;
 
-        if (distance <= 1f)
+        if (combatScore >= 60f && distance <= 1f)
         {
             com.ChangeState(new ComAttackState(com));
+            return;
+        }
+        else
+        {
+            com.ChangeState(new ComDefendState(com));
             return;
         }
     }

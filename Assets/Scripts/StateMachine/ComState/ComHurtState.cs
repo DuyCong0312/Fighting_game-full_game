@@ -14,6 +14,7 @@ public class ComHurtState : IPlayerState
     public void EnterState()
     {
         com.animator.SetTrigger(CONSTANT.getHurt);
+        com.Flipped();
     }
 
     public void UpdateState()

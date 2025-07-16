@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ComStateMachine : MonoBehaviour
@@ -8,12 +9,15 @@ public class ComStateMachine : MonoBehaviour
 
     [Header("Components")]
     public Animator animator;
-    public Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
+    public Rigidbody2D rb;
+    public KnockBack knockBack;
     public PlayerState playerState;
     public PlayerRage playerRage;
+    public PlayerHealth playerHealth;
     public CheckGround groundCheck;
     public SpawnEffectAfterImage effectAfterImage;
+    public ComLogicCombat comLogic;
 
     [Header("Movement Settings")]
     public float speed = 4f;
@@ -29,11 +33,15 @@ public class ComStateMachine : MonoBehaviour
     public float originalGravity;
 
     private float dashCooldownTimer = 0f;
+    private float distanceX;
+    private float distanceY;
 
     [Header("Attack Setting")]
     public bool canAttack = true;
     public int attackNumber;
     [SerializeField] private float attackMoveDuration = 0.1f;
+    private ComboAttack comboAttack;
+    private bool hasInterrupted = false;
 
     [Header("Special Move")]
     public SpecialMoveSO defenseAttack;
@@ -46,12 +54,16 @@ public class ComStateMachine : MonoBehaviour
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>(); 
+        comboAttack = GetComponentInChildren<ComboAttack>();
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        knockBack = GetComponent<KnockBack>();
         playerState = GetComponent<PlayerState>();
         playerRage = GetComponent<PlayerRage>();
+        playerHealth = GetComponent<PlayerHealth>();
         groundCheck = GetComponent<CheckGround>();
         effectAfterImage = GetComponent<SpawnEffectAfterImage>();
+        comLogic = GetComponent<ComLogicCombat>();
 
         defaultLayer = gameObject.layer;
         dashLayer = LayerMask.NameToLayer(CONSTANT.Dashing);
@@ -62,6 +74,12 @@ public class ComStateMachine : MonoBehaviour
     private void Update()
     {
         CalJumpDash();
+        DistanceToPlayer();
+        if (!GameManager.Instance.gameStart
+             || GameManager.Instance.gameEnded)
+        {
+            return;
+        }
         if (currentState != null)
             currentState.UpdateState();
 
@@ -79,6 +97,20 @@ public class ComStateMachine : MonoBehaviour
         if (currentState != null)
             currentState.EnterState();
         Debug.Log(currentState.GetType().Name);
+    }
+
+    public void Flipped()
+    {
+        if (knockBack.opponentDirection.position.x > this.transform.position.x && playerState.isFacingRight == false)
+        {
+            this.transform.eulerAngles = new Vector3(0, 0, 0);
+            playerState.isFacingRight = true;
+        }
+        else if (knockBack.opponentDirection.position.x < this.transform.position.x && playerState.isFacingRight == true)
+        {
+            this.transform.eulerAngles = new Vector3(0, 180, 0);
+            playerState.isFacingRight = false;
+        }
     }
 
     public bool CanDash()
@@ -104,10 +136,40 @@ public class ComStateMachine : MonoBehaviour
         }
     }
 
+    public void GetHurtWhenAttacking()
+    {
+        if (playerState.isGettingHurt && !hasInterrupted)
+        {
+            hasInterrupted = true;
+            comboAttack.StopCombo();
+        }
+
+        if (!playerState.isGettingHurt && hasInterrupted)
+        {
+            hasInterrupted = false;
+        }
+    }
+
     private void CalJumpDash()
     {
         Vector2 jumpPosValue = new Vector2(spriteRenderer.bounds.center.x, spriteRenderer.bounds.min.y);
         dashPos = jumpPosValue;
         jumpPos = jumpPosValue;
+    }
+
+    private void DistanceToPlayer()
+    {
+        distanceX = Mathf.Abs(knockBack.opponentDirection.position.x - this.transform.position.x);
+        distanceY = knockBack.opponentDirection.position.y - this.transform.position.y;
+    }
+
+    public float GetDistanceX()
+    {
+        return distanceX;
+    }
+
+    public float GetDistanceY()
+    {
+        return distanceY;
     }
 }

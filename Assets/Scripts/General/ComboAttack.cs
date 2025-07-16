@@ -4,35 +4,55 @@ using UnityEngine;
 
 public class ComboAttack : MonoBehaviour
 {
-    private PlayerState playerState;
-    //private PlayerCombat playerCombat;
-    private PlayerStateMachine playerStateMachine;
     private Animator anim;
+    private PlayerState playerState;
+    private PlayerStateMachine playerStateMachine;
+    private ComStateMachine comStateMachine;
+    [SerializeField] private int maxAttackNumber;
     private void Start()
     {
         anim = GetComponent<Animator>();
-        //playerCombat = GetComponentInParent<PlayerCombat>();
         playerState = GetComponentInParent<PlayerState>();
         playerStateMachine = GetComponentInParent<PlayerStateMachine>();
+        if (playerStateMachine == null)
+        {
+            comStateMachine = GetComponentInParent<ComStateMachine>();
+        }
     }
 
     private void StartCombo()
     {
-        //playerCombat.canAttack = true;
-        playerStateMachine.canAttack = true;
-        if (playerStateMachine.attackNumber < 3)
+        if (playerStateMachine != null)
         {
-            playerStateMachine.attackNumber++;
+            playerStateMachine.canAttack = true;
+            if (playerStateMachine.attackNumber < maxAttackNumber)
+            {
+                playerStateMachine.attackNumber++;
+            }
+        }
+        else if (comStateMachine != null)
+        {
+            comStateMachine.canAttack = true;
+            if (comStateMachine.attackNumber < maxAttackNumber)
+            {
+                comStateMachine.attackNumber++;
+            }
         }
     }
 
     public void StopCombo()
     {
+        if (playerStateMachine != null)
+        {
+            playerStateMachine.canAttack = true;
+            playerStateMachine.attackNumber = 0;
+        }
+        else if (comStateMachine != null)
+        {
+            comStateMachine.canAttack = true;
+            comStateMachine.attackNumber = 0;
+        }
         playerState.isAttacking = false;
-        //playerCombat.canAttack = true;
-        //playerCombat.attackNumber = 0;
-        playerStateMachine.canAttack = true;
-        playerStateMachine.attackNumber = 0;
         anim.ResetTrigger(CONSTANT.FirstAttack);
         anim.ResetTrigger(CONSTANT.SecondAttack);
         anim.ResetTrigger(CONSTANT.ThirdAttack);

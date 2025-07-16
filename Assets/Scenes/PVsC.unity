@@ -2098,6 +2098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yOffset: 7.35
   maxY: 4.5
+  minY: 2.5
   leftBoundaryMap: {fileID: 145840124}
   rightBoundaryMap: {fileID: 797155168}
   player01: {fileID: 1000919914}
@@ -2136,6 +2137,8 @@ MonoBehaviour:
   airDash: {fileID: 1260736291596801011, guid: 6f22ea824697766488b03d8b7c5c157a, type: 3}
   touchGround: {fileID: 5188640265527777500, guid: f9d3f438138bb394490a7f6bebc4bb0f, type: 3}
   hit: {fileID: 7481789453885571310, guid: 81d7dbee50a86ca40b80130ede981751, type: 3}
+  slashHit01: {fileID: 0}
+  slashHit02: {fileID: 0}
 --- !u!4 &514624442
 Transform:
   m_ObjectHideFlags: 0
@@ -2493,7 +2496,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1114997167
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f4fb099e02ea3db4a9de20887f0374a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4611,7 +4614,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockBackTime: 0.2
-  hitDirectionForce: 2
+  knockBackLinearForce: 2
+  knockBackArcForceX: 2
+  knockBackArcForceY: 2
   opponentDirection: {fileID: 1378845006}
   blowUpPowerX: 8
   blowUpPowerY: 10
@@ -4632,6 +4637,7 @@ MonoBehaviour:
   isUsingSkill: 0
   isGettingHurt: 0
   isFacingRight: 1
+  isUpInputPress: 0
   isDead: 0
 --- !u!114 &1000919923
 MonoBehaviour:
@@ -5110,6 +5116,7 @@ MonoBehaviour:
   isUsingSkill: 0
   isGettingHurt: 0
   isFacingRight: 1
+  isUpInputPress: 0
   isDead: 0
 --- !u!114 &1378844997
 MonoBehaviour:
@@ -5138,7 +5145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockBackTime: 0.2
-  hitDirectionForce: 2
+  knockBackLinearForce: 2
+  knockBackArcForceX: 2
+  knockBackArcForceY: 2
   opponentDirection: {fileID: 1000919914}
   blowUpPowerX: 8
   blowUpPowerY: 10

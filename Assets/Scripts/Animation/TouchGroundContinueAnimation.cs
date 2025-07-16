@@ -8,6 +8,7 @@ public class TouchGroundContinueAnimation : StateMachineBehaviour
     private Transform playerTransform;
     private CheckGround groundCheck;
     private PlayerStateMachine player;
+    private ComStateMachine com;
     private SpawnEffectAfterImage effectAfterImage;
     [SerializeField] protected string nameAnimatorClip;
 
@@ -17,9 +18,12 @@ public class TouchGroundContinueAnimation : StateMachineBehaviour
         playerTransform = animator.transform;
         groundCheck = animator.GetComponentInParent<CheckGround>();
         rb = animator .GetComponentInParent<Rigidbody2D>();
-        player = animator.GetComponentInParent<PlayerStateMachine>();
         effectAfterImage = animator.GetComponentInParent<SpawnEffectAfterImage>();
-
+        player = animator.GetComponentInParent<PlayerStateMachine>();
+        if (player == null)
+        {
+            com = animator.GetComponentInParent<ComStateMachine>();
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -29,7 +33,14 @@ public class TouchGroundContinueAnimation : StateMachineBehaviour
         {
             animator.Play(nameAnimatorClip);
             rb.velocity = Vector2.zero;
-            rb.gravityScale = player.originalGravity;
+            if (player != null)
+            {
+                rb.gravityScale = player.originalGravity;
+            }
+            else if (com != null)
+            {
+                rb.gravityScale = com.originalGravity;
+            }
             effectAfterImage.StopAfterImageEffect();
             Vector3 currentRotation = playerTransform.rotation.eulerAngles;
             playerTransform.rotation = Quaternion.Euler(currentRotation.x, currentRotation.y, 0);

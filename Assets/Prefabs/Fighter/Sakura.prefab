@@ -710,6 +710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df4f36c236e66e4da75cbe33418f28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxAttackNumber: 3
 --- !u!114 &6839095359769721639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -751,6 +752,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 384
   hit: 0
+  hitPos: {x: 0, y: 0}
   meleeAttack01Pos: {fileID: 8421045855311435087}
   meleeAttack02Pos: {fileID: 1644091768862684216}
   meleeAttack03Pos: {fileID: 8370329791996890576}
