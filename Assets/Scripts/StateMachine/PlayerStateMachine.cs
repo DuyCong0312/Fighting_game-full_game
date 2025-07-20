@@ -19,12 +19,12 @@ public class PlayerStateMachine : MonoBehaviour
     public SpawnEffectAfterImage effectAfterImage;
 
     [Header("Movement Settings")]
-    public float speed = 4f;
-    public float jumpForce = 6f;
+    public float speed = 5f;
+    public float jumpForce = 11f;
     public bool canDoubleJump = false;
-    public float dashPower = 10f;
-    public float dashTime = 0.1f;
-    public float dashCooldown = 1f;
+    public float dashPower = 20f;
+    public float dashTime = 0.2f;
+    public float dashCooldown = 0.5f;
     public Vector2 dashPos;
     public Vector2 jumpPos;
     public int defaultLayer;
@@ -36,7 +36,7 @@ public class PlayerStateMachine : MonoBehaviour
     [Header("Attack Setting")]
     public bool canAttack = true;
     public int attackNumber;
-    [SerializeField] private float attackMoveDuration = 0.1f; 
+    [SerializeField] private float attackMoveDuration = 0.2f; 
     private ComboAttack comboAttack;
     private bool hasInterrupted = false;
 

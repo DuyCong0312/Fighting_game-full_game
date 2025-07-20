@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private string animationHeavyHurtName;
+    [SerializeField] private GameObject defenseHit;
 
     private Animator anim;
     private KnockBack knockBack;
@@ -53,6 +54,7 @@ public class PlayerHealth : MonoBehaviour
         {
             damage = 2f;
             currentHealth -= damage;
+            Instantiate(defenseHit, this.transform.position, this.transform.rotation);
             knockBack.KnockBackAction(direction / 2f,type);
             playerRage.GetRage(2f);
         }

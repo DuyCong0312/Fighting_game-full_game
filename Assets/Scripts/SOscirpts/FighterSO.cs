@@ -10,12 +10,10 @@ public class FighterSO : ScriptableObject
     [SerializeField] private Sprite fighterAvatar;
     [SerializeField] private Sprite fighterFace;
     [SerializeField] private GameObject fighterPrefab;
-    [SerializeField] private GameObject fighterComPrefab;
 
     public string FighterName => fighterName;
     public Sprite FighterSprite => fighterSprite;
     public Sprite FighterAvatar => fighterAvatar;
     public Sprite FighterFace => fighterFace;
     public GameObject FighterPrefab => fighterPrefab;
-    public GameObject FighterComPrefab => fighterComPrefab;
 }

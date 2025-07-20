@@ -38,26 +38,33 @@ public class Byakuya_CheckHit : CheckHit
     private void FirstAttack()
     {
         StraightAttack(meleeAttack01Pos, attackBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void SecondAttack()
     {
         RoundAttack(meleeAttack02Pos, attackRange, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void ThirdAttack()
     {
         StraightAttack(meleeAttack03Pos, attackBoxSize, 0f, 5f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.Arc);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
+        CallHitStop();
     }
 
     private void UskillAttack()
     {
         StraightAttack(uSkillAttackPos, uSkillBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
     }
 
     private void WJattack()
     {
         StraightAttack(WJpos, attackWJSize, 0f, 2f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.Arc);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
+        CallHitStop();
     }
 
     private void WUattack()
@@ -70,10 +77,12 @@ public class Byakuya_CheckHit : CheckHit
         for (int i = 0; i < count; i++)
         {
             StraightAttack(WUpos, attackWUSize, 45f, 2f, direction, KnockBack.KnockbackType.Linear);
+            CallHitEffect(HitEffect.HitEffectType.SlashHit);
             yield return new WaitForSeconds(delay);
             if (i == count - 1)
             {
                 StraightAttack(WUpos, attackWUSize, 45f, 4f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.BlownUp);
+                CallHitEffect(HitEffect.HitEffectType.SlashHit);
             }
         }
     }
@@ -81,16 +90,22 @@ public class Byakuya_CheckHit : CheckHit
     private void SJattack()
     {
         StraightAttack(SJpos, attackSJSize, 0f, 5f, this.transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
+        CallHitStop();
     }
 
     private void SUattack()
     {
         StraightAttack(SUpos, attackSUSize, 0f, 10f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.BlownUp);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        CallHitStop();
     }
 
     private void SIattack()
     {
         StraightAttack(SIpos, attackSISize, 0f, 30f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.BlownUp);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
+        CallHitStop();
     }
 
     private void OnDrawGizmosSelected()

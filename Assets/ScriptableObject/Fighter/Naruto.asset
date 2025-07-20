@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea5ef0451aec0c448a3b257359a9ef0, type: 3}
+  m_Name: Naruto
+  m_EditorClassIdentifier: 
+  fighterName: Naruto
+  fighterSprite: {fileID: -997305089, guid: 5a1596f4e25602a4ab6620d0cc1f5ce5, type: 3}
+  fighterAvatar: {fileID: -2079628357, guid: 5a1596f4e25602a4ab6620d0cc1f5ce5, type: 3}
+  fighterFace: {fileID: -970414361, guid: 5a1596f4e25602a4ab6620d0cc1f5ce5, type: 3}
+  fighterPrefab: {fileID: 3800367425432652457, guid: 885c6170150332a43b0b166081e42681, type: 3}

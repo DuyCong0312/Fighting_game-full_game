@@ -17,10 +17,12 @@ public class Byakuya_WIcheckHit : SkillCheckHitUseOverLap
         for (int i = 0; i < count; i++)
         {
             StraightAttack(attackPos, attackBox, 0f, 1.5f, direction, KnockBack.KnockbackType.Linear);
+            CallHitEffect(HitEffect.HitEffectType.SlashHit);
             yield return new WaitForSeconds(delay);
             if (i == count - 1)
             {
                 StraightAttack(attackPos, attackBox, 0f, 5f, new Vector2(owner.transform.right.x, owner.transform.up.y), KnockBack.KnockbackType.BlownUp);
+                CallHitEffect(HitEffect.HitEffectType.SlashHit);
                 //ownerAnim.speed = 1f;
             }
         }

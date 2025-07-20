@@ -55,26 +55,53 @@ public class Byakuya_UpSpecialMove : MonoBehaviour
 
     private void ActiveByakuyaWJEffectskill01()
     {
-        GameObject effect01 = Instantiate(wjSkillEffect01Prefab, wj01EffectPos.position, this.transform.rotation);
+        GameObject effect01 = Instantiate(wjSkillEffect01Prefab, wj01EffectPos.position, wj01EffectPos.rotation);
+        Transform effect01Scale = effect01.GetComponent<Transform>();
+        if (effect01Scale != null)
+        {
+            effect01Scale.localScale = new Vector3(0.45f, 0.75f, 1f);
+        }
         StartCoroutine(DestroyEffect(effect01));
     }
 
     private void ActiveByakuyaWJEffectskill02()
     {
-        GameObject effect02 = Instantiate(wjSkillEffect02Prefab, wj02EffectPos.position, this.transform.rotation);
+        GameObject effect02 = Instantiate(wjSkillEffect02Prefab, wj02EffectPos.position, wj02EffectPos.rotation);
+        Transform effect02Scale = effect02.GetComponent<Transform>();
+        if (effect02Scale != null)
+        {
+            effect02Scale.localScale = new Vector3(0.7f, 0.7f, 1f);
+        }
         StartCoroutine(DestroyEffect(effect02));
     }
 
     private void ActiveByakuyaWJEffectskill03()
     {
-        GameObject effect03 = Instantiate(wjSkillEffect03Prefab, wj03EffectPos.position, this.transform.rotation);
-        StartCoroutine(DestroyEffect(effect03));
+        GameObject effect03 = Instantiate(wjSkillEffect03Prefab, wj03EffectPos.position, wj03EffectPos.rotation);
+        Transform effect03Scale = effect03.GetComponent<Transform>();
+        if (effect03Scale != null)
+        {
+            effect03Scale.localScale = new Vector3(0.7f, 0.6f, 1f);
+        }
     }
 
-    private IEnumerator DestroyEffect(GameObject prefab)
+    private IEnumerator DestroyEffect(GameObject effect)
     {
-        yield return new WaitForSeconds(0.1f);
-        Destroy(prefab);
+        SpriteRenderer effectSprite = effect.GetComponent<SpriteRenderer>();
+        if (effectSprite == null)
+        {
+            yield break;
+        }
+
+        Color color = effectSprite.color;
+
+        while (color.a > 0.01f)
+        {
+            color.a -= Time.deltaTime * 3f;
+            effectSprite.color = color;
+            yield return null;
+        }
+        Destroy(effect);
     }
 
     private void ActiveByakuyaWUSkill()

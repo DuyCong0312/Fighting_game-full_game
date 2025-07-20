@@ -5,6 +5,8 @@ using UnityEngine.Playables;
 
 public class Byakuya_KU : Projectile
 {
+    private Vector2 hitPos;
+
     protected override void Update()
     {
         timeExist -= Time.deltaTime;
@@ -31,10 +33,11 @@ public class Byakuya_KU : Projectile
 
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
         {
+            hitPos = collision.ClosestPoint(transform.position);
             PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
             playerHealth.TakeDamage(attackDamage, owner.transform.right, KnockBack.KnockbackType.Linear);
+            WhenHit(); 
             Destroy(this.gameObject);
-            WhenHit();
         }
 
         Debug.Log(collision.name);
@@ -42,7 +45,7 @@ public class Byakuya_KU : Projectile
 
     protected override void WhenHit()
     {
-        Instantiate(effect, this.transform.position, transform.rotation * Quaternion.Euler(0, 0, 45));
+        Instantiate(effect, hitPos, transform.rotation * Quaternion.Euler(0, 0, 45));
     }
 
     protected override void WayToDestroy()

@@ -46,7 +46,7 @@ public class LoadFighter : MonoBehaviour
         fighterAvatar.sprite = fighterList[selectedFighterIndex].FighterAvatar;
         fighterName.text = fighterList[selectedFighterIndex].FighterName;
         fighterFace.sprite = fighterList[selectedFighterIndex].FighterFace;
-        Instantiate(fighterList[selectedFighterIndex].FighterComPrefab, fighterPrefab.transform.position, fighterPrefab.transform.rotation, fighterPrefab.transform);
+        Instantiate(fighterList[selectedFighterIndex].FighterPrefab, fighterPrefab.transform.position, fighterPrefab.transform.rotation, fighterPrefab.transform);
     }
 
     private void LoadSelectedFighter(string prefsKey, Image fighterAvatar,  TextMeshProUGUI fighterName, Image fighterFace, GameObject fighterPrefab)

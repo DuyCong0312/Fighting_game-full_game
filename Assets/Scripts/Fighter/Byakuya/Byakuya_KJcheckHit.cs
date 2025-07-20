@@ -9,6 +9,7 @@ public class Byakuya_KJcheckHit : SkillCheckHitUseOverLap
     private void CheckHit()
     {
         RoundAttack(this.transform, attackRange, 5, owner.transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void OnDrawGizmosSelected()

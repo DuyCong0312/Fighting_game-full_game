@@ -79,4 +79,13 @@ public class SkillCheckHitUseOverLap : MonoBehaviour
             }
         }
     }
+
+    protected void CallHitStop()
+    {
+        if (hit)
+        {
+            HitStopController.Instance.HitStop();
+        }
+    }
+
 }

@@ -15,10 +15,13 @@ public class Byakuya_IskillCheckHit : SkillCheckHitUseOverLap
         for (int i = 0; i < count; i++)
         {
             RoundAttack(this.transform, attackRange, 1.5f, direction, KnockBack.KnockbackType.Linear);
+            CallHitEffect(HitEffect.HitEffectType.SlashHit);
             yield return new WaitForSeconds(delay);
             if (i == count - 1)
             {
                 RoundAttack(this.transform, attackRange, 5f, new Vector2(owner.transform.right.x, owner.transform.up.y), KnockBack.KnockbackType.BlownUp);
+                CallHitEffect(HitEffect.HitEffectType.SlashHit);
+                CallHitStop();
             }
         }
     }

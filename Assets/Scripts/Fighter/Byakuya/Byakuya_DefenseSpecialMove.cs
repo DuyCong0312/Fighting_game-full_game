@@ -11,8 +11,10 @@ public class Byakuya_DefenseSpecialMove : MonoBehaviour
 
     [Header("S+J Skill")]
     [SerializeField] private float force;
-    [SerializeField] private GameObject sjSkillEffectPrefab;
-    [SerializeField] private Transform sjEffectPos;
+    [SerializeField] private GameObject sjSkillEffect01Prefab;
+    [SerializeField] private Transform sjEffect01Pos;
+    [SerializeField] private GameObject sjSkillEffect02Prefab;
+    [SerializeField] private Transform sjEffect02Pos;
     private float originalGravity;
 
     [Header("S+U Skill")]
@@ -49,14 +51,43 @@ public class Byakuya_DefenseSpecialMove : MonoBehaviour
         effectAfterImage.StopAfterImageEffect();
     }
 
-    private void ActiveByakuyaSJEffectskill()
+    private void ActiveByakuyaSJEffect01skill()
     {
-        StartCoroutine(DestroyEffect());
+        GameObject effect01 = Instantiate(sjSkillEffect01Prefab, sjEffect01Pos.position, sjEffect01Pos.transform.rotation);
+        Transform effect01Scale = effect01.GetComponent<Transform>();
+        if (effect01Scale != null) 
+        {
+            effect01Scale.localScale = new Vector3(1f, 0.6f, 1f);
+        }
+        StartCoroutine(DestroyByakuyaEffect(effect01));
     }
-    private IEnumerator DestroyEffect()
+
+    private void ActiveByakuyaSJEffect02skill()
     {
-        GameObject effect = Instantiate(sjSkillEffectPrefab, sjEffectPos.position, this.transform.rotation);
-        yield return new WaitForSeconds(0.1f);
+        GameObject effect02 = Instantiate(sjSkillEffect02Prefab, sjEffect02Pos.position, sjEffect02Pos.transform.rotation);
+        Transform effect02Scale = effect02.GetComponent<Transform>();
+        if (effect02Scale != null)
+        {
+            effect02Scale.localScale = new Vector3(0.6f, 0.5f, 1f);
+        }
+    }
+
+    private IEnumerator DestroyByakuyaEffect(GameObject effect)
+    {
+        SpriteRenderer effectSprite = effect.GetComponent<SpriteRenderer>();
+        if (effectSprite == null)
+        {
+            yield break;
+        }
+
+        Color color = effectSprite.color;
+
+        while (color.a > 0.01f)
+        {
+            color.a -= Time.deltaTime * 3f;
+            effectSprite.color = color;
+            yield return null;
+        }
         Destroy(effect);
     }
 

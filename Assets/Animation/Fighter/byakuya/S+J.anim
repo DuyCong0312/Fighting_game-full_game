@@ -115,15 +115,22 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.2
-    functionName: ActiveByakuyaSJEffectskill
+  - time: 0.21666667
+    functionName: ActiveByakuyaSJEffect01skill
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.21666667
+  - time: 0.23333333
     functionName: SJattack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.26666668
+    functionName: ActiveByakuyaSJEffect02skill
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

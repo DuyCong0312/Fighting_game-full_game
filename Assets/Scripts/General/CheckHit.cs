@@ -78,4 +78,13 @@ public class CheckHit : MonoBehaviour
             }
         }
     }
+
+    protected void CallHitStop()
+    {
+        if (hit)
+        {
+            HitStopController.Instance.HitStop();
+        }
+    }
+
 }
