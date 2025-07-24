@@ -69,7 +69,7 @@ public class Byakuya_CheckHit : CheckHit
 
     private void WUattack()
     {
-        StartCoroutine(CheckHitWUskill(3, 0.25f, new Vector2(transform.right.x, transform.up.y * 0.2f)));
+        StartCoroutine(CheckHitWUskill(3, 0.25f, new Vector2(transform.right.x * 1.75f, transform.up.y * 0.75f)));
     }
 
     private IEnumerator CheckHitWUskill(int count, float delay, Vector2 direction)

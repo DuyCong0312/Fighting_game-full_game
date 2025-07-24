@@ -74,7 +74,7 @@ public class CheckHit : MonoBehaviour
         {
             foreach (Collider2D enemy in hitEnemiesThisFrame)
             {
-                enemy.GetComponent<HitEffect>().HitEffectSpawn(type);
+                enemy.GetComponent<HitEffect>().HitEffectSpawn(type, hitPos);
             }
         }
     }

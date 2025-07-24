@@ -8,6 +8,8 @@ public class Naruto_SU : Projectile
     private SpriteRenderer spriteRenderer;
     [SerializeField] private float damageInterval = 0.5f;
     private float damageTimer = 0f;
+    private Vector2 hitPos;
+
     protected override void Start()
     {
         base.Start();
@@ -31,26 +33,28 @@ public class Naruto_SU : Projectile
     {
         return;
     }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
-        if (collision.gameObject == owner) return;
+        if (collision.collider.gameObject == owner) return;
 
-        if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
+        if (collision.collider.CompareTag(CONSTANT.Player) || collision.collider.CompareTag(CONSTANT.Com))
         {
             damageTimer -= Time.deltaTime;
             StartCoroutine(SpeedWhenHit(2.5f));
+            hitPos = collision.collider.ClosestPoint(transform.position);
             if (damageTimer <= 0f && hitCount < 4)
             {
                 hitCount++;
-                PlayerHealth playerHealth = collision.gameObject.GetComponentInParent<PlayerHealth>();
+                PlayerHealth playerHealth = collision.collider.GetComponentInParent<PlayerHealth>();
                 if (playerHealth != null)
                 {
                     playerHealth.TakeDamage(attackDamage, this.transform.right, KnockBack.KnockbackType.Linear);
                 }
-
-                WhenHit();
+                HitEffect hitEffect = collision.collider.GetComponent<HitEffect>();
+                if (hitEffect != null)
+                {
+                    hitEffect.HitEffectSpawn(HitEffect.HitEffectType.SlashHit, hitPos);
+                }
                 damageTimer = damageInterval;
             }
         }

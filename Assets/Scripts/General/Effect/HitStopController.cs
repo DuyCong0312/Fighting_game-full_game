@@ -28,6 +28,7 @@ public class HitStopController : MonoBehaviour
     private IEnumerator DoHitStop()
     {
         float originalTimeScale = Time.timeScale;
+        yield return new WaitForSecondsRealtime(0.025f);
         Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(duration);
         Time.timeScale = originalTimeScale;

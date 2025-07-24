@@ -19,7 +19,8 @@ public class Kakashi_SI : SkillCheckHitUseOverLap
         yield return new WaitForSeconds(0.2f);
         for (int i = 0; i < count; i++)
         {
-            RoundAttack(this.transform, skillRange, 4f, Vector2.zero, KnockBack.KnockbackType.Linear); 
+            RoundAttack(this.transform, skillRange, 4f, Vector2.zero, KnockBack.KnockbackType.Linear);
+            CallHitEffect(HitEffect.HitEffectType.NormalHit);
             foreach (var enemy in hitEnemiesThisFrame)
             {
                 if (!totalEnemiesHit.Contains(enemy))
@@ -55,7 +56,12 @@ public class Kakashi_SI : SkillCheckHitUseOverLap
 
     private void SpawnEffect()
     {
-        Instantiate(skillEffect, this.transform.position, Quaternion.identity);
+        GameObject effect = Instantiate(skillEffect, this.transform.position, Quaternion.identity); 
+        BlownUpEffect effectCheck = effect.GetComponent<BlownUpEffect>();
+        if (effectCheck != null)
+        {
+            effectCheck.SetOwner(owner);
+        }
     }
     private void OnDrawGizmosSelected()
     {

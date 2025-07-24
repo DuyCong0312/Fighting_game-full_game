@@ -55,6 +55,8 @@ public class Kakashi_SU : SkillCheckHitUseOverLap
     private void CheckHit()
     {
         RoundAttack(skillCheckHitPos, skillCheckHitRange, 5f, this.transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
+        CallHitStop();
     }
 
     private void OnDrawGizmosSelected()

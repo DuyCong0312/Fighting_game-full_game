@@ -44,6 +44,7 @@ public class Naruto_Clone02 : SkillCheckHitUseOverLap
             yield return null;
             if (hit)
             {
+                CallHitEffect(HitEffect.HitEffectType.NormalHit);
                 break;
             }
         }

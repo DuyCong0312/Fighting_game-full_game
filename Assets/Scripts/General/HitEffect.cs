@@ -5,30 +5,47 @@ using UnityEngine;
 public class HitEffect : MonoBehaviour
 {
     public enum HitEffectType { NormalHit, SlashHit }
+    private PlayerState playerState;
 
-    public void HitEffectSpawn(HitEffectType type)
+    private void Start()
     {
+        playerState = GetComponentInParent<PlayerState>();
+    }
+
+    public void HitEffectSpawn(HitEffectType type, Vector2 spawnPos)
+    {
+        if (playerState.isDefending)
+        {
+            SpawnDefenseHit();
+            return;
+        }
+
         switch (type)
         {
             case HitEffectType.NormalHit:
-                SpawnNormalHit();
+                SpawnNormalHit(spawnPos);
                 break;
             case HitEffectType.SlashHit:
-                SpawnSlashHit();
+                SpawnSlashHit(spawnPos);
                 break;
         }
     }
 
-    public void SpawnNormalHit()
+    private void SpawnNormalHit(Vector2 spawnPos)
     {
-        EffectManager.Instance.SpawnEffectUseTransform(EffectManager.Instance.hit, this.transform, transform.rotation);
+        EffectManager.Instance.SpawnEffectUseTransform(EffectManager.Instance.hit, spawnPos, transform.rotation);
     }
 
-    public void SpawnSlashHit()
+    private void SpawnSlashHit(Vector2 spawnPos)
     {
         float randomAngle = Random.Range(40f, 145f);
 
-        EffectManager.Instance.SpawnEffectUseTransform(EffectManager.Instance.slashHit01, this.transform, transform.rotation * Quaternion.Euler(0, 0, randomAngle));
-        EffectManager.Instance.SpawnEffectUseTransform(EffectManager.Instance.slashHit02, this.transform, transform.rotation * Quaternion.Euler(0, 0, randomAngle));
+        EffectManager.Instance.SpawnEffectUseTransform(EffectManager.Instance.slashHit01, spawnPos, transform.rotation * Quaternion.Euler(0, 0, randomAngle));
+        EffectManager.Instance.SpawnEffectUseTransform(EffectManager.Instance.slashHit02, spawnPos, transform.rotation * Quaternion.Euler(0, 0, randomAngle));
+    }
+
+    private void SpawnDefenseHit()
+    {
+        EffectManager.Instance.SpawnEffectUseTransform(EffectManager.Instance.defenseHit, this.transform.position, transform.rotation);
     }
 }

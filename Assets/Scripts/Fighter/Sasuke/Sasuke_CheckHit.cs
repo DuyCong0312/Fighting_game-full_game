@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Sasuke_CheckHit : CheckHit
 {
+    private CheckGround groundCheck;
+
     [Header("Normal Attack")]
     [SerializeField] private Transform meleeAttack01Pos;
     [SerializeField] private Transform meleeAttack02Pos;
@@ -17,7 +19,8 @@ public class Sasuke_CheckHit : CheckHit
     [SerializeField] private Transform UskillPos02;
     [SerializeField] private Vector2 UskillBoxSize;
     [SerializeField] private Transform KUskillPos;
-    [SerializeField] private Vector2 KUskillBoxSize;
+    [SerializeField] private Vector2 KU01skillBoxSize;
+    [SerializeField] private Vector2 KU02skillBoxSize;
 
     [Header("I skill")]
     [SerializeField] private GameObject LightningEffect;
@@ -61,44 +64,72 @@ public class Sasuke_CheckHit : CheckHit
     [SerializeField] private Transform SI03pos;
     [SerializeField] private float attackSI03Range;
 
+    protected override void Start()
+    {
+        base.Start();
+        groundCheck = GetComponentInParent<CheckGround>();
+    }
+
     private void FirstAttack()
     {
         RoundAttack(meleeAttack01Pos, attackRange, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
     }
 
     private void SecondAttackP1()
     {
         StraightAttack(meleeAttack02Pos, attackBoxSize, 0f, 2f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
     }
 
     private void SecondAttackP2()
     {
         StraightAttack(meleeAttack02Pos, attackBoxSize, 0f, 3f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
     }
 
     private void ThirdAttack()
     {
         StraightAttack(meleeAttack03Pos, attackBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
+        CallHitStop();
     }
 
     private void JumpAttack()
     {
         RoundAttack(jumpAttackPos, attackRange, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
     }
 
     private void UskillAttackP1()
     {
         StraightAttack(UskillPos01, UskillBoxSize, 0f, 5f, new Vector2(transform.right.x * 0.5f, transform.up.y * 0.4f), KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
     }
 
     private void UskillAttackP2()
     {
         StraightAttack(UskillPos02, UskillBoxSize, 0f, 5f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.Arc);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        CallHitStop();
     }
 
     private void KUskillAttack()
     {
-        StraightAttack(KUskillPos, KUskillBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        StartCoroutine(CheckDamageDuringKUAttack());
+    }
+
+    private IEnumerator CheckDamageDuringKUAttack()
+    {
+        while (!groundCheck.isGround)
+        {
+            StraightAttack(KUskillPos, KU01skillBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+            CallHitEffect(HitEffect.HitEffectType.SlashHit);
+        yield return new WaitForSeconds(0.1f);
+        }
+        yield return null;
+        StraightAttack(KUskillPos, KU02skillBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void IskillAttack()
@@ -122,17 +153,20 @@ public class Sasuke_CheckHit : CheckHit
 
     private void WJ01attack()
     {
-        StraightAttack(WJ01pos, attackWJ01Size, 0f, 2f, this.transform.right, KnockBack.KnockbackType.Linear);
+        StraightAttack(WJ01pos, attackWJ01Size, 0f, 2f, Vector2.zero, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void WJ02attack()
     {
         StraightAttack(WJ02pos, attackWJ02Size, 0f, 2f, Vector2.zero, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void WJ03attack()
     {
         StraightAttack(WJ03pos, attackWJ03Size, 0f, 2f, Vector2.zero, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void WJ04attack()
@@ -147,11 +181,14 @@ public class Sasuke_CheckHit : CheckHit
     private void WU01attack()
     {
         RoundAttack(WU01pos, attackWU01Range, 5f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.Arc);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
     }
 
     private void WU02attack()
     {
         RoundAttack(WU02pos, attackWU02Range, 5f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.BlownUp);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        CallHitStop();
     }
 
     private void WIattack()
@@ -199,14 +236,17 @@ public class Sasuke_CheckHit : CheckHit
     private void SI01attack()
     {
         RoundAttack(SI01pos, attackSI01Range, 5f, this.transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
     private void SI02attack()
     {
         RoundAttack(SI02pos, attackSI02Range, 5f, Vector2.zero, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
     private void SI03attack()
     {
         RoundAttack(SI03pos, attackSI03Range, 5f, new Vector2(transform.right.x, transform.up.y * -0.1f), KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void OnDrawGizmosSelected()
@@ -220,7 +260,8 @@ public class Sasuke_CheckHit : CheckHit
         //U skill
         Gizmos.DrawWireCube(UskillPos01.position, UskillBoxSize);
         Gizmos.DrawWireCube(UskillPos02.position, UskillBoxSize);
-        Gizmos.DrawWireCube(KUskillPos.position, KUskillBoxSize);
+        Gizmos.DrawWireCube(KUskillPos.position, KU01skillBoxSize);
+        Gizmos.DrawWireCube(KUskillPos.position, KU02skillBoxSize);
         //I skill
         Gizmos.DrawWireSphere(IskillPos.position, IskillRange);
         // W+J

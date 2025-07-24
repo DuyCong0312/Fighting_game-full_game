@@ -45,16 +45,20 @@ public class Rukia_CheckHit : CheckHit
     private void FirstAttack()
     {
         StraightAttack(meleeAttack01Pos, attackBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
     }
 
     private void SecondAttack()
     {
         StraightAttack(meleeAttack02Pos, attackBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
     }
 
     private void ThirdAttack()
     {
         StraightAttack(meleeAttack03Pos, attackBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        CallHitStop();
     }
 
     private void JumpAttack()
@@ -69,7 +73,7 @@ public class Rukia_CheckHit : CheckHit
             StraightAttack(jumpAttackPos, attackBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
             if (hit)
             {
-                break;
+                CallHitEffect(HitEffect.HitEffectType.NormalHit);
             }
             yield return null;
         }
@@ -78,21 +82,29 @@ public class Rukia_CheckHit : CheckHit
     private void UskillAttack()
     {
         StraightAttack(UskillPos, UskillBoxSize, 0f, 20f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        CallHitStop();
     }
 
     private void UKskillAttack()
     {
         StraightAttack(UKskillPos, UKskillBoxSize, -45f, 10f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        CallHitStop();
     }
 
     private void IskillAttack()
     {
         StraightAttack(IskillPos, IskillBoxSize, 0f, 20f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.BlownUp);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        CallHitStop();
     }
 
     private void IKskillAttack()
     {
         StraightAttack(IKskillPos, IskillBoxSize, -45f, 20f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.BlownUp);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        CallHitStop();
     }
 
     private void WJattack()
@@ -107,6 +119,7 @@ public class Rukia_CheckHit : CheckHit
             StraightAttack(WJpos, WJBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Arc);
             if (hit)
             {
+                CallHitEffect(HitEffect.HitEffectType.NormalHit);
                 break;
             }
             yield return null; 
@@ -116,17 +129,22 @@ public class Rukia_CheckHit : CheckHit
     private void WUattack()
     {
         StraightAttack(WUpos, WUBoxSize, 45f, 2f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        CallHitStop();
     }
 
     private void SJattack()
     {
         RoundAttack(SJpos, SJrange, 5f, this.transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        CallHitStop();
     }
 
     private void SUattack()
     {
         RoundAttack(SUpos, SUrange, 2f, Vector2.zero, KnockBack.KnockbackType.Linear);
-        if(hit == true)
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        if (hit == true)
         {
             foreach(var enemy in hitEnemiesThisFrame)
             {
@@ -156,6 +174,7 @@ public class Rukia_CheckHit : CheckHit
         for (int i = 0; i < count; i++)
         {
             StraightAttack(SIpos, SIBoxSize, 0f, 1f, direction, KnockBack.KnockbackType.Linear);
+            CallHitEffect(HitEffect.HitEffectType.NormalHit);
             yield return new WaitForSeconds(delay);
         }
     }

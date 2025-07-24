@@ -51,6 +51,8 @@ public class Naruto_SI02 : SkillCheckHitUseOverLap
             }
         }
         RoundAttack(siPos, scaleRadius, 5f, new Vector2(owner.transform.right.x, owner.transform.up.y), KnockBack.KnockbackType.BlownUp);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        CallHitStop();
     }
 
     private void OnDrawGizmosSelected()

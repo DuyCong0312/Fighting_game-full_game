@@ -41,41 +41,51 @@ public class Renji_CheckHit : CheckHit
     private void FirstAttack()
     {
         RoundAttack(meleeAttack01Pos, attackRange, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void SecondAttack()
     {
         StraightAttack(meleeAttack02Pos, attackBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void ThirdAttack()
     {
         RoundAttack(meleeAttack03Pos, attackRange, 3f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void JumpAttack()
     {
         RoundAttack(jumpAttackPos, attackRange, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void UskillAttack()
     {
         StraightAttack(uSkillAttackPos, uSkillBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
+        CallHitStop();
     }
 
     private void UKskillAttack()
     {
         StraightAttack(uKskillAttackPos, uKskillBoxSize, -45f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
+        CallHitStop();
     }
 
     private void WJattack()
     {
         StraightAttack(WJpos, attackWJSize, 0f, 2f, this.transform.up * 0.1f, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void WUattack()
     {
         StraightAttack(WUpos, attackWUSize, 0f, 3f, this.transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void WIattack()
@@ -88,6 +98,7 @@ public class Renji_CheckHit : CheckHit
         for (int i = 0; i < count; i++)
         {
             StraightAttack(WIpos, attackWISize, 0f, 20f, direction, KnockBack.KnockbackType.BlownUp);
+            CallHitEffect(HitEffect.HitEffectType.SlashHit);
             yield return WaitFor.Frames(delay);
         }
     }
@@ -104,6 +115,8 @@ public class Renji_CheckHit : CheckHit
     private void SJattack()
     {
         StraightAttack(SJpos, attackSJSize, 0f, 5f, new Vector2(transform.right.x, transform.up.y), KnockBack.KnockbackType.BlownUp);
+        CallHitEffect(HitEffect.HitEffectType.NormalHit);
+        CallHitStop();
     }
 
     private void SIattack()
@@ -116,6 +129,7 @@ public class Renji_CheckHit : CheckHit
         for (int i = 0; i < count; i++)
         {
             StraightAttack(SIpos, attackSISize, 0f, 5f, direction, KnockBack.KnockbackType.Linear);
+            CallHitEffect(HitEffect.HitEffectType.SlashHit);
             yield return WaitFor.Frames(delay);
         }
     }

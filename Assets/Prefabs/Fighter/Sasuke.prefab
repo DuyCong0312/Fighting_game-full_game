@@ -726,7 +726,8 @@ MonoBehaviour:
   UskillPos02: {fileID: 3696390977602651118}
   UskillBoxSize: {x: 1, y: 1.25}
   KUskillPos: {fileID: 8975369942633049956}
-  KUskillBoxSize: {x: 1.6, y: 1.15}
+  KU01skillBoxSize: {x: 0.7, y: 1}
+  KU02skillBoxSize: {x: 1.25, y: 0.85}
   LightningEffect: {fileID: 876504037353348591, guid: 70818d7567e0b18489e99af4a0a4038b, type: 3}
   IskillPos: {fileID: 2935146435945477864}
   IskillRange: 1

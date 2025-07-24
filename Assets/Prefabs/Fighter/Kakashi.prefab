@@ -318,7 +318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4325802565392509791}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -503,6 +503,7 @@ MonoBehaviour:
   attackRange: 0.65
   UskillPos: {fileID: 4740164362980063322}
   UskillRange: 0.25
+  uSkillEffect: {fileID: 3983353041874901757, guid: a79e3f524dee1aa47ad02e8d82379540, type: 3}
   IskillPos: {fileID: 4389840383250012308}
   IskillRange: 0.5
   IskillEffectPrefab: {fileID: 6968897671396663875, guid: 03df1876dd8df76429a462ff58b543e5, type: 3}
@@ -578,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wjForce: 12
-  speed: 5
+  speed: 12
   wiSkillPrefab: {fileID: 335120562413628617, guid: fb85e811cc7587f4190258bb932eadf0, type: 3}
   wiSkillEffectPrefab: {fileID: 4561491662518298208, guid: 503f5a7646cc2d04e82a5033618cd5ad, type: 3}
   wiSkillPos: {fileID: 7509079965447088525}
@@ -624,7 +625,7 @@ Transform:
   m_GameObject: {fileID: 4873478522372357341}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.65, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0.65, y: 0.075, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

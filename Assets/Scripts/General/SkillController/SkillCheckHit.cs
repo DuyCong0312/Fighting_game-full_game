@@ -7,7 +7,8 @@ public class SkillCheckHit : MonoBehaviour
 {
     [SerializeField] private float attackDamage = 5f;
     [SerializeField] private Vector2 force;
-    [SerializeField] private GameObject effect;
+    [SerializeField] private bool useHitStop;
+    [SerializeField] private bool useSlashHitEffect;
     private GameObject owner; 
     private bool hasHit = false;
 
@@ -39,11 +40,34 @@ public class SkillCheckHit : MonoBehaviour
             PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
             playerHealth.TakeDamage(attackDamage, new Vector2 (this.transform.right.x * force.x, force.y),KnockBack.KnockbackType.Arc);
             Vector2 hitPoint = collision.ClosestPoint(this.transform.position);
-            WhenHit(new Vector2 (hitPoint.x, hitPoint.y + 1f));
+            WhenHit(collision, new Vector2(hitPoint.x, hitPoint.y + 1f));
+            CallHitStop();
         }
     }
-    private void WhenHit(Vector2 hitPosition)
+
+    private void WhenHit(Collider2D collision, Vector2 hitPosition)
     {
-        Instantiate(effect, hitPosition, transform.rotation);
+        HitEffect hitEffect = collision.GetComponent<HitEffect>();
+        Debug.Log(collision.name);
+        if (hitEffect == null) 
+        {
+            return;
+        }
+        if (useSlashHitEffect)
+        {
+            hitEffect.HitEffectSpawn(HitEffect.HitEffectType.SlashHit, hitPosition);
+        }
+        else
+        {
+            hitEffect.HitEffectSpawn(HitEffect.HitEffectType.NormalHit, hitPosition);
+        }
+    }
+
+    private void CallHitStop()
+    {
+        if (useHitStop)
+        {
+            HitStopController.Instance.HitStop();
+        }
     }
 }

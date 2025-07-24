@@ -28,11 +28,11 @@ AnimationClip:
       value: {fileID: -1052187504, guid: 299862f24b3d35540beef6e9925b7e80, type: 3}
     - time: 0.25
       value: {fileID: 1270636911, guid: 1f3272ed432a8d44094011a8bb5f1f37, type: 3}
-    - time: 0.71666664
+    - time: 0.33333334
       value: {fileID: 2109806638, guid: cfc64e9cb72e2fa4b8b95f3e522d6353, type: 3}
-    - time: 0.8
+    - time: 1.05
       value: {fileID: 528454915, guid: ea029c758b719904d90e101b52bfb97f, type: 3}
-    - time: 0.8333333
+    - time: 1.1666666
       value: {fileID: 1220544516, guid: 777272273d4213d41a30a8b6ffb9cafc, type: 3}
     attribute: m_Sprite
     path: 
@@ -68,7 +68,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.85
+    m_StopTime: 1.1833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -95,14 +95,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.23333333
+  - time: 0.25
     functionName: ActiveKakashiWIskill
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.85
+  - time: 1.1833333
     functionName: StopSkill
     data: 
     objectReferenceParameter: {fileID: 0}

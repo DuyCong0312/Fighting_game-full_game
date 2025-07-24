@@ -5,10 +5,13 @@ using UnityEngine;
 public class Kakashi_WI : Projectile
 {
     private int hitCount = 0;
+    [SerializeField] private float damageInterval = 0.5f;
+    private float damageTimer = 0f;
 
     protected override void Start()
     {
         base.Start();
+        damageTimer = 0f;
     }
 
     protected override void Update()
@@ -23,24 +26,40 @@ public class Kakashi_WI : Projectile
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        return;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
         if (collision.gameObject == owner) return;
 
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
         {
-            hitCount++;
-            PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
-            if (hitCount >= 4)
+            damageTimer -= Time.deltaTime;
+            StartCoroutine(SpeedWhenHit(7.5f));
+            if (damageTimer <= 0f && hitCount < 6)
             {
-                playerHealth.TakeDamage(10f, new Vector2(this.transform.right.x, this.transform.up.y), KnockBack.KnockbackType.BlownUp);
+                hitCount++;
+                PlayerHealth playerHealth = collision.gameObject.GetComponentInParent<PlayerHealth>();
+                if (hitCount == 6)
+                {
+                    playerHealth.TakeDamage(5f, new Vector2(this.transform.right.x, this.transform.up.y), KnockBack.KnockbackType.BlownUp);
+                }
+                else
+                {
+                    playerHealth.TakeDamage(attackDamage, this.transform.right, KnockBack.KnockbackType.Linear);
+                }
+                WhenHit();
+                damageTimer = damageInterval;
             }
-            else
-            {
-                playerHealth.TakeDamage(attackDamage, this.transform.right, KnockBack.KnockbackType.Linear);
-            }
-            WhenHit();
         }
+    }
 
-        Debug.Log(collision.name);
+    private IEnumerator SpeedWhenHit(float speed2)
+    {
+        yield return null;
+        rb.velocity = this.transform.right * speed2;
     }
 
     protected override void WhenHit()

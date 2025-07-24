@@ -23,31 +23,39 @@ public class Ichigo_CheckHit : CheckHit
     private void FirstAttack()
     {
         RoundAttack(meleeAttack01Pos, attackRange, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void SecondAttack()
     {
         StraightAttack(meleeAttack02Pos, attackBoxSize, 0f, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void ThirdAttack()
     {
         StraightAttack(meleeAttack03Pos, attackBoxSize, 0f, 5f, new Vector2(transform.right.x,transform.up.y), KnockBack.KnockbackType.Arc);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
+        CallHitStop();
     }
 
     private void JumpAttack()
     {
         RoundAttack(jumpAttackPos, attackRange, 5f, transform.right, KnockBack.KnockbackType.Linear);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void WJattack()
     {
         StraightAttack(WJpos, attackWJSize, 0f, 2f, new Vector2(transform.right.x, 1), KnockBack.KnockbackType.Arc);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
     }
 
     private void SUattack()
     {
         StraightAttack(SUpos, attackSUSize, 0f, 5f, new Vector2(transform.right.x, 1), KnockBack.KnockbackType.Arc);
+        CallHitEffect(HitEffect.HitEffectType.SlashHit);
+        CallHitStop();
     }
 
     private void OnDrawGizmosSelected()

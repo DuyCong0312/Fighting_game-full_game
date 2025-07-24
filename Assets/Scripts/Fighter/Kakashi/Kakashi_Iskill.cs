@@ -20,7 +20,6 @@ public class Kakashi_Iskill : MonoBehaviour
         player = GetComponentInParent<PlayerStateMachine>();
     }
 
-
     private void ActiveKakashiISkill()
     {
         float direction = playerState.isFacingRight ? 1f : -1f;

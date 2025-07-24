@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ichigo_StrongDart : Projectile
 {
+    private Vector2 hitPos;
+
     protected override void Start()
     {
         base.Start();
@@ -31,9 +33,13 @@ public class Ichigo_StrongDart : Projectile
 
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
         {
+            hitPos = collision.ClosestPoint(transform.position);
             PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
             Vector2 knockDir = new Vector2(transform.right.x, transform.up.y).normalized;
-            playerHealth.TakeDamage(attackDamage, knockDir, KnockBack.KnockbackType.BlownUp);
+            playerHealth.TakeDamage(attackDamage, knockDir, KnockBack.KnockbackType.BlownUp); 
+            HitEffect hitEffect = collision.GetComponent<HitEffect>();
+            hitEffect.HitEffectSpawn(HitEffect.HitEffectType.NormalHit, hitPos);
+            HitStopController.Instance.HitStop();
             WhenHit();
         }
 

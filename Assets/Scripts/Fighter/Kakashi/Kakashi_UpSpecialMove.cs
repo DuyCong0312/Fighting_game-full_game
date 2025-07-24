@@ -77,7 +77,7 @@ public class Kakashi_UpSpecialMove : MonoBehaviour
         rb.gravityScale = 0f;
         CalWUskillVeloc();
         anim.speed = 0f;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.25f);
         anim.speed = 1f;
         rb.velocity = Vector2.zero;
         while (playerState.isUsingSkill)
@@ -103,7 +103,7 @@ public class Kakashi_UpSpecialMove : MonoBehaviour
     private void ActiveKakashiWIskill()
     {
         Instantiate(wiSkillEffectPrefab, wiSkillPos.position, wiSkillPos.transform.rotation);
-        GameObject wiSkill = Instantiate(wiSkillPrefab, wiSkillPos.position, wiSkillPos.transform.rotation);
+        GameObject wiSkill = Instantiate(wiSkillPrefab, new Vector2(wiSkillPos.position.x + 0.75f, wiSkillPos.position.y + 0.5f), wiSkillPos.transform.rotation);
         Projectile skillCheck = wiSkill.GetComponent<Projectile>();
         if (skillCheck != null)
         {

@@ -171,14 +171,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.35
+  - time: 2.3666666
     functionName: ActiveRukiaSI_1skill
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.45
+  - time: 2.4833333
     functionName: ActiveRukiaSI_2skill
     data: 
     objectReferenceParameter: {fileID: 0}

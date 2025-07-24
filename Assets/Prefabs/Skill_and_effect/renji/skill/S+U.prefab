@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2144086199
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1303615983, guid: 7c1e872ec48a6284e973a0e7ef0c3000, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -137,6 +137,8 @@ MonoBehaviour:
   attackDamage: 5
   force: {x: 1, y: 1}
   effect: {fileID: 7481789453885571310, guid: 81d7dbee50a86ca40b80130ede981751, type: 3}
+  useHitStop: 1
+  useSlashHitEffect: 1
 --- !u!61 &312838074172037001
 BoxCollider2D:
   m_ObjectHideFlags: 0

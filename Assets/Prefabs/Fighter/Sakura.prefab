@@ -727,11 +727,14 @@ MonoBehaviour:
   attackBoxSize: {x: 0.75, y: 0.15}
   attackRange: 0.5
   UKskillPos: {fileID: 7804539374899136849}
-  UKskillRange: {x: 2.5, y: 0.5}
+  UK01skillRange: 0.5
+  UK02skillRange: {x: 5, y: 0.5}
   IskillPos: {fileID: 2622217693882486166}
   IskillRange: 0.5
+  IskillEffectPrefab: {fileID: 1808874838156590585, guid: 7f0872dabe761b143bfbc0d292459846, type: 3}
   IKskillPos: {fileID: 1605710705500520278}
-  IKskillRange: {x: 2.5, y: 0.5}
+  IK01skillRange: {x: 1, y: 0.5}
+  IK02skillRange: {x: 4, y: 1}
   WJ1pos: {fileID: 8078715438265872510}
   WJ1size: {x: 2, y: 0.75}
   WJ2pos: {fileID: 3935905776209177886}
@@ -794,10 +797,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0779818baf168b41aa2fe0105fbd71f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sakuraCheckHit: {fileID: 556284960291988948}
-  hitEffect: {fileID: 1808874838156590585, guid: 7f0872dabe761b143bfbc0d292459846, type: 3}
-  hitIskillSpawnEffect: {fileID: 2622217693882486166}
-  newPos: {fileID: 6360860257771106621}
   moveSpeed: 12
   force: 10
   effectIK1: {fileID: 7762501778609466006, guid: 9fce33346091b6d419091aefe2890ae7, type: 3}

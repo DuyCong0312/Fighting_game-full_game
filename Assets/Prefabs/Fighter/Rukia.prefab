@@ -781,7 +781,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e46177193706d44cabad097032b7bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPos: {fileID: 0}
 --- !u!114 &3310503798612050855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -815,7 +814,7 @@ MonoBehaviour:
   meleeAttack02Pos: {fileID: 8015280890497854693}
   meleeAttack03Pos: {fileID: 5374513771671369919}
   jumpAttackPos: {fileID: 689614285984267847}
-  attackBoxSize: {x: 0.7, y: 0.25}
+  attackBoxSize: {x: 0.77, y: 0.25}
   UskillPos: {fileID: 4286281382285675333}
   UskillBoxSize: {x: 6.25, y: 0.4}
   UKskillPos: {fileID: 400993808541972074}
