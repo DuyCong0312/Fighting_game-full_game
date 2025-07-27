@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -26,8 +26,10 @@ public class GameSetting : MonoBehaviour
     public TextMeshProUGUI timeText;
     public Button increaseTimeButton;
     public Button decreaseTimeButton;
+    public RectTransform rectTransformTime;
     private float tempTime;
     private float originalTime;
+    
 
     private void Start()
     {
@@ -114,9 +116,15 @@ public class GameSetting : MonoBehaviour
     {
         healthText.text = tempHealth + "%";
     }
-
     private void UpdateTimeText()
     {
-        timeText.text = tempTime + "S";
+        if (currentTimeIndex == timeLevels.Length - 1)
+        {
+            timeText.text = "<size=200%>∞</size>";
+        }
+        else
+        {
+            timeText.text = tempTime + "S";
+        }
     }
 }

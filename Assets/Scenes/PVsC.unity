@@ -1284,7 +1284,13 @@ MonoBehaviour:
   gameModeHolder: {fileID: 11400000, guid: 636237b7d563c59499f873e297624455, type: 2}
   fighterList:
   - {fileID: 11400000, guid: 09a9c7506828bf44ba34f99d723c9ed2, type: 2}
+  - {fileID: 11400000, guid: 7caac9900e75d5f45971c97020bee509, type: 2}
+  - {fileID: 11400000, guid: 219095606f3c7e54199062c23b6c5d11, type: 2}
+  - {fileID: 11400000, guid: 4f09218f025d28741974a23f35ac5e0c, type: 2}
+  - {fileID: 11400000, guid: 09629c1057829ee4882a1120b37d0746, type: 2}
+  - {fileID: 11400000, guid: 263d8815a3fda7543adac72f9452ac2c, type: 2}
   - {fileID: 11400000, guid: 7ca7160292de0494ab1f5e888ae6e13e, type: 2}
+  - {fileID: 11400000, guid: 42b72aa0739ce63459f712c85e3fbc8b, type: 2}
   firstFighterName: {fileID: 60960989}
   firstFighterAvatar: {fileID: 463066114}
   firstFighterFace: {fileID: 919736147}
@@ -2137,8 +2143,9 @@ MonoBehaviour:
   airDash: {fileID: 1260736291596801011, guid: 6f22ea824697766488b03d8b7c5c157a, type: 3}
   touchGround: {fileID: 5188640265527777500, guid: f9d3f438138bb394490a7f6bebc4bb0f, type: 3}
   hit: {fileID: 7481789453885571310, guid: 81d7dbee50a86ca40b80130ede981751, type: 3}
-  slashHit01: {fileID: 0}
-  slashHit02: {fileID: 0}
+  slashHit01: {fileID: 5806466182410695733, guid: b8a61b6320ea27d4caabd4cd531ccd61, type: 3}
+  slashHit02: {fileID: 1410372540133033385, guid: efcc0b068c3e74641addad546b61bf74, type: 3}
+  defenseHit: {fileID: 5056008691952219405, guid: 189a4ef0931e44a408be5afc9214769d, type: 3}
 --- !u!4 &514624442
 Transform:
   m_ObjectHideFlags: 0
@@ -4498,13 +4505,11 @@ GameObject:
   - component: {fileID: 1000919916}
   - component: {fileID: 1000919915}
   - component: {fileID: 1000919917}
-  - component: {fileID: 1000919923}
-  - component: {fileID: 1000919925}
-  - component: {fileID: 1000919926}
   - component: {fileID: 1000919920}
   - component: {fileID: 1000919919}
   - component: {fileID: 1000919921}
   - component: {fileID: 1000919924}
+  - component: {fileID: 1000919925}
   m_Layer: 7
   m_Name: Player_01
   m_TagString: Player
@@ -4614,9 +4619,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockBackTime: 0.2
-  knockBackLinearForce: 2
-  knockBackArcForceX: 2
-  knockBackArcForceY: 2
+  knockBackLinearForce: 2.75
+  knockBackArcForceX: 3
+  knockBackArcForceY: 10
   opponentDirection: {fileID: 1378845006}
   blowUpPowerX: 8
   blowUpPowerY: 10
@@ -4639,27 +4644,6 @@ MonoBehaviour:
   isFacingRight: 1
   isUpInputPress: 0
   isDead: 0
---- !u!114 &1000919923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000919913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b8c685933a69cf4ca1eea81744fc37a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerInput: {fileID: 11400000, guid: 582f026cfbfa4034eb4054246146e3a1, type: 2}
-  speed: 4
-  jumpForce: 11
-  isDoubleJump: 0
-  dashPower: 20
-  dashTime: 0.2
-  dashCooldown: 0.5
-  isDashing: 0
-  canDash: 1
 --- !u!114 &1000919924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4690,26 +4674,82 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000919913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99dc3c51fb1ac1140b1ecc3092cfb6a5, type: 3}
+  m_Script: {fileID: 11500000, guid: c9eea49a5df3e56428465bcc47d84349, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 11400000, guid: 582f026cfbfa4034eb4054246146e3a1, type: 2}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  playerState: {fileID: 0}
+  playerRage: {fileID: 0}
+  groundCheck: {fileID: 0}
+  effectAfterImage: {fileID: 0}
+  speed: 5
+  jumpForce: 11
+  canDoubleJump: 0
+  dashPower: 20
+  dashTime: 0.2
+  dashCooldown: 0.5
+  dashPos: {x: 0, y: 0}
+  jumpPos: {x: 0, y: 0}
+  defaultLayer: 0
+  dashLayer: 0
+  originalGravity: 0
   canAttack: 1
   attackNumber: 0
   attackMoveDuration: 0.2
---- !u!114 &1000919926
+  defenseAttack: {fileID: 11400000, guid: 18c1cb8e3e4fc05449befee3363b7823, type: 2}
+  defenseRangedAttack: {fileID: 11400000, guid: 0394c79ad2cc2464cbaf78542ce726dd, type: 2}
+  defenseSpecialAttack: {fileID: 11400000, guid: 9f1dd8d3afbdbec47aae51a2b1128960, type: 2}
+  upAttack: {fileID: 11400000, guid: 81b33efb42c73fc40a18fd59c6d0e850, type: 2}
+  upRangedAttack: {fileID: 11400000, guid: dfcb4dfbf29f8474eb942804a1a477b3, type: 2}
+  upSpecialAttack: {fileID: 11400000, guid: b8d7ee4ff56335b4fb3415e2834bda81, type: 2}
+--- !u!1 &1014116632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1014116634}
+  - component: {fileID: 1014116633}
+  m_Layer: 0
+  m_Name: HitStop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1014116633
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000919913}
+  m_GameObject: {fileID: 1014116632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c964cb4bd1b3751498d3d7e0251d4a3b, type: 3}
+  m_Script: {fileID: 11500000, guid: 53f284969a8df4a4896e78e2f672ddcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 11400000, guid: 582f026cfbfa4034eb4054246146e3a1, type: 2}
+  duration: 0.125
+--- !u!4 &1014116634
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014116632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.6201394, y: -3.5980668, z: 0.054285094}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1091948104
 GameObject:
   m_ObjectHideFlags: 0
@@ -5085,13 +5125,12 @@ GameObject:
   - component: {fileID: 1378845005}
   - component: {fileID: 1378845004}
   - component: {fileID: 1378845002}
-  - component: {fileID: 1378845001}
-  - component: {fileID: 1378845000}
-  - component: {fileID: 1378844999}
   - component: {fileID: 1378844998}
   - component: {fileID: 1378845007}
   - component: {fileID: 1378844997}
   - component: {fileID: 1378844996}
+  - component: {fileID: 1378845009}
+  - component: {fileID: 1378845008}
   m_Layer: 8
   m_Name: Player_02
   m_TagString: Com
@@ -5145,58 +5184,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockBackTime: 0.2
-  knockBackLinearForce: 2
-  knockBackArcForceX: 2
-  knockBackArcForceY: 2
+  knockBackLinearForce: 2.75
+  knockBackArcForceX: 3
+  knockBackArcForceY: 10
   opponentDirection: {fileID: 1000919914}
   blowUpPowerX: 8
   blowUpPowerY: 10
---- !u!114 &1378844999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378844995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65115d12593e6c94d9a25cc119b78ff3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1378845000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378844995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b29c566811c8cd4f9b3de35646dc208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1000919914}
---- !u!114 &1378845001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378844995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee602c22929a27d4a86b641f3cba02dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1000919914}
-  speed: 4
-  jumpForce: 11
-  isFalling: 0
-  dashPower: 20
-  dashTime: 0.2
-  dashCooldown: 0.5
-  canDash: 1
-  isDashing: 0
 --- !u!50 &1378845002
 Rigidbody2D:
   serializedVersion: 4
@@ -5293,6 +5286,63 @@ MonoBehaviour:
   isJumping: 0
   groundMaterial: {fileID: 6200000, guid: 30f291fef2138f144aefb4f658bc9796, type: 2}
   airMaterial: {fileID: 6200000, guid: 1761419d1bcd84f42810298a7aec6f17, type: 2}
+--- !u!114 &1378845008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378844995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37879b83a8cae5243a65d46646069f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentAction: 0
+  isActionOnCooldown: 0
+  actionCooldownTime: 0.2
+--- !u!114 &1378845009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378844995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91feed1e059d4604e9e8b8a89fb3fcf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  rb: {fileID: 0}
+  knockBack: {fileID: 0}
+  playerState: {fileID: 0}
+  playerRage: {fileID: 0}
+  playerHealth: {fileID: 0}
+  groundCheck: {fileID: 0}
+  effectAfterImage: {fileID: 0}
+  comLogic: {fileID: 0}
+  speed: 5
+  jumpForce: 11
+  canDoubleJump: 0
+  dashPower: 20
+  dashTime: 0.2
+  dashCooldown: 0.5
+  dashPos: {x: 0, y: 0}
+  jumpPos: {x: 0, y: 0}
+  defaultLayer: 0
+  dashLayer: 0
+  originalGravity: 0
+  canAttack: 1
+  attackNumber: 0
+  attackMoveDuration: 0.2
+  defenseAttack: {fileID: 11400000, guid: 18c1cb8e3e4fc05449befee3363b7823, type: 2}
+  defenseRangedAttack: {fileID: 11400000, guid: 0394c79ad2cc2464cbaf78542ce726dd, type: 2}
+  defenseSpecialAttack: {fileID: 11400000, guid: 9f1dd8d3afbdbec47aae51a2b1128960, type: 2}
+  upAttack: {fileID: 11400000, guid: 81b33efb42c73fc40a18fd59c6d0e850, type: 2}
+  upRangedAttack: {fileID: 11400000, guid: dfcb4dfbf29f8474eb942804a1a477b3, type: 2}
+  upSpecialAttack: {fileID: 11400000, guid: b8d7ee4ff56335b4fb3415e2834bda81, type: 2}
 --- !u!1 &1405116249
 GameObject:
   m_ObjectHideFlags: 0
@@ -7706,3 +7756,4 @@ SceneRoots:
   - {fileID: 252155473}
   - {fileID: 296332145}
   - {fileID: 959691958}
+  - {fileID: 1014116634}

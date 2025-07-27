@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,11 +10,13 @@ public class UiTimeCount : MonoBehaviour
     [SerializeField] private float setTime;
     [SerializeField] private TextMeshProUGUI timeCount;
     [SerializeField] private GameManager gameManager;
+    private const float InfinityThreshold = 999999f;
 
     private void Start()
     {
         setTime = gameSetRuntime.timePerRound;
         timeLeft = setTime;
+        TotalTime(timeLeft);
     }
     void Update()
     {
@@ -40,10 +42,18 @@ public class UiTimeCount : MonoBehaviour
     public void ResetTime()
     {
         timeLeft = setTime;
+        TotalTime(timeLeft);
     }
 
     private void TotalTime(float totalTime)
-    {
-        timeCount.text = Mathf.FloorToInt(totalTime).ToString();
+    { 
+        if(totalTime > InfinityThreshold)
+        {
+            timeCount.text = "<size=200%>∞</size>";
+        }
+        else
+        {
+            timeCount.text = Mathf.FloorToInt(totalTime).ToString();
+        }
     }
 }

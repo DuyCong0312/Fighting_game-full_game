@@ -5890,6 +5890,7 @@ MonoBehaviour:
   timeText: {fileID: 20548175}
   increaseTimeButton: {fileID: 115255436}
   decreaseTimeButton: {fileID: 772210076}
+  rectTransformTime: {fileID: 0}
 --- !u!114 &1429800662
 MonoBehaviour:
   m_ObjectHideFlags: 0
