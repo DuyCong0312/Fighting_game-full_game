@@ -18,9 +18,11 @@ public class FighterSelection : MonoBehaviour
     [SerializeField] private int selectedSecondFighterIndex = 0;
 
     private int currentPlayer = 1;
+    public bool hasChooseFighter = false;
 
     private void Start()
     {
+        hasChooseFighter = false;
         if (fighterList.Count > 0)
         {
             ClearPreview(firstFighterImage, firstFighterName);
@@ -42,7 +44,8 @@ public class FighterSelection : MonoBehaviour
         else if (currentPlayer == 2)
         {
             SetFighterInfo(fighterIndex, secondFighterImage, secondFighterName, ref selectedSecondFighterIndex);
-            currentPlayer = 0; 
+            currentPlayer = 0;
+            hasChooseFighter = true;
         }
     }
 
@@ -58,6 +61,7 @@ public class FighterSelection : MonoBehaviour
         {
             SetFighterInfo(randomFighter, secondFighterImage, secondFighterName, ref selectedSecondFighterIndex);
             currentPlayer = 0;
+            hasChooseFighter = true;
         }
     }
 

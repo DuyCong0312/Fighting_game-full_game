@@ -48,8 +48,10 @@ public static class CONSTANT
     // PlayerPrefsKey
     public static readonly string SelectedFirstFighterIndex = "SelectedFirstFighterIndex";
     public static readonly string SelectedSecondFighterIndex = "SelectedSecondFighterIndex";
+    public static readonly string SelectedMapIndex = "SelectedMapIndex";
 
     // GameModeName
     public static readonly string Player_vs_Computer = "Player_vs_Computer";
     public static readonly string Player_vs_Player = "Player_vs_Player";
+    public static readonly string Training = "Training";
 }

@@ -23,7 +23,14 @@ public class DefendState : IPlayerState
         if (!Input.GetKey(player.playerInput.defense) || !player.groundCheck.isGround)
         {
             player.animator.SetBool(CONSTANT.isDefend, false);
-            player.ChangeState(new IdleState(player));
+            player.ChangeState(new FallingState(player));
+            return;
+        }
+
+        if (Input.GetKeyDown(player.playerInput.jump) && player.groundCheck.isFloor)
+        {
+            player.groundCheck.MoveDownThroughFloor();
+            player.ChangeState(new FallingState(player));
             return;
         }
 

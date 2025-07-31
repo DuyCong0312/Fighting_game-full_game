@@ -40,4 +40,16 @@ public class GameModeHolderSO : ScriptableObject
             return false;
         }
     }
+
+    public bool IsTraining()
+    {
+        if (selectedGameMode != null && selectedGameMode.gameModeName == CONSTANT.Training)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

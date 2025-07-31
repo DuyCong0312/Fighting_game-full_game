@@ -6,6 +6,7 @@ using UnityEngine;
 public class UiTimeCount : MonoBehaviour
 {
     public GameSettingSO gameSetRuntime;
+    [SerializeField] private GameModeHolderSO gameMode;
     [SerializeField] private float timeLeft;
     [SerializeField] private float setTime;
     [SerializeField] private TextMeshProUGUI timeCount;
@@ -14,10 +15,23 @@ public class UiTimeCount : MonoBehaviour
 
     private void Start()
     {
-        setTime = gameSetRuntime.timePerRound;
-        timeLeft = setTime;
+        SetTime();
+    }
+
+    private void SetTime()
+    {
+        if (gameMode.IsTraining())
+        {
+            timeLeft = Mathf.Infinity;
+        }
+        else
+        {
+            setTime = gameSetRuntime.timePerRound;
+            timeLeft = setTime;
+        }
         TotalTime(timeLeft);
     }
+
     void Update()
     {
         if (!GameManager.Instance.gameStart

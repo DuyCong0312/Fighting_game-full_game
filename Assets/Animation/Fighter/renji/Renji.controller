@@ -14,7 +14,7 @@ AnimatorStateMachine:
     m_Position: {x: 390, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5170644484375756644}
-    m_Position: {x: 800, y: 0, z: 0}
+    m_Position: {x: 1070, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3465969178751271997}
     m_Position: {x: 50, y: -100, z: 0}
@@ -23,13 +23,13 @@ AnimatorStateMachine:
     m_Position: {x: 800, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4611765517976239699}
-    m_Position: {x: 1070, y: 130, z: 0}
+    m_Position: {x: 800, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3513159372549585164}
-    m_Position: {x: 1070, y: 260, z: 0}
+    m_Position: {x: 1070, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -685015956879057737}
-    m_Position: {x: 390, y: -40, z: 0}
+    m_Position: {x: 390, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7673146178997965617}
     m_Position: {x: 50, y: -170, z: 0}
@@ -41,13 +41,13 @@ AnimatorStateMachine:
     m_Position: {x: 50, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8591650021796420707}
-    m_Position: {x: 390, y: -110, z: 0}
+    m_Position: {x: 390, y: -80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -16298180073131746}
-    m_Position: {x: 640, y: -110, z: 0}
+    m_Position: {x: 390, y: -140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6893569693656360270}
-    m_Position: {x: 1070, y: 0, z: 0}
+    m_Position: {x: 800, y: -100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4432787220685836253}
     m_Position: {x: 390, y: 400, z: 0}
@@ -95,8 +95,8 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -220, y: -50, z: 0}
-  m_EntryPosition: {x: 620, y: 0, z: 0}
-  m_ExitPosition: {x: 620, y: -40, z: 0}
+  m_EntryPosition: {x: 620, y: -100, z: 0}
+  m_ExitPosition: {x: 620, y: -140, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 8208137675961924832}
 --- !u!1101 &-8916165362025130354

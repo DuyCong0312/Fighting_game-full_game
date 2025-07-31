@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     private int roundNumber = 1;
-    [SerializeField] private CameraManager cam;
+    [SerializeField] private CameraManager cam; 
+    [SerializeField] private GameModeHolderSO gameMode;
 
     [Header("Player_1")]
     [SerializeField] private PlayerHealth player01Health;
@@ -67,6 +68,10 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         PauseGame();
+        if (gameMode.IsTraining())
+        {
+            return;
+        }
         if (!gameEnded && (player01Health.currentHealth <= 0 || player02Health.currentHealth <= 0))
         {
             GameSet(); 

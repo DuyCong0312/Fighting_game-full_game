@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class LoadFighter : MonoBehaviour
 {
-    [SerializeField] private GameModeHolderSO gameModeHolder;
     [SerializeField] private List<FighterSO> fighterList = new List<FighterSO>();
 
     [Header("Player01")]
@@ -23,30 +22,13 @@ public class LoadFighter : MonoBehaviour
 
     private void Start()
     {
-       CheckGameMode();
-    } 
-
-    private void CheckGameMode()
-    {
-        if (gameModeHolder.IsPVsC())
-        {
-            LoadSelectedFighter(CONSTANT.SelectedFirstFighterIndex, firstFighterAvatar, firstFighterName, firstFighterFace, firstFighterPrefab);
-            LoadSelectedCom(CONSTANT.SelectedSecondFighterIndex, secondFighterAvatar, secondFighterName, secondFighterFace, secondFighterPrefab);
-        }
-        else if (gameModeHolder.IsPVsP()) 
-        {
-            LoadSelectedFighter(CONSTANT.SelectedFirstFighterIndex, firstFighterAvatar, firstFighterName, firstFighterFace, firstFighterPrefab);
-            LoadSelectedFighter(CONSTANT.SelectedSecondFighterIndex, secondFighterAvatar, secondFighterName, secondFighterFace, secondFighterPrefab);
-        }
+       LoadCharacter();
     }
 
-    private void LoadSelectedCom(string prefsKey, Image fighterAvatar, TextMeshProUGUI fighterName, Image fighterFace, GameObject fighterPrefab)
+    private void LoadCharacter()
     {
-        int selectedFighterIndex = PlayerPrefs.GetInt(prefsKey, 0);
-        fighterAvatar.sprite = fighterList[selectedFighterIndex].FighterAvatar;
-        fighterName.text = fighterList[selectedFighterIndex].FighterName;
-        fighterFace.sprite = fighterList[selectedFighterIndex].FighterFace;
-        Instantiate(fighterList[selectedFighterIndex].FighterPrefab, fighterPrefab.transform.position, fighterPrefab.transform.rotation, fighterPrefab.transform);
+        LoadSelectedFighter(CONSTANT.SelectedFirstFighterIndex, firstFighterAvatar, firstFighterName, firstFighterFace, firstFighterPrefab);
+        LoadSelectedFighter(CONSTANT.SelectedSecondFighterIndex, secondFighterAvatar, secondFighterName, secondFighterFace, secondFighterPrefab);
     }
 
     private void LoadSelectedFighter(string prefsKey, Image fighterAvatar,  TextMeshProUGUI fighterName, Image fighterFace, GameObject fighterPrefab)

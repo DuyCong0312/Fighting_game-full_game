@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 2693609202565774997}
   - component: {fileID: 6312682399010469859}
   - component: {fileID: 996236479768118197}
+  - component: {fileID: 8584550773908577472}
   m_Layer: 7
   m_Name: Byakuya
   m_TagString: Player
@@ -346,6 +347,22 @@ MonoBehaviour:
   suSkillPrefab: {fileID: 1123969276181492322, guid: 36c0654ca629b234bb9e089085ac6f2e, type: 3}
   suSkillPos: {fileID: 3397152673987639732}
   SIforce: 25
+--- !u!114 &8584550773908577472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134159366957576261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7df9550d9f4944585093dea063d766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstAttackForce: 2
+  secondAttackForce: 3
+  thirdAttackForce: 6
+  moveTime: 0.2
 --- !u!1 &220540385791741982
 GameObject:
   m_ObjectHideFlags: 0

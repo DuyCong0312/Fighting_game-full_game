@@ -20,6 +20,13 @@ public class ComIdleState : IPlayerState
 
     public void UpdateState()
     {
+        if (!com.groundCheck.isGround)
+        {
+            com.ChangeState(new ComFallingState(com));
+            com.canDoubleJump = true;
+            return;
+        }
+
         com.Flipped();
         if (com.comLogic.isActionOnCooldown)
         {
@@ -50,16 +57,23 @@ public class ComIdleState : IPlayerState
         float distance = com.GetDistanceX();
         bool IsPlayerAbove = com.GetDistanceY() >= 0.25f;
 
-        if (IsPlayerAbove)
+        if (IsPlayerAbove && com.groundCheck.isGround)
         {
             com.ChangeState(new ComJumpingState(com));
+            com.canDoubleJump = true;
+            return;
+        }
+        else if(!IsPlayerAbove && com.groundCheck.isFloor)
+        {
+            com.groundCheck.MoveDownThroughFloor();
+            com.ChangeState(new ComFallingState(com));
             com.canDoubleJump = true;
             return;
         }
 
         if (distance >= 4.5f && com.CanDash())
         {
-            com.ChangeState(new ComDashState(com)); 
+            com.ChangeState(new ComDashState(com));
             return;
         }
         else if (distance >= 1f)

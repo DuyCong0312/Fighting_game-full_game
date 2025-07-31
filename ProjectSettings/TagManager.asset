@@ -7,7 +7,7 @@ TagManager:
   - Ground
   - Com
   - Floor
-  - MapBorder
+  - BackGround
   layers:
   - Default
   - TransparentFX
@@ -18,9 +18,9 @@ TagManager:
   - Ground
   - Player
   - Enemy
-  - Floor
   - Dashing
   - Entities
+  - 
   - 
   - 
   - 

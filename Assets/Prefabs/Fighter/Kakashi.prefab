@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 4172427064590729313}
   - component: {fileID: 7348979105844739198}
   - component: {fileID: 7765292131574673948}
+  - component: {fileID: 5155738713603545734}
   m_Layer: 7
   m_Name: Kakashi
   m_TagString: Player
@@ -600,6 +601,21 @@ MonoBehaviour:
   suSkillPrefab: {fileID: 4729054858016396377, guid: 2d0e6b939447b0049ae097cf32912d41, type: 3}
   suSkillPos: {fileID: 4779481209917036200}
   siSkillPrefab: {fileID: 1132748460477782988, guid: 18cb5f0a47184174c9852bf0db7632ce, type: 3}
+--- !u!114 &5155738713603545734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4325802565392509791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec28d738c55c29d4c9aa8895295ea455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstAttackForce: 1
+  secondAttackForce: 3
+  moveTime: 0.2
 --- !u!1 &4873478522372357341
 GameObject:
   m_ObjectHideFlags: 0

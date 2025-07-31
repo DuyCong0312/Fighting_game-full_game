@@ -618,6 +618,7 @@ GameObject:
   - component: {fileID: 6429201287171652881}
   - component: {fileID: 7239320672130525853}
   - component: {fileID: 9114755535900459096}
+  - component: {fileID: 4083838892802012033}
   m_Layer: 7
   m_Name: Rukia
   m_TagString: Player
@@ -918,6 +919,22 @@ MonoBehaviour:
   SIskillPos: {fileID: 5178260666788397300}
   SIskill1: {fileID: 5636823002562719886, guid: 4db2aae44fd46c444831406d43cc55ff, type: 3}
   SIskill2: {fileID: 4171673764713468943, guid: 85a0c6750974ca94a8e7d9fbbaf66e19, type: 3}
+--- !u!114 &4083838892802012033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663308462470134882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50511479d094f846a83c363bc9669d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstAttackForce: 1
+  secondAttackForce: 2
+  thirdAttackForce: 4
+  moveTime: 0.2
 --- !u!1 &7840004162054590688
 GameObject:
   m_ObjectHideFlags: 0

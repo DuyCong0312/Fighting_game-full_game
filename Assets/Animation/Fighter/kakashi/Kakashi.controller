@@ -1290,7 +1290,7 @@ AnimatorStateMachine:
     m_Position: {x: 250, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5625950529509830836}
-    m_Position: {x: 540, y: 20, z: 0}
+    m_Position: {x: 820, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6224251653321705542}
     m_Position: {x: -60, y: -90, z: 0}
@@ -1299,7 +1299,7 @@ AnimatorStateMachine:
     m_Position: {x: 540, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4386171488100311146}
-    m_Position: {x: 830, y: 150, z: 0}
+    m_Position: {x: 540, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1245159985895482589}
     m_Position: {x: 250, y: 0, z: 0}
@@ -1317,13 +1317,13 @@ AnimatorStateMachine:
     m_Position: {x: 250, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4865283069285728884}
-    m_Position: {x: 250, y: -150, z: 0}
+    m_Position: {x: 250, y: -130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6577829880121018393}
-    m_Position: {x: 830, y: 240, z: 0}
+    m_Position: {x: 820, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4959227041523895469}
-    m_Position: {x: 830, y: 60, z: 0}
+    m_Position: {x: 540, y: -100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5210928655413929490}
     m_Position: {x: 250, y: 380, z: 0}
@@ -1350,7 +1350,7 @@ AnimatorStateMachine:
     m_Position: {x: -60, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5853868954904888642}
-    m_Position: {x: 1100, y: 150, z: 0}
+    m_Position: {x: 820, y: -100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7168652552032447915}
     m_Position: {x: -60, y: 260, z: 0}
@@ -1377,8 +1377,8 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -320, y: -70, z: 0}
-  m_EntryPosition: {x: 520, y: -60, z: 0}
-  m_ExitPosition: {x: 520, y: -120, z: 0}
+  m_EntryPosition: {x: 480, y: -160, z: 0}
+  m_ExitPosition: {x: 480, y: -220, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 2227631687692850104}
 --- !u!1102 &4386171488100311146

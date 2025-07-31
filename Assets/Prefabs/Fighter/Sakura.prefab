@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 8425415099491250575}
   - component: {fileID: 7305664923356934013}
   - component: {fileID: 4148525634959597469}
+  - component: {fileID: 5378358790009651309}
   m_Layer: 7
   m_Name: Sakura
   m_TagString: Player
@@ -837,6 +838,22 @@ MonoBehaviour:
   suSkillEffect: {fileID: 4232926861479710731, guid: 2c31f9b1e67657a4783e2a67518d7943, type: 3}
   suSkillPos: {fileID: 1172745978507580996}
   speed: 20
+--- !u!114 &5378358790009651309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181489956766094652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55672141139154b498ad9cde73759119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstAttackForce: 1
+  secondAttackForce: 2
+  thirdAttackForce: 6
+  moveTime: 0.2
 --- !u!1 &6814792074051948722
 GameObject:
   m_ObjectHideFlags: 0

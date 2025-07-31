@@ -103,19 +103,6 @@ public class PlayerStateMachine : MonoBehaviour
         dashCooldownTimer = dashCooldown;
     }
 
-    public IEnumerator MoveWhenAttack()
-    {
-        float direction = playerState.isFacingRight ? 1 : -1;
-        float timer = 0f;
-
-        while (timer < attackMoveDuration)
-        {
-            rb.velocity = new Vector2(direction * attackNumber * 2f, rb.velocity.y);
-            timer += Time.deltaTime;
-            yield return null;
-        }
-    }
-
     public void GetHurtWhenAttacking()
     {
         if (playerState.isGettingHurt && !hasInterrupted)

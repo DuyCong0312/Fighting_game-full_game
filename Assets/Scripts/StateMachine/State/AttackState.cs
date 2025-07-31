@@ -26,7 +26,6 @@ public class AttackState : IPlayerState
         if (player.groundCheck.isGround)
         {
             player.animator.SetTrigger(player.attackNumber + CONSTANT.Attack);
-            player.StartCoroutine(player.MoveWhenAttack());
         }
         else
         {

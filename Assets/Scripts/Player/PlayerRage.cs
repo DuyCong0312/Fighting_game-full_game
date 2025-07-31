@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class PlayerRage : MonoBehaviour
 {
+    [SerializeField] private GameModeHolderSO gameMode;
     [SerializeField] private float maxRage = 100;
     public float currentRage;
     [SerializeField] private RageBar rageBar;
 
     void Start()
     {
-        currentRage = 0;
+        SetRage();
+    }
+
+    private void SetRage()
+    {
+        if (gameMode.IsTraining())
+        {
+            currentRage = maxRage;
+        }
+        else
+        {
+            currentRage = 0;
+        }
         rageBar.UpdateRageBar(currentRage, maxRage);
     }
+
     public void GetRage(float rage)
     {
         if (currentRage >= maxRage)
@@ -33,9 +47,10 @@ public class PlayerRage : MonoBehaviour
         rageBar.UpdateRageBar(currentRage, maxRage);
 
     }
+
     public void ResetRage()
     {
-        currentRage = 0;
+        currentRage = maxRage;
         rageBar.UpdateRageBar(currentRage, maxRage);
     }
 }

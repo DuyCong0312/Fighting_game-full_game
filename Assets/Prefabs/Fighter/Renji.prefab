@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 247357657915271456}
   - component: {fileID: 4288466512249016953}
   - component: {fileID: 2344967625335707833}
+  - component: {fileID: 416052292002528827}
   m_Layer: 7
   m_Name: Renji
   m_TagString: Player
@@ -306,6 +307,22 @@ MonoBehaviour:
   Si1SkillPos: {fileID: 3491255883172189287}
   Si2SkillPos: {fileID: 2325065539412240649}
   Si3SkillPos: {fileID: 8918150352242327406}
+--- !u!114 &416052292002528827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206977417101883695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10a0d5d9719e9f4a9372fb1f2e6a266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstAttackForce: 1
+  secondAttackForce: 2
+  thirdAttackForce: 4
+  moveTime: 0.2
 --- !u!1 &342062559548305210
 GameObject:
   m_ObjectHideFlags: 0

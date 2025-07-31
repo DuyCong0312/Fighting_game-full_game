@@ -59,6 +59,13 @@ public class RunningState : IPlayerState
             return;
         }
 
+        if (!player.groundCheck.isGround)
+        {
+            player.ChangeState(new FallingState(player));
+            player.canDoubleJump = true;
+            return;
+        }
+
         if (Input.GetKeyDown(player.playerInput.attack))
         {
             player.ChangeState(new AttackState(player));

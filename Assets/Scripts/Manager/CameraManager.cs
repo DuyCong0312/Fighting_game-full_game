@@ -3,22 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
-    private Transform[] playerTransforms;
+
 
     [SerializeField] private float minZoom = 1f;
     [SerializeField] private float maxZoom = 5f;
     [SerializeField] private float zoomLimiter = 2f;
     [SerializeField] private float maxHeightOffset = 3f;
     [SerializeField] private float minHeightOffset = 1f;
-    [SerializeField] private Transform leftBoundaryMap;
-    [SerializeField] private Transform rightBoundaryMap;
     [SerializeField] private Transform player01;
     [SerializeField] private Transform player02;
+    private float leftBoundaryMap;
+    private float rightBoundaryMap;
+
+    [SerializeField] private BGManager bgMap;
     private Camera cam;
 
     private void Start()
     {
         cam = Camera.main;
+        StartCoroutine(WaitForBorder());
+    }
+
+    private IEnumerator WaitForBorder()
+    {
+        while (!bgMap.isReady)
+        {
+            yield return null;
+        }
+        leftBoundaryMap = bgMap.leftBoundary;
+        rightBoundaryMap = bgMap.rightBoundary;
     }
 
     private void LateUpdate()
@@ -39,7 +52,7 @@ public class CameraManager : MonoBehaviour
 
         float camHalfHeight = cam.orthographicSize;
         float camHalfWidth = cam.orthographicSize * cam.aspect;
-        float clampedX = Mathf.Clamp(targetPosition.x, leftBoundaryMap.position.x + camHalfWidth, rightBoundaryMap.position.x - camHalfWidth);
+        float clampedX = Mathf.Clamp(targetPosition.x, leftBoundaryMap + camHalfWidth, rightBoundaryMap - camHalfWidth);
 
         float lowestPlayerY = Mathf.Min(player01.position.y, player02.position.y);
         float maxCameraY = lowestPlayerY + camHalfHeight - 0.7f;

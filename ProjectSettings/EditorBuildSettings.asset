@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PVsP.unity
     guid: c6e9c78ac93349b4583a7c53231493fc
   - enabled: 1
+    path: Assets/Scenes/Training.unity
+    guid: ef1aca0165084e341bf1fc2f5f7d42de
+  - enabled: 1
     path: Assets/Scenes/Setting.unity
     guid: 653e544c29894dc4fb2e35f149e3fbf2
   m_configObjects: {}

@@ -524,6 +524,7 @@ GameObject:
   - component: {fileID: 6391791962149687810}
   - component: {fileID: 5268543836975549150}
   - component: {fileID: 6298874202979410267}
+  - component: {fileID: 7413629991921068287}
   m_Layer: 7
   m_Name: Sasuke
   m_TagString: Player
@@ -838,6 +839,22 @@ MonoBehaviour:
   siSkillPrefab: {fileID: 5573998398279959640, guid: 520108b56548b6a41abbbff0727d54e4, type: 3}
   siSkillPos: {fileID: 6812790483608877451}
   siForce: 10
+--- !u!114 &7413629991921068287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5293817662600591922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3c5482740f59f41b3e4db6cd8ea942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstAttackForce: 1
+  secondAttackForce: 3
+  thirdAttackForce: 2
+  moveTime: 0.2
 --- !u!1 &5834697145074350206
 GameObject:
   m_ObjectHideFlags: 0

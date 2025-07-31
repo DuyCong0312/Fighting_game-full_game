@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 5829505604298478452}
   - component: {fileID: 8273583098441988069}
   - component: {fileID: 5102075876013595364}
+  - component: {fileID: 4784480985464462840}
   m_Layer: 7
   m_Name: Naruto
   m_TagString: Player
@@ -626,6 +627,22 @@ MonoBehaviour:
   siSkillPos: {fileID: 2457789960323587149}
   siSpeed: 10
   siForce: 7
+--- !u!114 &4784480985464462840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800367425432652457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a216ca373482140a1e21e711d5ab4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstAttackForce: 1
+  secondAttackForce: 2
+  thirdAttackForce: 3
+  moveTime: 0.2
 --- !u!1 &4693827065005989232
 GameObject:
   m_ObjectHideFlags: 0
