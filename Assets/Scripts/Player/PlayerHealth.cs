@@ -97,6 +97,11 @@ public class PlayerHealth : MonoBehaviour
         healthBar.UpdateHealthBar(currentHealth, maxHealth);
     }
 
+    public void PlayStartPose()
+    {
+        anim.Play(CONSTANT.StartPose);
+    }
+
     public void PlayWinPose()
     {
         StartCoroutine(WaitAndPlayPose(CONSTANT.WinPose));

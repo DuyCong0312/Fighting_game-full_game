@@ -34,10 +34,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI startGame;
     [SerializeField] private GameObject panelPauseGame;
 
+    [SerializeField] private Camera extraCamera;
+    private Camera mainCamera;
 
     private Vector2 player01SpawnPoint;
     private Vector2 player02SpawnPoint;
 
+    public bool canMoveExtraCam = true;
     public bool gameStart = false;
     public bool gameEnded = false;
 
@@ -56,13 +59,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        mainCamera = Camera.main;
         player01SpawnPoint = player01Pos.position;
         player02SpawnPoint = player02Pos.position;
         panelGameSetPerRound.SetActive(false);
         panelGameSetFinal.SetActive(false);
         panelPauseGame.SetActive(false);
         panelStartGame.SetActive(false);
-        StartCoroutine(StartGame());
+        StartCoroutine(BeforeStartGame());
     }
 
     private void Update()
@@ -213,6 +217,52 @@ public class GameManager : MonoBehaviour
     private void ResetTime()
     {
         time.ResetTime();
+    }
+
+    private IEnumerator BeforeStartGame()
+    {
+        extraCamera.depth = 1;
+        mainCamera.depth = 0;
+        yield return new WaitForSeconds(0.5f);
+        canMoveExtraCam = false;
+        ExtraCameraManager.Instance.DisableFollowMainCamera();
+        ExtraCameraManager.Instance.MoveCamera(new Vector2 (player01SpawnPoint.x, player01SpawnPoint.y + 1f));
+        ExtraCameraManager.Instance.ChangeSizeCamera(2f);
+        while (ExtraCameraManager.Instance.IsMoving())
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.25f);
+        player01Health.PlayStartPose();
+        while (!canMoveExtraCam)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.5f);
+        canMoveExtraCam = false;
+        ExtraCameraManager.Instance.MoveCamera(new Vector2(player02SpawnPoint.x, player02SpawnPoint.y + 1f));
+        while (ExtraCameraManager.Instance.IsMoving())
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.25f);
+        player02Health.PlayStartPose();
+        while (!canMoveExtraCam)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.5f);
+        ExtraCameraManager.Instance.MoveCamera(mainCamera.transform.position);
+        ExtraCameraManager.Instance.ChangeSizeCamera(mainCamera.orthographicSize);
+        while (ExtraCameraManager.Instance.IsMoving())
+        {
+            yield return null;
+        }
+        extraCamera.depth = 0;
+        mainCamera.depth = 1;
+        yield return new WaitForSeconds(0.5f);
+        ExtraCameraManager.Instance.EnableFollowMainCamera();
+        StartCoroutine(StartGame());
     }
 
     private IEnumerator StartGame()

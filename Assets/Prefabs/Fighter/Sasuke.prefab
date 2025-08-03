@@ -525,13 +525,14 @@ GameObject:
   - component: {fileID: 5268543836975549150}
   - component: {fileID: 6298874202979410267}
   - component: {fileID: 7413629991921068287}
+  - component: {fileID: 1602814844491757979}
   m_Layer: 7
   m_Name: Sasuke
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8995981852456860878
 Transform:
   m_ObjectHideFlags: 0
@@ -855,6 +856,18 @@ MonoBehaviour:
   secondAttackForce: 3
   thirdAttackForce: 2
   moveTime: 0.2
+--- !u!114 &1602814844491757979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5293817662600591922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5717c50adc1e6944a419cfd2df9e25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5834697145074350206
 GameObject:
   m_ObjectHideFlags: 0

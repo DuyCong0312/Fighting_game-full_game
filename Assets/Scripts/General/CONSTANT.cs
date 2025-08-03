@@ -27,6 +27,7 @@ public static class CONSTANT
     public static readonly string IKskill = "K+I";
     public static readonly string UKskill = "K+U";
     public static readonly string airAttack = "K+J";
+    public static readonly string StartPose = "start_pose";
     public static readonly string WinPose = "win_pose";
     public static readonly string LosePose = "lose_pose";
         // Animator bool

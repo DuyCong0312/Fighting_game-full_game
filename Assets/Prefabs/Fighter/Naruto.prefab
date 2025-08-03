@@ -308,13 +308,14 @@ GameObject:
   - component: {fileID: 8273583098441988069}
   - component: {fileID: 5102075876013595364}
   - component: {fileID: 4784480985464462840}
+  - component: {fileID: 7603895984016877463}
   m_Layer: 7
   m_Name: Naruto
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1180875273024527443
 Transform:
   m_ObjectHideFlags: 0
@@ -643,6 +644,18 @@ MonoBehaviour:
   secondAttackForce: 2
   thirdAttackForce: 3
   moveTime: 0.2
+--- !u!114 &7603895984016877463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800367425432652457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5717c50adc1e6944a419cfd2df9e25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4693827065005989232
 GameObject:
   m_ObjectHideFlags: 0

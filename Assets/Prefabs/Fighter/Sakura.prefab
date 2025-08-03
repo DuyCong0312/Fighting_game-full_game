@@ -529,13 +529,14 @@ GameObject:
   - component: {fileID: 7305664923356934013}
   - component: {fileID: 4148525634959597469}
   - component: {fileID: 5378358790009651309}
+  - component: {fileID: 3802221890081868169}
   m_Layer: 7
   m_Name: Sakura
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6063904594275682210
 Transform:
   m_ObjectHideFlags: 0
@@ -854,6 +855,18 @@ MonoBehaviour:
   secondAttackForce: 2
   thirdAttackForce: 6
   moveTime: 0.2
+--- !u!114 &3802221890081868169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181489956766094652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5717c50adc1e6944a419cfd2df9e25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6814792074051948722
 GameObject:
   m_ObjectHideFlags: 0

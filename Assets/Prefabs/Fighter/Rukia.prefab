@@ -619,13 +619,14 @@ GameObject:
   - component: {fileID: 7239320672130525853}
   - component: {fileID: 9114755535900459096}
   - component: {fileID: 4083838892802012033}
+  - component: {fileID: 4746300202882235641}
   m_Layer: 7
   m_Name: Rukia
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7733478422724523378
 Transform:
   m_ObjectHideFlags: 0
@@ -935,6 +936,18 @@ MonoBehaviour:
   secondAttackForce: 2
   thirdAttackForce: 4
   moveTime: 0.2
+--- !u!114 &4746300202882235641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7663308462470134882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5717c50adc1e6944a419cfd2df9e25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7840004162054590688
 GameObject:
   m_ObjectHideFlags: 0
