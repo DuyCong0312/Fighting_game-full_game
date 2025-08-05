@@ -51,6 +51,7 @@ public class DefendState : IPlayerState
         if (Input.GetKeyDown(player.playerInput.specialAttack) && !player.playerState.isUsingSkill && player.groundCheck.isGround)
         {
             var move = player.defenseSpecialAttack;
+            player.specialEffect.callSIEffect = true;
             player.ChangeState(new SpecialMoveState(player, move));
             return;
         }

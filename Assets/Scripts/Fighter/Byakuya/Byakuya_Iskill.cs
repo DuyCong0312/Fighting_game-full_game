@@ -14,7 +14,7 @@ public class Byakuya_Iskill : MonoBehaviour
         knockBack = GetComponentInParent<KnockBack>();
     }
 
-    private void ActivateIchigoISkill()
+    private void ActivateByakuyaISkill()
     {
         GameObject skill = Instantiate(iSkillPrefab, knockBack.opponentDirection.position, Quaternion.identity);
         SkillCheckHitUseOverLap skillCheck = skill.GetComponent<SkillCheckHitUseOverLap>();

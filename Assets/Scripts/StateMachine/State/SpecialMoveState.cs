@@ -39,10 +39,23 @@ public class SpecialMoveState : IPlayerState
             player.playerState.isUsingSkill = false;
             return;
         }
+        CallSPskillEffect();
         player.animator.Play(move.animationName);
         player.playerRage.CostRage(move.rageCost);
         player.playerState.isUsingSkill = true;
         player.playerState.isAttacking = false;
+    }
+
+    private void CallSPskillEffect()
+    {
+        if (player.specialEffect.callWIEffect)
+        {
+            player.specialEffect.SpecialEffectSpawn(SpecialEffect.SpecialEffectType.WIskillAttack);
+        }
+        else if (player.specialEffect.callSIEffect)
+        {
+            player.specialEffect.SpecialEffectSpawn(SpecialEffect.SpecialEffectType.SIskillAttack);
+        }
     }
 
     public void UpdateState()

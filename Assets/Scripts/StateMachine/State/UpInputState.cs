@@ -66,6 +66,7 @@ public class UpInputState : IPlayerState
         if (Input.GetKeyDown(player.playerInput.specialAttack) && !player.playerState.isUsingSkill && player.groundCheck.isGround)
         {
             var move = player.upSpecialAttack;
+            player.specialEffect.callWIEffect = true;
             player.ChangeState(new SpecialMoveState(player, move));
             return;
         }

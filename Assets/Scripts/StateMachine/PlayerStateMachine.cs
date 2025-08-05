@@ -13,6 +13,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
+    public SpecialEffect specialEffect;
     public PlayerState playerState;
     public PlayerRage playerRage;
     public CheckGround groundCheck;
@@ -52,8 +53,9 @@ public class PlayerStateMachine : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
         comboAttack = GetComponentInChildren<ComboAttack>();
-        rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        specialEffect = GetComponentInChildren<SpecialEffect>();
+        rb = GetComponent<Rigidbody2D>();
         playerState = GetComponent<PlayerState>();
         playerRage = GetComponent<PlayerRage>();
         groundCheck = GetComponent<CheckGround>();

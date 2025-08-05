@@ -28,6 +28,7 @@ public class SpecialAttackState : IPlayerState
         if (player.groundCheck.isGround)
         {
             player.playerRage.CostRage(30f);
+            player.specialEffect.SpecialEffectSpawn(SpecialEffect.SpecialEffectType.IskillAttack);
             player.animator.SetTrigger(CONSTANT.Iskill);
         }
         else
@@ -49,6 +50,7 @@ public class SpecialAttackState : IPlayerState
                 return;
             }
             player.playerRage.CostRage(30f);
+            player.specialEffect.SpecialEffectSpawn(SpecialEffect.SpecialEffectType.IskillAttack);
             player.animator.Play(CONSTANT.IKskill);
         }
     }

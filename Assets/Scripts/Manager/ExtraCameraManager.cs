@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExtraCameraManager : MonoBehaviour
 {
     public static ExtraCameraManager Instance { get; private set; }
     [SerializeField] private float moveSpeed;
+    [Header("UI Effect")]
+    [SerializeField] private GameObject uiPanel;
+    [SerializeField] private Image uiImage;
+    private RectTransform uiTransform;
+
 
     private Camera extraCam;
     private Camera mainCamera;
@@ -29,6 +35,7 @@ public class ExtraCameraManager : MonoBehaviour
     {
         mainCamera = Camera.main;
         extraCam = GetComponent<Camera>();
+        uiTransform = uiPanel.GetComponent<RectTransform>();
     }
 
     private void LateUpdate()
@@ -103,5 +110,21 @@ public class ExtraCameraManager : MonoBehaviour
         }
 
         extraCam.orthographicSize = newSize;
+    }
+
+    public void CallSpecialAttackEffect(Quaternion fighterRotation, Sprite fighterImage)
+    {
+        extraCam.depth = 1f;
+        mainCamera.depth = 0f;
+        uiPanel.SetActive(true);
+        uiTransform.rotation = fighterRotation;
+        uiImage.sprite = fighterImage;
+    }
+
+    public void StopSpecialAttackEffect()
+    {
+        extraCam.depth = 0f;
+        mainCamera.depth = 1f;
+        uiPanel.SetActive(false);
     }
 }

@@ -29,7 +29,7 @@ public class ComSpecialAttackState : IPlayerState
         if (com.groundCheck.isGround)
         {
             com.playerRage.CostRage(30f);
-            
+            com.specialEffect.SpecialEffectSpawn(SpecialEffect.SpecialEffectType.IskillAttack);
             com.animator.SetTrigger(CONSTANT.Iskill);
         }
         else
@@ -51,6 +51,7 @@ public class ComSpecialAttackState : IPlayerState
                 return;
             }
             com.playerRage.CostRage(30f);
+            com.specialEffect.SpecialEffectSpawn(SpecialEffect.SpecialEffectType.IskillAttack);
             com.animator.Play(CONSTANT.IKskill);
         }
     }

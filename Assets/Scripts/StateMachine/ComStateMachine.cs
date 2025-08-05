@@ -10,6 +10,7 @@ public class ComStateMachine : MonoBehaviour
     [Header("Components")]
     public Animator animator;
     public SpriteRenderer spriteRenderer;
+    public SpecialEffect specialEffect;
     public Rigidbody2D rb;
     public KnockBack knockBack;
     public PlayerState playerState;
@@ -56,6 +57,7 @@ public class ComStateMachine : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>(); 
         comboAttack = GetComponentInChildren<ComboAttack>();
+        specialEffect = GetComponentInChildren<SpecialEffect>();
         rb = GetComponent<Rigidbody2D>();
         knockBack = GetComponent<KnockBack>();
         playerState = GetComponent<PlayerState>();

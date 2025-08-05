@@ -64,6 +64,8 @@ AnimationClip:
       value: {fileID: 51825069, guid: bb4db73b6b8b01a42b1f8230a2b692c7, type: 3}
     - time: 1.1333333
       value: {fileID: -1713287533, guid: 8b0d1bb1200315048a01d558b9e80590, type: 3}
+    - time: 1.1833333
+      value: {fileID: 886385447, guid: 575d2f557b7661b408eff32246101f32, type: 3}
     - time: 1.25
       value: {fileID: 886385447, guid: 575d2f557b7661b408eff32246101f32, type: 3}
     - time: 1.3333334
@@ -114,6 +116,7 @@ AnimationClip:
     - {fileID: -1713287533, guid: 8b0d1bb1200315048a01d558b9e80590, type: 3}
     - {fileID: 886385447, guid: 575d2f557b7661b408eff32246101f32, type: 3}
     - {fileID: 886385447, guid: 575d2f557b7661b408eff32246101f32, type: 3}
+    - {fileID: 886385447, guid: 575d2f557b7661b408eff32246101f32, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -141,6 +144,13 @@ AnimationClip:
   m_Events:
   - time: 0.033333335
     functionName: PlaySoundWiSkill
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.2
+    functionName: StopSkillAttackEffect
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

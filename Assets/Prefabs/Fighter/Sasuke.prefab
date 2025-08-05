@@ -532,7 +532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8995981852456860878
 Transform:
   m_ObjectHideFlags: 0
@@ -868,6 +868,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5717c50adc1e6944a419cfd2df9e25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iSkillAttack: {fileID: 335291403, guid: f9d87b0d8670b314986a494a0bcce08e, type: 3}
+  wiSkillAttack: {fileID: -414525902, guid: fb024ae4bf8089b48b876b64637c3e84, type: 3}
+  siSkillAttack: {fileID: -414525902, guid: fb024ae4bf8089b48b876b64637c3e84, type: 3}
+  callWIEffect: 0
+  callSIEffect: 0
 --- !u!1 &5834697145074350206
 GameObject:
   m_ObjectHideFlags: 0

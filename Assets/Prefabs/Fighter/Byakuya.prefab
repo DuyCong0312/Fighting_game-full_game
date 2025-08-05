@@ -376,6 +376,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5717c50adc1e6944a419cfd2df9e25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iSkillAttack: {fileID: 2062948737, guid: 26ab47195a658334fb74060dafce571e, type: 3}
+  wiSkillAttack: {fileID: 1515150645, guid: 1929518e7f8ec594ab79856850abc7d1, type: 3}
+  siSkillAttack: {fileID: -509718656, guid: 1f6530c5a69f793478b659e3100bf36b, type: 3}
+  callWIEffect: 0
+  callSIEffect: 0
 --- !u!1 &220540385791741982
 GameObject:
   m_ObjectHideFlags: 0
