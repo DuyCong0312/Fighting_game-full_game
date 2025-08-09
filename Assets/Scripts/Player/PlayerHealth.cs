@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public GameSettingSO gameSetRuntime;
     [SerializeField] private float maxHealth;
     public float currentHealth;
+    public int getHitCount;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private string animationHeavyHurtName;
 
@@ -58,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
+            getHitCount++;
             currentHealth -= damage;
             playerState.isGettingHurt = true;
             if (currentHealth <= 0)
@@ -114,7 +116,9 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator WaitAndPlayPose(string poseName)
     {
-        while (playerState.isGettingHurt)
+        while (playerState.isGettingHurt 
+            || playerState.isAttacking 
+            || playerState.isUsingSkill)
         {
             yield return null;
         }

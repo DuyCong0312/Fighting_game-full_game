@@ -614,8 +614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec28d738c55c29d4c9aa8895295ea455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAttackForce: 1
-  secondAttackForce: 3
+  firstAttackForce: 2
+  secondAttackForce: 5
   moveTime: 0.2
 --- !u!114 &7644996701355611798
 MonoBehaviour:

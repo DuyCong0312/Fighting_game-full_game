@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 1887259052953507281}
   m_Layer: 6
   m_Name: RightBorder
-  m_TagString: Untagged
+  m_TagString: MapBorder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -731,7 +731,7 @@ GameObject:
   - component: {fileID: 5779877883535013429}
   m_Layer: 6
   m_Name: 'LeftBorder '
-  m_TagString: Untagged
+  m_TagString: MapBorder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

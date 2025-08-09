@@ -261,7 +261,8 @@ MonoBehaviour:
   suSkill: {fileID: 8300000, guid: b9c6d42618b5d124b8d325bcdc418480, type: 3}
   siSkill01: {fileID: 8300000, guid: adff64dcf59ff414288a49d193a96b82, type: 3}
   siSkill02: {fileID: 8300000, guid: b89baa777d03a414998007c345695827, type: 3}
-  winSound: {fileID: 8300000, guid: df1f919850aac5543ba395e4327423d6, type: 3}
+  startSound: {fileID: 8300000, guid: df1f919850aac5543ba395e4327423d6, type: 3}
+  winSound: {fileID: 8300000, guid: 10f379f1b51ad8c40bb3087b73ef4b6a, type: 3}
 --- !u!114 &1949259632142810113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstAttackForce: 2
   secondAttackForce: 3
-  thirdAttackForce: 6
+  thirdAttackForce: 4
   moveTime: 0.2
 --- !u!114 &1326935900708821760
 MonoBehaviour:

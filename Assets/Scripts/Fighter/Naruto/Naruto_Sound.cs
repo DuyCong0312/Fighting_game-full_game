@@ -14,6 +14,7 @@ public class Naruto_Sound : MonoBehaviour
     public AudioClip wiSkill;
     public AudioClip sjSkill01;
     public AudioClip sjSkill02;
+    public AudioClip startSound;
     public AudioClip winSound;
 
     private void PlaySoundFirstAttack()
@@ -64,6 +65,10 @@ public class Naruto_Sound : MonoBehaviour
         AudioManager.Instance.PlaySFX(thirdAttack2);
     }
 
+    private void PlaySoundStart()
+    {
+        AudioManager.Instance.PlaySFX(startSound);
+    }
 
     private void PlaySoundWin()
     {

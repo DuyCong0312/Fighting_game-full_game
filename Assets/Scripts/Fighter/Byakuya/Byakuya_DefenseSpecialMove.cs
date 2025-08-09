@@ -99,5 +99,21 @@ public class Byakuya_DefenseSpecialMove : MonoBehaviour
     private void ActiveByakuyaSISkill()
     {
         rb.velocity = this.transform.right * SIforce;
+        this.gameObject.layer = player.dashLayer;
+    }
+
+    private void ActiveByakuyaSIskill02()
+    {
+        StartCoroutine(SIskillEnuP2());
+    }
+
+    private IEnumerator SIskillEnuP2()
+    {
+        float direction = playerState.isFacingRight ? 1 : -1;
+        rb.velocity = new Vector2(direction * SIforce, 0f);
+        yield return new WaitForSeconds(0.15f);
+        this.gameObject.layer = player.defaultLayer;
+        rb.gravityScale = player.originalGravity;
+        rb.velocity = Vector2.zero;
     }
 }

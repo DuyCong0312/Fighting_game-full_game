@@ -5,33 +5,64 @@ using UnityEngine;
 
 public class Renji_Iskill : MonoBehaviour
 {
-    private KnockBack knockBack;
+    private Animator anim;
     [SerializeField] private GameObject IskillObject;
+    [SerializeField] private Transform[] skillTransforms;
     [SerializeField] private float speed;
+
+    private bool objGetSpeed = false;
 
     private void Start()
     {
-        knockBack = GetComponentInParent<KnockBack>();
+        anim = GetComponent<Animator>();
     }
 
     private void ActiveRenjiIskill()
     {
-        Transform opponent = knockBack.opponentDirection;
-        float direction = opponent.eulerAngles.y == 0f ? 1f : -1f;
+        StartCoroutine(SpawnAndGiveThemSpeed());
+    }
+    private IEnumerator SpawnAndGiveThemSpeed()
+    {
+        List<Renji_dart> darts = new List<Renji_dart>();
 
-        for (int i = 0; i < 3; i++)
+        foreach (Transform t in skillTransforms)
         {
-            Vector2 pos1 = new Vector2(opponent.position.x - 2f * direction, (opponent.position.y - 2f) + 2f * i);
-            Vector2 pos2 = new Vector2(opponent.position.x + 2f * direction, (opponent.position.y - 2f) + 2f * i);
+            GameObject obj = Instantiate(IskillObject, t.position, t.rotation);
 
-            Quaternion rot1 = opponent.rotation * Quaternion.Euler(0, 0, 45 - i * 45);
-            Quaternion rot2 = opponent.rotation * Quaternion.Euler(0, 180, 45 - i * 45);
+            Renji_dart dart = obj.GetComponent<Renji_dart>();
+            if (dart != null)
+            {
+                dart.SetReturnPos(t);
+                darts.Add(dart);
+            }
 
-            var obj1 = Instantiate(IskillObject, pos1, rot1).GetComponent<Renji_dart>();
-            var obj2 = Instantiate(IskillObject, pos2, rot2).GetComponent<Renji_dart>();
-
-            obj1.target = opponent;
-            obj2.target = opponent;
+            Projectile proj = obj.GetComponent<Projectile>();
+            if (proj != null)
+            {
+                proj.SetOwner(this.gameObject);
+            }
         }
+
+        while (!objGetSpeed)
+            yield return null;
+
+        foreach (Renji_dart dart in darts)
+        {
+            dart.moveSpeed = speed;
+            yield return new WaitForSeconds(0.075f);
+        }
+    }
+
+    private void AcceptForObjGetSpeed()
+    {
+        StartCoroutine(AcceptForObjGetSpeedEnum());
+    }
+
+    private IEnumerator AcceptForObjGetSpeedEnum()
+    {
+        objGetSpeed = true;
+        anim.speed = 0f;
+        yield return new WaitForSeconds(2f);
+        anim.speed = 1f;
     }
 }

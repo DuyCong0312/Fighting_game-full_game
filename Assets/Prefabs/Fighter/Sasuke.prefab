@@ -852,9 +852,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3c5482740f59f41b3e4db6cd8ea942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAttackForce: 1
-  secondAttackForce: 3
-  thirdAttackForce: 2
+  firstAttackForce: 2
+  secondAttackForce: 4
+  thirdAttackForce: 1
   moveTime: 0.2
 --- !u!114 &1602814844491757979
 MonoBehaviour:

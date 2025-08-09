@@ -74,6 +74,7 @@ public class Rukia_CheckHit : CheckHit
             if (hit)
             {
                 CallHitEffect(HitEffect.HitEffectType.NormalHit);
+                break;
             }
             yield return null;
         }

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: DefenseSpecialAttack
   animationName: S+I
-  rageCost: 0
+  rageCost: 100

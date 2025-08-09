@@ -21,6 +21,7 @@ public class Byakuya_Sound : MonoBehaviour
     public AudioClip suSkill;
     public AudioClip siSkill01;
     public AudioClip siSkill02;
+    public AudioClip startSound;
     public AudioClip winSound;
 
     private void PlaySoundFirstAttack()
@@ -97,6 +98,11 @@ public class Byakuya_Sound : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX(siSkill02);
     }
+    private void PlaySoundStart()
+    {
+        AudioManager.Instance.PlaySFX(startSound);
+    }
+
     private void PlaySoundWin()
     {
         AudioManager.Instance.PlaySFX(winSound);

@@ -765,8 +765,8 @@ MonoBehaviour:
   ik1Skill: {fileID: 8300000, guid: 0e0154d7c9a398e47b08c78976e8103b, type: 3}
   sjSkill: {fileID: 8300000, guid: 190640eec3e8e074d8e82c453eb45391, type: 3}
   siSkill: {fileID: 8300000, guid: b5415c46303197b44a454047febec6b3, type: 3}
-  winSound: {fileID: 8300000, guid: fa88b56b92748fe4a9828b7877352e2e, type: 3}
-  loseSound: {fileID: 8300000, guid: c2dc3b44c10a74f459348920e3ee537c, type: 3}
+  startSound: {fileID: 8300000, guid: fa88b56b92748fe4a9828b7877352e2e, type: 3}
+  winSound: {fileID: 8300000, guid: c2dc3b44c10a74f459348920e3ee537c, type: 3}
 --- !u!114 &554194665430495987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,9 +851,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55672141139154b498ad9cde73759119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstAttackForce: 1
-  secondAttackForce: 2
-  thirdAttackForce: 6
+  firstAttackForce: 2
+  secondAttackForce: 4
+  thirdAttackForce: 8
   moveTime: 0.2
 --- !u!114 &3802221890081868169
 MonoBehaviour:

@@ -11,8 +11,8 @@ public class Sakura_Sound : MonoBehaviour
     public AudioClip ik1Skill;
     public AudioClip sjSkill;
     public AudioClip siSkill;
+    public AudioClip startSound;
     public AudioClip winSound;
-    public AudioClip loseSound;
 
     private void PlaySoundFirstAttack()
     {
@@ -53,15 +53,14 @@ public class Sakura_Sound : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX(siSkill);
     }
+    private void PlaySoundStart()
+    {
+        AudioManager.Instance.PlaySFX(startSound);
+    }
 
     private void PlaySoundWin()
     {
         AudioManager.Instance.PlaySFX(winSound);
-    }
-
-    private void PlaySoundLose()
-    {
-        AudioManager.Instance.PlaySFX(loseSound);
     }
 
     private void Footstep()
