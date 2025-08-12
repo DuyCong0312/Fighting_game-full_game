@@ -5882,7 +5882,6 @@ MonoBehaviour:
   timeText: {fileID: 20548175}
   increaseTimeButton: {fileID: 115255436}
   decreaseTimeButton: {fileID: 772210076}
-  rectTransformTime: {fileID: 0}
 --- !u!114 &1429800662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5908,8 +5907,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683183f5c722f084facd1804ebe59ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1Input: {fileID: 11400000, guid: 582f026cfbfa4034eb4054246146e3a1, type: 2}
+  player2Input: {fileID: 11400000, guid: 5f3db5b97cf6de442940f6f48d9eb6b6, type: 2}
   applyButton: {fileID: 1258906190}
   cancelButton: {fileID: 2105398670}
+  Player01SettingButton: {fileID: 1948816261}
+  Player02SettingButton: {fileID: 1743815487}
   UpButton: {fileID: 599967345}
   DownButton: {fileID: 328857235}
   LeftButton: {fileID: 1381307538}
@@ -6683,18 +6686,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1429800663}
-        m_TargetAssemblyTypeName: InputSetting, Assembly-CSharp
-        m_MethodName: SetPlayerInput
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 5f3db5b97cf6de442940f6f48d9eb6b6, type: 2}
-          m_ObjectArgumentAssemblyTypeName: PlayerInputSO, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1429800662}
         m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: ChangePlayerInput
@@ -7319,18 +7310,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1429800663}
-        m_TargetAssemblyTypeName: InputSetting, Assembly-CSharp
-        m_MethodName: SetPlayerInput
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 582f026cfbfa4034eb4054246146e3a1, type: 2}
-          m_ObjectArgumentAssemblyTypeName: PlayerInputSO, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1429800662}
         m_TargetAssemblyTypeName: Setting, Assembly-CSharp
         m_MethodName: ChangePlayerInput

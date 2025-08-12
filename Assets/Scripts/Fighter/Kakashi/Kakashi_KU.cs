@@ -22,7 +22,8 @@ public class Kakashi_KU : Projectile
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == owner) return;
+        PlayerState enemyState = collision.GetComponentInParent<PlayerState>();
+        if (collision.gameObject == owner || enemyState.immuneToDamage) return;
 
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
         {

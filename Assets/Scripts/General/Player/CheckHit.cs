@@ -30,7 +30,8 @@ public class CheckHit : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(AttackPos.position, AttackSize, Angle, whatIsEnemies);
         foreach (Collider2D enemy in hitEnemies)
         {
-            if (enemy == coll)
+            PlayerState enemyState = enemy.GetComponentInParent<PlayerState>();
+            if (enemy == coll || enemyState.immuneToDamage)
             {
                 continue; 
             }
@@ -53,7 +54,8 @@ public class CheckHit : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(AttackPos.position, AttackRange, whatIsEnemies);
         foreach (Collider2D enemy in hitEnemies)
         {
-            if (enemy == coll)
+            PlayerState enemyState = enemy.GetComponentInParent<PlayerState>();
+            if (enemy == coll || enemyState.immuneToDamage)
             {
                 continue;
             }

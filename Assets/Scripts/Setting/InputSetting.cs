@@ -6,9 +6,15 @@ using UnityEngine.UI;
 // not completed yet
 public class InputSetting : MonoBehaviour
 {
+    [Header("Player Input")]
+    [SerializeField] private PlayerInputSO player1Input;
+    [SerializeField] private PlayerInputSO player2Input;
+
     [Header("UI Buttons")]
     public Button applyButton;
     public Button cancelButton;
+    [SerializeField] private Button Player01SettingButton;
+    [SerializeField] private Button Player02SettingButton;
     [SerializeField] private Button UpButton;
     [SerializeField] private Button DownButton;
     [SerializeField] private Button LeftButton;
@@ -31,7 +37,9 @@ public class InputSetting : MonoBehaviour
     [SerializeField] private TMP_Text SpSkillButtonText;
 
     private PlayerInputSO playerInput;
-    private PlayerInputSO backupInput;
+    private PlayerInputSO backupInputP1;
+    private PlayerInputSO backupInputP2;
+    private int currentPlayerIndex = 0;
     private bool waitingForKey = false;
 
     private enum KeyType
@@ -39,12 +47,24 @@ public class InputSetting : MonoBehaviour
         Up, Down, Left, Right, Attack, Jump, Dash, Skill, SpSkill
     }
 
-    public void SetPlayerInput(PlayerInputSO inputSO)
+    private void SetPlayerInput(PlayerInputSO inputSO, int playerIndex)
     {
-        playerInput = inputSO; 
-        
-        backupInput = ScriptableObject.CreateInstance<PlayerInputSO>();
-        CopyInput(playerInput, backupInput);
+        playerInput = inputSO;
+        currentPlayerIndex = playerIndex;
+
+        LoadPlayerInput(playerInput, currentPlayerIndex);
+        if (currentPlayerIndex == 0)
+        {
+            if (backupInputP1 == null) backupInputP1 = ScriptableObject.CreateInstance<PlayerInputSO>();
+            player1Input = playerInput;
+            CopyInput(player1Input, backupInputP1);
+        }
+        else
+        {
+            if (backupInputP2 == null) backupInputP2 = ScriptableObject.CreateInstance<PlayerInputSO>();
+            player2Input = playerInput;
+            CopyInput(player2Input, backupInputP2);
+        }
 
         RefreshKeyTexts();
     }
@@ -58,6 +78,8 @@ public class InputSetting : MonoBehaviour
 
     private void SetupButtonListeners()
     {
+        Player01SettingButton.onClick.AddListener(() => SetPlayerInput(player1Input, 0));
+        Player02SettingButton.onClick.AddListener(() => SetPlayerInput(player2Input, 1));
         UpButton.onClick.AddListener(() => StartRebinding(KeyType.Up, UpButtonText));
         DownButton.onClick.AddListener(() => StartRebinding(KeyType.Down, DownButtonText));
         LeftButton.onClick.AddListener(() => StartRebinding(KeyType.Left, LeftButtonText));
@@ -131,22 +153,30 @@ public class InputSetting : MonoBehaviour
             case KeyType.SpSkill: playerInput.specialAttack = newKey; break;
         }
     }
+
     private void ApplyChanges()
     {
-        if (backupInput != null && playerInput != null)
-        {
-            CopyInput(playerInput, backupInput);
-        }
+        if (player1Input != null && backupInputP1 != null)
+            CopyInput(player1Input, backupInputP1);
+
+        if (player2Input != null && backupInputP2 != null)
+            CopyInput(player2Input, backupInputP2);
+
+        if (player1Input != null) SavePlayerInput(player1Input, 0);
+        if (player2Input != null) SavePlayerInput(player2Input, 1);
     }
 
     private void CancelChanges()
     {
-        if (backupInput != null && playerInput != null)
-        {
-            CopyInput(backupInput, playerInput);
-            RefreshKeyTexts();
-        }
+        if (player1Input != null && backupInputP1 != null)
+            CopyInput(backupInputP1, player1Input);
+
+        if (player2Input != null && backupInputP2 != null)
+            CopyInput(backupInputP2, player2Input);
+
+        RefreshKeyTexts();
     }
+
     private void CopyInput(PlayerInputSO from, PlayerInputSO to)
     {
         to.specialMoveUpInput = from.specialMoveUpInput;
@@ -158,5 +188,63 @@ public class InputSetting : MonoBehaviour
         to.dash = from.dash;
         to.rangedAttack = from.rangedAttack;
         to.specialAttack = from.specialAttack;
+    }
+
+    private void SavePlayerInput(PlayerInputSO player, int playerNumber)
+    {
+        if (playerNumber == 0)
+        {
+            PlayerPrefs.SetInt(CONSTANT.P1_Attack, (int)player.attack);
+            PlayerPrefs.SetInt(CONSTANT.P1_Dash, (int)player.dash);
+            PlayerPrefs.SetInt(CONSTANT.P1_Down, (int)player.defense);
+            PlayerPrefs.SetInt(CONSTANT.P1_Jump, (int)player.jump);
+            PlayerPrefs.SetInt(CONSTANT.P1_Left, (int)player.moveLeft);
+            PlayerPrefs.SetInt(CONSTANT.P1_Right, (int)player.moveRight);
+            PlayerPrefs.SetInt(CONSTANT.P1_Skill, (int)player.rangedAttack);
+            PlayerPrefs.SetInt(CONSTANT.P1_SpSkill, (int)player.specialAttack);
+            PlayerPrefs.SetInt(CONSTANT.P1_Up, (int)player.specialMoveUpInput);
+        }
+        else
+        {
+            PlayerPrefs.SetInt(CONSTANT.P2_Attack, (int)player.attack);
+            PlayerPrefs.SetInt(CONSTANT.P2_Dash, (int)player.dash);
+            PlayerPrefs.SetInt(CONSTANT.P2_Down, (int)player.defense);
+            PlayerPrefs.SetInt(CONSTANT.P2_Jump, (int)player.jump);
+            PlayerPrefs.SetInt(CONSTANT.P2_Left, (int)player.moveLeft);
+            PlayerPrefs.SetInt(CONSTANT.P2_Right, (int)player.moveRight);
+            PlayerPrefs.SetInt(CONSTANT.P2_Skill, (int)player.rangedAttack);
+            PlayerPrefs.SetInt(CONSTANT.P2_SpSkill, (int)player.specialAttack);
+            PlayerPrefs.SetInt(CONSTANT.P2_Up, (int)player.specialMoveUpInput);
+        }
+        PlayerPrefs.Save();
+    }
+    private void LoadPlayerInput(PlayerInputSO player, int playerNumber)
+    {
+        if (player == null) return;
+
+        if (playerNumber == 0)
+        {
+            player.attack = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P1_Attack, (int)player.attack);
+            player.dash = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P1_Dash, (int)player.dash);
+            player.defense = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P1_Down, (int)player.defense);
+            player.jump = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P1_Jump, (int)player.jump);
+            player.moveLeft = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P1_Left, (int)player.moveLeft);
+            player.moveRight = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P1_Right, (int)player.moveRight);
+            player.rangedAttack = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P1_Skill, (int)player.rangedAttack);
+            player.specialAttack = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P1_SpSkill, (int)player.specialAttack);
+            player.specialMoveUpInput = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P1_Up, (int)player.specialMoveUpInput);
+        }
+        else
+        {
+            player.attack = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P2_Attack, (int)player.attack);
+            player.dash = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P2_Dash, (int)player.dash);
+            player.defense = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P2_Down, (int)player.defense);
+            player.jump = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P2_Jump, (int)player.jump);
+            player.moveLeft = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P2_Left, (int)player.moveLeft);
+            player.moveRight = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P2_Right, (int)player.moveRight);
+            player.rangedAttack = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P2_Skill, (int)player.rangedAttack);
+            player.specialAttack = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P2_SpSkill, (int)player.specialAttack);
+            player.specialMoveUpInput = (KeyCode)PlayerPrefs.GetInt(CONSTANT.P2_Up, (int)player.specialMoveUpInput);
+        }
     }
 }

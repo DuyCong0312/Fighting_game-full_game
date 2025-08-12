@@ -11,5 +11,5 @@ public class PlayerState : MonoBehaviour
     public bool isGettingHurt = false;
     public bool isFacingRight = true;
     public bool isUpInputPress = false;
-    public bool isDead = false;
+    public bool immuneToDamage = false;
 }

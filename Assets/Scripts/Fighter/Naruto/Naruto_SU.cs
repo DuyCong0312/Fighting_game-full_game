@@ -35,7 +35,8 @@ public class Naruto_SU : Projectile
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.collider.gameObject == owner) return;
+        PlayerState enemyState = collision.collider.GetComponentInParent<PlayerState>();
+        if (collision.collider.gameObject == owner || enemyState.immuneToDamage) return;
 
         if (collision.collider.CompareTag(CONSTANT.Player) || collision.collider.CompareTag(CONSTANT.Com))
         {

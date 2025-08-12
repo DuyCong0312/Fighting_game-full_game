@@ -130,5 +130,6 @@ public class PlayerHealth : MonoBehaviour
     {
         anim.Play(animationHeavyHurtName);
         playerState.isGettingHurt = true;
+        playerState.immuneToDamage = true;
     }
 }

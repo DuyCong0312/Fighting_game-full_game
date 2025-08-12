@@ -26,23 +26,24 @@ public class GameSetting : MonoBehaviour
     public TextMeshProUGUI timeText;
     public Button increaseTimeButton;
     public Button decreaseTimeButton;
-    public RectTransform rectTransformTime;
     private float tempTime;
     private float originalTime;
     
 
     private void Start()
     {
+        LoadGameSetting();
+
         originalHealth = gameSetRuntime.playerHealth;
         tempHealth = originalHealth;
 
         originalTime = gameSetRuntime.timePerRound;
         tempTime = originalTime;
 
-        currentHealthIndex = System.Array.IndexOf(healthLevels, (int)tempHealth);
+        currentHealthIndex = System.Array.IndexOf(healthLevels, tempHealth);
         if (currentHealthIndex == -1) currentHealthIndex = 0;
 
-        currentTimeIndex = System.Array.IndexOf(timeLevels, (int)tempTime);
+        currentTimeIndex = System.Array.IndexOf(timeLevels, tempTime);
         if (currentTimeIndex == -1) currentTimeIndex = 0;
 
         increaseHealthButton.onClick.AddListener(IncreaseHealth);
@@ -103,7 +104,11 @@ public class GameSetting : MonoBehaviour
     private void ApplyChanges()
     {
         gameSetRuntime.playerHealth = tempHealth;
-        gameSetRuntime.timePerRound = tempTime;
+        gameSetRuntime.timePerRound = tempTime; 
+        
+        PlayerPrefs.SetFloat(CONSTANT.PlayerHealth, gameSetRuntime.playerHealth);
+        PlayerPrefs.SetFloat(CONSTANT.TimePerRound, gameSetRuntime.timePerRound);
+        PlayerPrefs.Save();
     }
 
     private void CancelChanges()
@@ -126,5 +131,11 @@ public class GameSetting : MonoBehaviour
         {
             timeText.text = tempTime + "S";
         }
+    }
+
+    private void LoadGameSetting()
+    {
+        gameSetRuntime.playerHealth = PlayerPrefs.GetFloat(CONSTANT.PlayerHealth, gameSetRuntime.playerHealth);
+        gameSetRuntime.timePerRound = PlayerPrefs.GetFloat(CONSTANT.TimePerRound, gameSetRuntime.timePerRound);
     }
 }

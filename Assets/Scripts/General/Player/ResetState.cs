@@ -19,4 +19,10 @@ public class ResetState : MonoBehaviour
     {
         playerState.isGettingHurt = false;
     }
+
+    private void StopImmuneDamage()
+    {
+        playerState.isGettingHurt = false;
+        playerState.immuneToDamage = false;
+    }
 }

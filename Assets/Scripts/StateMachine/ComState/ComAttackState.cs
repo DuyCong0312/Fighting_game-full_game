@@ -26,7 +26,6 @@ public class ComAttackState : IPlayerState
         if (com.groundCheck.isGround)
         {
             com.animator.SetTrigger(com.attackNumber + CONSTANT.Attack);
-            com.StartCoroutine(com.MoveWhenAttack());
         }
         else
         {

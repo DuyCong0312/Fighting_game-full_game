@@ -1775,7 +1775,7 @@ Transform:
   m_GameObject: {fileID: 514624440}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.15, y: -3.94, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2913,6 +2913,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705554355}
   m_CullTransparentMesh: 1
+--- !u!1 &726665593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 726665595}
+  - component: {fileID: 726665594}
+  m_Layer: 0
+  m_Name: LoadSetting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &726665594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726665593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d3324ab76494a4aaa2abe14e3bb7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSetRuntime: {fileID: 11400000, guid: 18fef9e5336b870468d6777310dc5744, type: 2}
+  player1Input: {fileID: 11400000, guid: 582f026cfbfa4034eb4054246146e3a1, type: 2}
+  player2Input: {fileID: 11400000, guid: 5f3db5b97cf6de442940f6f48d9eb6b6, type: 2}
+--- !u!4 &726665595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726665593}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &730795341
 GameObject:
   m_ObjectHideFlags: 0
@@ -3980,6 +4027,9 @@ MonoBehaviour:
   playerHealth: {fileID: 1000919916}
   hitText: {fileID: 949212218}
   setTime: 1.5
+  popScale: 1.5
+  popDuration: 0.2
+  vanishDuration: 0.3
 --- !u!114 &949212218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4122,7 +4172,7 @@ Transform:
   m_GameObject: {fileID: 959691955}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.46245694, y: -2.9473598, z: -0.017593613}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4490,7 +4540,6 @@ MonoBehaviour:
   originalGravity: 0
   canAttack: 1
   attackNumber: 0
-  attackMoveDuration: 0.2
   defenseAttack: {fileID: 11400000, guid: 18c1cb8e3e4fc05449befee3363b7823, type: 2}
   defenseRangedAttack: {fileID: 11400000, guid: 0394c79ad2cc2464cbaf78542ce726dd, type: 2}
   defenseSpecialAttack: {fileID: 11400000, guid: 9f1dd8d3afbdbec47aae51a2b1128960, type: 2}
@@ -4536,7 +4585,7 @@ Transform:
   m_GameObject: {fileID: 1014116632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6201394, y: -3.5980668, z: 0.054285094}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5249,7 +5298,6 @@ MonoBehaviour:
   originalGravity: 0
   canAttack: 1
   attackNumber: 0
-  attackMoveDuration: 0.2
   defenseAttack: {fileID: 11400000, guid: 18c1cb8e3e4fc05449befee3363b7823, type: 2}
   defenseRangedAttack: {fileID: 11400000, guid: 0394c79ad2cc2464cbaf78542ce726dd, type: 2}
   defenseSpecialAttack: {fileID: 11400000, guid: 9f1dd8d3afbdbec47aae51a2b1128960, type: 2}
@@ -5692,7 +5740,7 @@ Transform:
   m_GameObject: {fileID: 1466555015}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 886.9673, y: 488.846, z: -2.5138984}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5827,6 +5875,9 @@ MonoBehaviour:
   playerHealth: {fileID: 1378845005}
   hitText: {fileID: 1509495135}
   setTime: 1.5
+  popScale: 1.5
+  popDuration: 0.2
+  vanishDuration: 0.3
 --- !u!114 &1509495135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7900,6 +7951,7 @@ SceneRoots:
   - {fileID: 814905884}
   - {fileID: 252155473}
   - {fileID: 1466555017}
+  - {fileID: 726665595}
   - {fileID: 296332145}
   - {fileID: 959691958}
   - {fileID: 1014116634}

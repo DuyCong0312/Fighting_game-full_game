@@ -40,7 +40,6 @@ public class ComStateMachine : MonoBehaviour
     [Header("Attack Setting")]
     public bool canAttack = true;
     public int attackNumber;
-    [SerializeField] private float attackMoveDuration = 0.2f;
     private ComboAttack comboAttack;
     private bool hasInterrupted = false;
 
@@ -123,19 +122,6 @@ public class ComStateMachine : MonoBehaviour
     public void StartDashCooldown()
     {
         dashCooldownTimer = dashCooldown;
-    }
-
-    public IEnumerator MoveWhenAttack()
-    {
-        float direction = playerState.isFacingRight ? 1 : -1;
-        float timer = 0f;
-
-        while (timer < attackMoveDuration)
-        {
-            rb.velocity = new Vector2(direction * attackNumber * 2f, rb.velocity.y);
-            timer += Time.deltaTime;
-            yield return null;
-        }
     }
 
     public void GetHurtWhenAttacking()

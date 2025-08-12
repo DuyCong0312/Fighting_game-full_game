@@ -22,6 +22,9 @@ public class Sakura_Rock : Projectile
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
+        PlayerState enemyState = collision.GetComponentInParent<PlayerState>();
+        if (collision.gameObject == owner || enemyState.immuneToDamage) return;
+
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
         {
             PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();

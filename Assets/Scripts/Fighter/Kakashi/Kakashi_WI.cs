@@ -31,8 +31,8 @@ public class Kakashi_WI : Projectile
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        
-        if (collision.gameObject == owner) return;
+        PlayerState enemyState = collision.GetComponentInParent<PlayerState>();
+        if (collision.gameObject == owner || enemyState.immuneToDamage) return;
 
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
         {

@@ -37,7 +37,6 @@ public class PlayerStateMachine : MonoBehaviour
     [Header("Attack Setting")]
     public bool canAttack = true;
     public int attackNumber;
-    [SerializeField] private float attackMoveDuration = 0.2f; 
     private ComboAttack comboAttack;
     private bool hasInterrupted = false;
 
