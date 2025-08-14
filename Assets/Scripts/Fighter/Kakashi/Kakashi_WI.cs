@@ -31,11 +31,12 @@ public class Kakashi_WI : Projectile
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        PlayerState enemyState = collision.GetComponentInParent<PlayerState>();
-        if (collision.gameObject == owner || enemyState.immuneToDamage) return;
+        if (collision.gameObject == owner) return;
 
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
         {
+            PlayerState enemyState = collision.GetComponentInParent<PlayerState>();
+            if (enemyState.immuneToDamage) return;
             damageTimer -= Time.deltaTime;
             StartCoroutine(SpeedWhenHit(7.5f));
             if (damageTimer <= 0f && hitCount < 6)

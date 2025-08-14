@@ -32,11 +32,12 @@ public class SkillCheckHit : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (hasHit) return;
-        PlayerState enemyState = collision.GetComponentInParent<PlayerState>();
-        if (collision.gameObject == owner || enemyState.immuneToDamage) return;
+        if (collision.gameObject == owner) return;
 
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
         {
+            PlayerState enemyState = collision.GetComponentInParent<PlayerState>();
+            if (enemyState.immuneToDamage) return;
             hasHit = true;
             PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
             playerHealth.TakeDamage(attackDamage, new Vector2 (this.transform.right.x * force.x, force.y),KnockBack.KnockbackType.Arc);

@@ -22,11 +22,12 @@ public class Sakura_Rock : Projectile
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerState enemyState = collision.GetComponentInParent<PlayerState>();
-        if (collision.gameObject == owner || enemyState.immuneToDamage) return;
+        if (collision.gameObject == owner) return;
 
         if (collision.gameObject.CompareTag(CONSTANT.Player) || collision.gameObject.CompareTag(CONSTANT.Com))
         {
+            PlayerState enemyState = collision.GetComponentInParent<PlayerState>();
+            if (enemyState.immuneToDamage) return;
             PlayerHealth playerHealth = collision.GetComponentInParent<PlayerHealth>();
             playerHealth.TakeDamage(attackDamage, this.transform.right * 3f,KnockBack.KnockbackType.Linear);
             Vector2 hitPoint = collision.ClosestPoint(this.transform.position);
