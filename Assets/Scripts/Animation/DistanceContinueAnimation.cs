@@ -42,7 +42,12 @@ public class DistanceContinueAnimation : StateMachineBehaviour
         float distanceToOpponentValue = Vector2.Distance(playerTransform.position, opponentTransform.position);
         float distanceFromStartValue = Vector2.Distance(playerTransform.position, initialPosition);
 
-        if (distanceToOpponentValue <= distanceToOpponent || distanceFromStartValue >= distanceFromStart)
+        if (!playerState.allowCheck)
+        {
+            return;
+        }
+
+        if (distanceToOpponentValue <= distanceToOpponent || distanceFromStartValue >= distanceFromStart || playerState.hitBorderMap)
         {
             rb.velocity = Vector2.zero;
         }
@@ -52,6 +57,28 @@ public class DistanceContinueAnimation : StateMachineBehaviour
             animator.Play(nameAnimatorClip);
         }
         else if (distanceFromStartValue >= distanceFromStart)
+        {
+            if (acceptChange)
+            {
+                animator.Play(nameAnimatorClip);
+            }
+            else
+            {
+                playerState.isUsingSkill = false;
+                if (player != null)
+                {
+                    rb.gravityScale = player.originalGravity;
+                }
+                else if (com != null)
+                {
+                    rb.gravityScale = com.originalGravity;
+                }
+                effectAfterImage.StopAfterImageEffect();
+                animator.Play(idleClip);
+            }
+        }
+
+        if (playerState.hitBorderMap)
         {
             if (acceptChange)
             {

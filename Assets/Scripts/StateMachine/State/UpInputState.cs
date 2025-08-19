@@ -75,5 +75,6 @@ public class UpInputState : IPlayerState
 
     public void ExitState()
     {
+        player.playerState.isUpInputPress = false;
     }
 }

@@ -11,16 +11,19 @@ public class SpecialEffect : MonoBehaviour
     public bool callWIEffect = false;
     public bool callSIEffect = false;
     private Animator anim;
+    private PlayerState playerState;
     public enum SpecialEffectType { IskillAttack, WIskillAttack, SIskillAttack }
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        playerState = GetComponentInParent<PlayerState>();
     }
 
     public void SpecialEffectSpawn(SpecialEffectType type)
     {
         Time.timeScale = 0f;
+        playerState.allowCheck = false;
         anim.updateMode = AnimatorUpdateMode.UnscaledTime;
         switch (type)
         {
@@ -60,6 +63,7 @@ public class SpecialEffect : MonoBehaviour
     {
         anim.updateMode = AnimatorUpdateMode.Normal;
         Time.timeScale = 1f;
+        playerState.allowCheck = true;
         ExtraCameraManager.Instance.StopSpecialAttackEffect();
     }
 }

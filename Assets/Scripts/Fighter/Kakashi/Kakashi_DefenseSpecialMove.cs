@@ -31,7 +31,6 @@ public class Kakashi_DefenseSpecialMove : MonoBehaviour
     private void ActiveKakashiSJskillP1()
     {
         rb.gravityScale = 0f;
-        this.gameObject.layer = player.dashLayer;
         effectAfterImage.StartAfterImageEffect();
         EffectManager.Instance.SpawnEffect(EffectManager.Instance.groundDash, player.dashPos, Quaternion.Euler(0, 180, 0) * player.transform.rotation);
         float direction = playerState.isFacingRight ? 1 : -1;
@@ -45,6 +44,7 @@ public class Kakashi_DefenseSpecialMove : MonoBehaviour
 
     private IEnumerator SjskillEnuP2()
     {
+        this.gameObject.layer = player.dashLayer;
         float direction = playerState.isFacingRight ? 1 : -1;
         rb.velocity = new Vector2(direction * wjForceP2, 0f);
         while (playerState.isUsingSkill)

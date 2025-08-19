@@ -77,7 +77,8 @@ public class SpecialMoveState : IPlayerState
 
     public void ExitState()
     {
-
+        player.specialEffect.callWIEffect = false;
+        player.specialEffect.callSIEffect = false;
     }
 }
 
