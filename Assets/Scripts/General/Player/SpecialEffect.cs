@@ -39,6 +39,18 @@ public class SpecialEffect : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (GameManager.Instance.gamePause)
+        {
+            anim.speed = 0f;
+        }
+        else
+        {
+            anim.speed = 1f;
+        }
+    }
+
     private void EndStartPose()
     {
         GameManager.Instance.canMoveExtraCam = true;

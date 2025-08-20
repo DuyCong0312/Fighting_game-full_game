@@ -35,7 +35,6 @@ public class ComAttackState : IPlayerState
 
     public void UpdateState()
     {
-        com.GetHurtWhenAttacking();
         if (com.GetDistanceX() < 1f && com.canAttack)
         {
             com.ChangeState(new ComAttackState(com));

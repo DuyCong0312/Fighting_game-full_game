@@ -35,7 +35,6 @@ public class AttackState : IPlayerState
 
     public void UpdateState()
     {
-        player.GetHurtWhenAttacking();
         if (Input.GetKeyDown(player.playerInput.attack) && player.canAttack)
         {
             player.ChangeState(new AttackState(player));

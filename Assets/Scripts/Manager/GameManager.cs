@@ -32,16 +32,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject panelStartGame;
     [SerializeField] private TextMeshProUGUI gameRound;
     [SerializeField] private TextMeshProUGUI startGame;
-    [SerializeField] private GameObject panelPauseGame;
+    [SerializeField] private GameObject mainPanelPauseGame;
+    [SerializeField] private GameObject extraPanelPauseGame;
 
     [SerializeField] private Camera extraCamera;
     private Camera mainCamera;
+
+    private bool currentCameraIsMainCam;
 
     private Vector2 player01SpawnPoint;
     private Vector2 player02SpawnPoint;
 
     public bool canMoveExtraCam = true;
     public bool gameStart = false;
+    public bool gamePause = false;
     public bool gameEnded = false;
 
     void Awake()
@@ -64,7 +68,8 @@ public class GameManager : MonoBehaviour
         player02SpawnPoint = player02Pos.position;
         panelGameSetPerRound.SetActive(false);
         panelGameSetFinal.SetActive(false);
-        panelPauseGame.SetActive(false);
+        mainPanelPauseGame.SetActive(false);
+        extraPanelPauseGame.SetActive(false);
         panelStartGame.SetActive(false);
         StartCoroutine(BeforeStartGame());
     }
@@ -280,10 +285,31 @@ public class GameManager : MonoBehaviour
 
     private void PauseGame()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !gamePause)
         {
+            IsMainCamera();
+            gamePause = true;
             Time.timeScale = 0f;
-            panelPauseGame.SetActive(true);
+            if (currentCameraIsMainCam)
+            {
+                mainPanelPauseGame.SetActive(true);
+            }
+            else
+            {
+                extraPanelPauseGame.SetActive(true);
+            }
+        }
+    }
+
+    private void IsMainCamera()
+    {
+        if (mainCamera.depth > extraCamera.depth)
+        {
+            currentCameraIsMainCam = true;
+        }
+        else
+        {
+            currentCameraIsMainCam = false;
         }
     }
 }

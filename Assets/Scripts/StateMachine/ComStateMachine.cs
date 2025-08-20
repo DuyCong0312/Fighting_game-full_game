@@ -81,6 +81,7 @@ public class ComStateMachine : MonoBehaviour
         {
             return;
         }
+        GetHurtWhenAttacking();
         if (currentState != null)
             currentState.UpdateState();
 
@@ -124,7 +125,7 @@ public class ComStateMachine : MonoBehaviour
         dashCooldownTimer = dashCooldown;
     }
 
-    public void GetHurtWhenAttacking()
+    private void GetHurtWhenAttacking()
     {
         if (playerState.isGettingHurt && !hasInterrupted)
         {

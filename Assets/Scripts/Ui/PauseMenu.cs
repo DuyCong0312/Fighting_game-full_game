@@ -9,12 +9,14 @@ public class PauseMenu : MonoBehaviour
     public void Continue()
     {
         Time.timeScale = 1f;
+        GameManager.Instance.gamePause = false;
         panelPauseGame.SetActive(false);
     }
 
     public void LoadScene(string sceneName)
     {
         Time.timeScale = 1f;
+        GameManager.Instance.gamePause = false;
         SceneManager.LoadScene(sceneName);
     }
 }

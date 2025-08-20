@@ -74,12 +74,17 @@ public class PlayerStateMachine : MonoBehaviour
         {
             return;
         }
-
+        GetHurtWhenAttacking();
         if (currentState != null)
             currentState.UpdateState();
 
         if (dashCooldownTimer > 0)
             dashCooldownTimer -= Time.deltaTime;
+
+        if (!playerState.isGettingHurt && hasInterrupted)
+        {
+            hasInterrupted = false;
+        }
     }
 
     public void ChangeState(IPlayerState newState)
@@ -104,14 +109,13 @@ public class PlayerStateMachine : MonoBehaviour
         dashCooldownTimer = dashCooldown;
     }
 
-    public void GetHurtWhenAttacking()
+    private void GetHurtWhenAttacking()
     {
         if (playerState.isGettingHurt && !hasInterrupted)
         {
             hasInterrupted = true;
             comboAttack.StopCombo();
         }
-
         if (!playerState.isGettingHurt && hasInterrupted)
         {
             hasInterrupted = false;
